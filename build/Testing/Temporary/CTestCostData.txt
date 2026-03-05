@@ -1,0 +1,7 @@
+BasicsTest.VectorAccumulateWorks 4 0.00112701
+BasicsTest.StringCompositionWorks 4 0.00068808
+BasicsTest.BoundariesAreChecked 4 0.00116368
+Day03BankAccountTest.DepositIncreasesBalance 2 0.00231587
+Day03BankAccountTest.WithdrawRejectsInvalidAmount 2 0.00121731
+Day03BankAccountTest.WithdrawValidAmountUpdatesBalance 2 0.00123071
+---

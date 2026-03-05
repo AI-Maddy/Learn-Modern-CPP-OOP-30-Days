@@ -1,0 +1,10 @@
+Checks: >
+  clang-analyzer-*,
+  modernize-*,
+  readability-*,
+  performance-*,
+  bugprone-*,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-avoid-magic-numbers
+
+WarningsAsErrors: '*'

@@ -1,0 +1,5 @@
+if(EXISTS "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/day_examples_tests[1]_tests.cmake")
+  include("/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/day_examples_tests[1]_tests.cmake")
+else()
+  add_test(day_examples_tests_NOT_BUILT day_examples_tests_NOT_BUILT)
+endif()

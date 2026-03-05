@@ -1,0 +1,7 @@
+add_test([=[BasicsTest.VectorAccumulateWorks]=]  /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests [==[--gtest_filter=BasicsTest.VectorAccumulateWorks]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[BasicsTest.VectorAccumulateWorks]=]  PROPERTIES WORKING_DIRECTORY /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[BasicsTest.StringCompositionWorks]=]  /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests [==[--gtest_filter=BasicsTest.StringCompositionWorks]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[BasicsTest.StringCompositionWorks]=]  PROPERTIES WORKING_DIRECTORY /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[BasicsTest.BoundariesAreChecked]=]  /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests [==[--gtest_filter=BasicsTest.BoundariesAreChecked]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[BasicsTest.BoundariesAreChecked]=]  PROPERTIES WORKING_DIRECTORY /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  unit_tests_TESTS BasicsTest.VectorAccumulateWorks BasicsTest.StringCompositionWorks BasicsTest.BoundariesAreChecked)

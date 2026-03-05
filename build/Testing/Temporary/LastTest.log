@@ -1,0 +1,165 @@
+Start testing: Mar 04 23:59 MST
+----------------------------------------------------------
+1/6 Testing: BasicsTest.VectorAccumulateWorks
+1/6 Test: BasicsTest.VectorAccumulateWorks
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests" "--gtest_filter=BasicsTest.VectorAccumulateWorks" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"BasicsTest.VectorAccumulateWorks" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = BasicsTest.VectorAccumulateWorks
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from BasicsTest
+[ RUN      ] BasicsTest.VectorAccumulateWorks
+[       OK ] BasicsTest.VectorAccumulateWorks (0 ms)
+[----------] 1 test from BasicsTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"BasicsTest.VectorAccumulateWorks" end time: Mar 04 23:59 MST
+"BasicsTest.VectorAccumulateWorks" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: BasicsTest.StringCompositionWorks
+2/6 Test: BasicsTest.StringCompositionWorks
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests" "--gtest_filter=BasicsTest.StringCompositionWorks" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"BasicsTest.StringCompositionWorks" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = BasicsTest.StringCompositionWorks
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from BasicsTest
+[ RUN      ] BasicsTest.StringCompositionWorks
+[       OK ] BasicsTest.StringCompositionWorks (0 ms)
+[----------] 1 test from BasicsTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"BasicsTest.StringCompositionWorks" end time: Mar 04 23:59 MST
+"BasicsTest.StringCompositionWorks" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: BasicsTest.BoundariesAreChecked
+3/6 Test: BasicsTest.BoundariesAreChecked
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/unit_tests" "--gtest_filter=BasicsTest.BoundariesAreChecked" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"BasicsTest.BoundariesAreChecked" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = BasicsTest.BoundariesAreChecked
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from BasicsTest
+[ RUN      ] BasicsTest.BoundariesAreChecked
+[       OK ] BasicsTest.BoundariesAreChecked (1 ms)
+[----------] 1 test from BasicsTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"BasicsTest.BoundariesAreChecked" end time: Mar 04 23:59 MST
+"BasicsTest.BoundariesAreChecked" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: Day03BankAccountTest.DepositIncreasesBalance
+4/6 Test: Day03BankAccountTest.DepositIncreasesBalance
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/day_examples_tests" "--gtest_filter=Day03BankAccountTest.DepositIncreasesBalance" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"Day03BankAccountTest.DepositIncreasesBalance" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Day03BankAccountTest.DepositIncreasesBalance
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Day03BankAccountTest
+[ RUN      ] Day03BankAccountTest.DepositIncreasesBalance
+[       OK ] Day03BankAccountTest.DepositIncreasesBalance (0 ms)
+[----------] 1 test from Day03BankAccountTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Day03BankAccountTest.DepositIncreasesBalance" end time: Mar 04 23:59 MST
+"Day03BankAccountTest.DepositIncreasesBalance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: Day03BankAccountTest.WithdrawRejectsInvalidAmount
+5/6 Test: Day03BankAccountTest.WithdrawRejectsInvalidAmount
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/day_examples_tests" "--gtest_filter=Day03BankAccountTest.WithdrawRejectsInvalidAmount" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"Day03BankAccountTest.WithdrawRejectsInvalidAmount" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Day03BankAccountTest.WithdrawRejectsInvalidAmount
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Day03BankAccountTest
+[ RUN      ] Day03BankAccountTest.WithdrawRejectsInvalidAmount
+[       OK ] Day03BankAccountTest.WithdrawRejectsInvalidAmount (0 ms)
+[----------] 1 test from Day03BankAccountTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Day03BankAccountTest.WithdrawRejectsInvalidAmount" end time: Mar 04 23:59 MST
+"Day03BankAccountTest.WithdrawRejectsInvalidAmount" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: Day03BankAccountTest.WithdrawValidAmountUpdatesBalance
+6/6 Test: Day03BankAccountTest.WithdrawValidAmountUpdatesBalance
+Command: "/home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests/day_examples_tests" "--gtest_filter=Day03BankAccountTest.WithdrawValidAmountUpdatesBalance" "--gtest_also_run_disabled_tests"
+Directory: /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/tests
+"Day03BankAccountTest.WithdrawValidAmountUpdatesBalance" start time: Mar 04 23:59 MST
+Output:
+----------------------------------------------------------
+Running main() from /home/madhavan/projects/Learn-Modern-CPP-OOP-30-Days/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Day03BankAccountTest.WithdrawValidAmountUpdatesBalance
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Day03BankAccountTest
+[ RUN      ] Day03BankAccountTest.WithdrawValidAmountUpdatesBalance
+[       OK ] Day03BankAccountTest.WithdrawValidAmountUpdatesBalance (0 ms)
+[----------] 1 test from Day03BankAccountTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Day03BankAccountTest.WithdrawValidAmountUpdatesBalance" end time: Mar 04 23:59 MST
+"Day03BankAccountTest.WithdrawValidAmountUpdatesBalance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 04 23:59 MST
