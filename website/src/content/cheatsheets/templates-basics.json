@@ -1,0 +1,5 @@
+{
+  "slug": "templates-basics",
+  "title": "Templates Basics",
+  "content": "# Templates Basics\n\n## Overview\n\nCore generic-programming syntax and best practices.\n\n## Key Rules\n\n- Start with simple function templates.\n- Prefer clear template parameter names.\n- Document required operations semantically.\n- Keep compile errors readable with constraints/comments.\n\n## Quick Snippet\n\n``` cpp\ntemplate <typename T>\nT max_of(T a, T b) { return (a < b) ? b : a; }\n```\n\n## Common Mistakes\n\n- Over-generalizing too early.\n- Metaprogramming when overloads suffice.\n- Huge monolithic template utilities.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

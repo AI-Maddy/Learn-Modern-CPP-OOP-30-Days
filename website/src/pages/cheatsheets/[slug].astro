@@ -1,0 +1,52 @@
+---
+import Base from "../../layouts/Base.astro";
+import CheatsheetView from "../../components/CheatsheetView";
+
+const files = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+const sheets: any[] = Object.values(files).map((m: any) => m.default ?? m);
+
+export function getStaticPaths() {
+  const fs = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+  return Object.values(fs).map((m: any) => {
+    const s = m.default ?? m;
+    return { params: { slug: s.slug }, props: { sheet: s } };
+  });
+}
+
+const { sheet } = Astro.props;
+---
+<Base title={sheet.title}>
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+      <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+      <span>/</span>
+      <a href="/cheatsheets" class="hover:text-slate-300 transition-colors">Cheatsheets</a>
+      <span>/</span>
+      <span class="text-slate-300">{sheet.title}</span>
+    </div>
+
+    <!-- Header -->
+    <div class="flex items-start gap-4 mb-8 p-6 rounded-2xl border border-violet-500/30 bg-violet-500/5">
+      <span class="text-4xl">📋</span>
+      <div>
+        <div class="text-xs font-mono text-violet-400 mb-1 uppercase tracking-widest">Cheatsheet</div>
+        <h1 class="text-2xl font-bold text-white">{sheet.title}</h1>
+        <div class="flex gap-2 mt-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs bg-violet-500/20 text-violet-300 border border-violet-500/30">Quick Reference</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">C++ OOP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content (React island for interactive code copy) -->
+    <CheatsheetView client:load content={sheet.content} />
+
+    <!-- Back link -->
+    <div class="mt-12 pt-6 border-t border-white/5">
+      <a href="/cheatsheets" class="text-sm text-slate-500 hover:text-violet-400 transition-colors">
+        ← Back to all cheatsheets
+      </a>
+    </div>
+  </div>
+</Base>

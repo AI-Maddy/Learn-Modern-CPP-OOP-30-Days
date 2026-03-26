@@ -1,0 +1,5 @@
+{
+  "slug": "oop-principles-solid",
+  "title": "Oop Principles Solid",
+  "content": "# OOP Principles + SOLID\n\n## Overview\n\nCore object-oriented design principles for extensible systems.\n\n## Key Rules\n\n- Model behavior around domain concepts, not data bags.\n- Apply SRP: one reason to change per class.\n- Depend on abstractions and inject dependencies.\n- Use interface segregation for focused contracts.\n\n## Quick Snippet\n\n``` cpp\nclass Notifier {\n  public:\n    virtual ~Notifier() = default;\n    virtual void send(std::string_view msg) = 0;\n};\n```\n\n## Common Mistakes\n\n- God classes with mixed responsibilities.\n- Hard-coded concrete dependencies.\n- Inheritance used only for code reuse.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "refactoring-checklist",
+  "title": "Refactoring Checklist",
+  "content": "# Refactoring Checklist\n\n## Overview\n\nSafe, incremental checklist for improving code without changing behavior.\n\n## Key Rules\n\n- Lock behavior first with tests.\n- Refactor in small, reversible steps.\n- Rename for clarity before structural changes.\n- Run build, tests, and analysis after each step.\n\n## Quick Snippet\n\n``` cpp\n1) Add/adjust tests\n2) Extract small function\n3) Rename for intent\n4) Re-run tests + lints\n5) Commit\n```\n\n## Common Mistakes\n\n- Large batch refactors without checkpoints.\n- Combining behavior changes with cleanup.\n- Skipping review after substantial structural edits.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

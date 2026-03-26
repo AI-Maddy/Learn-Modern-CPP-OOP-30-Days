@@ -1,0 +1,5 @@
+{
+  "slug": "debugging-tools-2026",
+  "title": "Debugging Tools 2026",
+  "content": "# Debugging Tools 2026\n\n## Overview\n\nModern debugging flow with diagnostics, sanitizers, and debugger tooling.\n\n## Key Rules\n\n- Compile with symbols and strict warnings.\n- Use ASan/UBSan early in development.\n- Use lldb/gdb breakpoints and watch expressions.\n- Reproduce with the smallest failing input.\n\n## Quick Snippet\n\n``` cpp\ncmake -S . -B build -DENABLE_SANITIZERS=ON\ncmake --build build\nctest --test-dir build --output-on-failure\n```\n\n## Common Mistakes\n\n- Debugging optimized binaries without symbols.\n- Skipping sanitizer runs in CI.\n- Fixing symptoms without root-cause isolation.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

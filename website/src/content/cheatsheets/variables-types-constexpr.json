@@ -1,0 +1,5 @@
+{
+  "slug": "variables-types-constexpr",
+  "title": "Variables Types Constexpr",
+  "content": "# Variables, Types, Constexpr\n\n## Overview\n\nType correctness and compile-time computation fundamentals.\n\n## Key Rules\n\n- Prefer brace-initialization to avoid narrowing.\n- Use constexpr for compile-time constants/functions.\n- Use const for immutable runtime state.\n- Keep unit semantics in variable names/types.\n\n## Quick Snippet\n\n``` cpp\nconstexpr int square(int x) { return x * x; }\nconstexpr int area = square(6);\nint runtime = std::stoi(input);\n```\n\n## Common Mistakes\n\n- Uninitialized locals.\n- Silent narrowing conversions.\n- Overusing constexpr on runtime-dependent values.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

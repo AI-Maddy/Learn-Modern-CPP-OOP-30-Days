@@ -1,0 +1,5 @@
+{
+  "slug": "templates-concepts",
+  "title": "Templates Concepts",
+  "content": "# Templates + Concepts\n\n## Overview\n\nConstrained templates for robust and understandable generic APIs.\n\n## Key Rules\n\n- Write concepts around semantics, not syntax alone.\n- Use requires to make intent explicit.\n- Prefer named concepts over long requires expressions.\n- Improve diagnostics by constraining public templates.\n\n## Quick Snippet\n\n``` cpp\ntemplate <typename T>\nconcept Addable = requires(T a, T b) {\n    { a + b } -> std::convertible_to<T>;\n};\n```\n\n## Common Mistakes\n\n- Duplicate constraints in every overload.\n- Overly strict concepts blocking valid types.\n- Unnamed ad-hoc requires in many call sites.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

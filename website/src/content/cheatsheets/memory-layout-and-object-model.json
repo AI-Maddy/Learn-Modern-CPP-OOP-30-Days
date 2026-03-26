@@ -1,0 +1,5 @@
+{
+  "slug": "memory-layout-and-object-model",
+  "title": "Memory Layout And Object Model",
+  "content": "# Memory Layout and Object Model\n\n## Overview\n\nPractical object memory model insights for correctness and performance.\n\n## Key Rules\n\n- Know stack vs heap lifetime differences.\n- Understand padding/alignment impacts.\n- Virtual functions add vptr/vtable overhead.\n- Prefer contiguous layouts for cache locality.\n\n## Quick Snippet\n\n``` cpp\nstruct Data {\n    std::uint8_t tag;\n    std::uint32_t value;\n};\nstatic_assert(alignof(Data) >= alignof(std::uint32_t));\n```\n\n## Common Mistakes\n\n- Assuming exact object byte layout portability.\n- Ignoring alignment requirements.\n- Prematurely micro-optimizing without profiling.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

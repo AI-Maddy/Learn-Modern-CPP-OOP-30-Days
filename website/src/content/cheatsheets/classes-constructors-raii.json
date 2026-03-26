@@ -1,0 +1,5 @@
+{
+  "slug": "classes-constructors-raii",
+  "title": "Classes Constructors Raii",
+  "content": "# Classes, Constructors, RAII\n\n## Overview\n\nClass invariants, safe lifetime management, and deterministic cleanup.\n\n## Key Rules\n\n- Establish class invariants in constructors.\n- Use RAII wrappers for all resources.\n- Prefer initialization lists.\n- Delete copying for non-copyable resource owners.\n\n## Quick Snippet\n\n``` cpp\nclass Timer {\n  public:\n    Timer();\n    ~Timer();\n  private:\n    std::chrono::steady_clock::time_point start_;\n};\n```\n\n## Common Mistakes\n\n- Two-phase initialization.\n- Resource allocation without cleanup guarantees.\n- Mutable invariants from public fields.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

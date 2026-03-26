@@ -1,0 +1,5 @@
+{
+  "slug": "modules-cpp20",
+  "title": "Modules Cpp20",
+  "content": "# Modules C++20\n\n## Overview\n\nModule mindset: stable public surfaces and hidden implementation details.\n\n## Key Rules\n\n- Export only what clients need.\n- Keep implementation partitions private.\n- Use modules to reduce rebuild costs.\n- Design API boundaries before implementation details.\n\n## Quick Snippet\n\n``` cpp\nexport module math.api;\nexport int add(int a, int b);\n\nmodule math.api;\nint add(int a, int b) { return a + b; }\n```\n\n## Common Mistakes\n\n- Exporting internal helper symbols.\n- Mixing headers/modules without strategy.\n- Assuming universal compiler support.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

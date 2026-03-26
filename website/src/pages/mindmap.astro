@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import MindMap from "../components/MindMap";
+import manifest from "../content/manifest.json";
+---
+<Base title="Mind Map">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <div class="mb-8">
+      <div class="text-sm text-slate-500 mb-2">🗺️ Visual Navigation</div>
+      <h1 class="text-3xl font-bold text-white mb-2">Curriculum Mind Map</h1>
+      <p class="text-slate-400">Click any node to jump to that day. Drag to pan, scroll to zoom.</p>
+    </div>
+    <div class="rounded-2xl border border-white/10 overflow-hidden" style="height: 600px;">
+      <MindMap client:only="react" days={manifest.days} clusters={manifest.clusters} />
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,5 @@
+{
+  "slug": "modern-cpp20-23-cheat",
+  "title": "Modern Cpp20 23 Cheat",
+  "content": "# Modern C++20/23 Cheat\n\n## Overview\n\nQuick map of modern language features to write expressive and safer code.\n\n## Key Rules\n\n- Use auto where type is obvious from initializer.\n- Prefer ranges/views for readable data pipelines.\n- Use concepts/requires to constrain templates.\n- Adopt explicit value/error modeling where suitable.\n\n## Quick Snippet\n\n``` cpp\nauto evens = values\n    | std::views::filter([](int x){ return x % 2 == 0; })\n    | std::views::transform([](int x){ return x * x; });\n```\n\n## Common Mistakes\n\n- Feature-first coding without readability goals.\n- Mixing old and new idioms inconsistently.\n- Ignoring compiler support matrix in CI.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "type-erasure-pimpl",
+  "title": "Type Erasure Pimpl",
+  "content": "# Type Erasure + PIMPL\n\n## Overview\n\nHide implementation details while retaining flexible interfaces.\n\n## Key Rules\n\n- Use PIMPL to stabilize headers and reduce rebuilds.\n- Use type erasure for runtime-pluggable behaviors.\n- Keep erased interface minimal.\n- Balance flexibility against allocation/indirection costs.\n\n## Quick Snippet\n\n``` cpp\nclass Widget {\n  public:\n    Widget();\n    ~Widget();\n  private:\n    struct Impl;\n    std::unique_ptr<Impl> p_;\n};\n```\n\n## Common Mistakes\n\n- Over-erasing simple compile-time use cases.\n- Leaking implementation through headers.\n- Ignoring ownership semantics in erased wrappers.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "catch2-testing",
+  "title": "Catch2 Testing",
+  "content": "# Catch2 Testing\n\n## Overview\n\nPragmatic unit-testing workflow for C++ behavior verification.\n\n## Key Rules\n\n- One behavior per test case.\n- Name tests by behavior and expectation.\n- Cover failure paths and edge cases.\n- Keep tests deterministic and fast.\n\n## Quick Snippet\n\n``` cpp\nTEST_CASE(\"withdraw rejects overdraft\") {\n    BankAccount a{\"x\", 100};\n    REQUIRE_FALSE(a.withdraw(200));\n}\n```\n\n## Common Mistakes\n\n- Integration-heavy tests in unit layer.\n- Shared mutable fixture state.\n- Flaky timing/randomness dependencies.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

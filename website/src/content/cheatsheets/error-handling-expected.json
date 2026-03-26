@@ -1,0 +1,5 @@
+{
+  "slug": "error-handling-expected",
+  "title": "Error Handling Expected",
+  "content": "# Error Handling Expected\n\n## Overview\n\nExplicit value-or-error style for predictable control flow.\n\n## Key Rules\n\n- Return success/error values for expected failures.\n- Attach actionable error context.\n- Keep exceptions for exceptional conditions.\n- Handle all branches at call sites.\n\n## Quick Snippet\n\n``` cpp\nusing Result = std::variant<Value, ParseError>;\nResult parse(std::string_view input);\n```\n\n## Common Mistakes\n\n- Ignoring error alternatives.\n- Losing domain context in generic errors.\n- Combining multiple strategies inconsistently.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+interface Props { title: string; description?: string; }
+const { title, description = "Learn Modern C++ OOP in 30 Days" } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content={description} />
+  <title>{title} — Modern C++ OOP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen">
+
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#090c17]/95 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+
+      <!-- Brand -->
+      <a href="/" class="flex items-center gap-2 font-extrabold text-sm group">
+        <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 via-violet-500 to-orange-400 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">⚡</span>
+        <span class="nav-brand hidden sm:block">Modern C++ OOP · 30 Days</span>
+      </a>
+
+      <!-- Links -->
+      <div class="flex items-center gap-0.5 text-xs font-medium">
+        {[
+          { href: "/", icon: "🏠", label: "Home" },
+          { href: "/cheatsheets", icon: "📋", label: "Cheatsheets" },
+          { href: "/mindmap", icon: "🗺️", label: "Mind Map" },
+        ].map(({ href, icon, label }) => (
+          <a
+            href={href}
+            class={`px-3 py-1.5 rounded-lg transition-all ${
+              isActive(href)
+                ? "bg-blue-500/15 text-blue-300 border border-blue-500/30"
+                : "text-slate-500 hover:text-slate-200 hover:bg-white/[0.06]"
+            }`}
+          >
+            <span class="mr-1">{icon}</span>{label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/[0.05] mt-24 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid sm:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="font-bold text-slate-300 mb-3 text-sm">⚡ Modern C++ OOP</div>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            A structured 30-day path through modern C++ — from foundations to C++23 features, design patterns, and real-world projects.
+          </p>
+        </div>
+        <div>
+          <div class="font-bold text-slate-400 mb-3 text-xs uppercase tracking-wider">Navigate</div>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/" class="hover:text-slate-300 transition-colors">📅 30-Day Curriculum</a></li>
+            <li><a href="/cheatsheets" class="hover:text-slate-300 transition-colors">📋 Cheatsheets (28)</a></li>
+            <li><a href="/mindmap" class="hover:text-slate-300 transition-colors">🗺️ Visual Mind Map</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold text-slate-400 mb-3 text-xs uppercase tracking-wider">Standards</div>
+          <div class="flex flex-wrap gap-2">
+            {["C++17", "C++20", "C++23"].map(s => (
+              <span class="px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">{s}</span>
+            ))}
+          </div>
+          <p class="text-slate-700 text-xs mt-3">Compiled with GCC / Clang · CMake + Ninja</p>
+        </div>
+      </div>
+      <div class="border-t border-white/[0.04] pt-6 text-center text-slate-700 text-xs">
+        Built with <span class="text-blue-600">Astro</span> · {new Date().getFullYear()}
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

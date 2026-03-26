@@ -1,0 +1,5 @@
+{
+  "slug": "ranges-and-views",
+  "title": "Ranges And Views",
+  "content": "# Ranges and Views\n\n## Overview\n\nReadable, composable, lazy data processing with C++20 ranges.\n\n## Key Rules\n\n- Compose filter/transform/take pipelines.\n- Views are lazy and often non-owning.\n- Materialize only when needed.\n- Prefer pipelines over manual loop boilerplate.\n\n## Quick Snippet\n\n``` cpp\nauto out = nums\n    | std::views::filter([](int x){ return x > 0; })\n    | std::views::transform([](int x){ return x * 2; });\n```\n\n## Common Mistakes\n\n- Dangling views from temporary ranges.\n- Complex one-liners hurting readability.\n- Assuming eager evaluation.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "uniform-initialization",
+  "title": "Uniform Initialization",
+  "content": "# Uniform Initialization\n\n## Overview\n\nBrace initialization patterns for clarity and narrowing safety.\n\n## Key Rules\n\n- Prefer {} for direct initialization.\n- Use parentheses only where overload semantics require it.\n- Watch initializer_list overload selection.\n- Use auto carefully with braces.\n\n## Quick Snippet\n\n``` cpp\nint x{42};\nstd::vector<int> v{1, 2, 3};\nWidget w{arg1, arg2};\n```\n\n## Common Mistakes\n\n- Unexpected initializer_list constructor calls.\n- Mixing initialization styles inconsistently.\n- Assuming {} and () are always equivalent.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

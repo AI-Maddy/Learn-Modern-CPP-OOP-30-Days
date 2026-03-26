@@ -1,0 +1,5 @@
+{
+  "slug": "structured-bindings",
+  "title": "Structured Bindings",
+  "content": "# Structured Bindings\n\n## Overview\n\nConcise unpacking for tuples, pairs, and aggregate-style results.\n\n## Key Rules\n\n- Use for map iteration and tuple returns.\n- Prefer meaningful binding names.\n- Bind by reference when mutating source.\n- Keep destructuring shallow for readability.\n\n## Quick Snippet\n\n``` cpp\nfor (const auto& [key, value] : lookup) {\n    std::cout << key << \":\" << value << \"\\n\";\n}\n```\n\n## Common Mistakes\n\n- Copying large values unintentionally.\n- Using unclear names everywhere.\n- Mutating copies assuming original changes.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

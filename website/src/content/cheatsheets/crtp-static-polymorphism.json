@@ -1,0 +1,5 @@
+{
+  "slug": "crtp-static-polymorphism",
+  "title": "Crtp Static Polymorphism",
+  "content": "# CRTP Static Polymorphism\n\n## Overview\n\nCompile-time polymorphism using the Curiously Recurring Template Pattern.\n\n## Key Rules\n\n- Use CRTP when runtime dispatch is unnecessary.\n- Keep CRTP base API minimal and documented.\n- Prefer explicit derived contracts (impl naming).\n- Benchmark before replacing virtual dispatch.\n\n## Quick Snippet\n\n``` cpp\ntemplate <typename D>\nstruct Base {\n    void run() { static_cast<D*>(this)->run_impl(); }\n};\n```\n\n## Common Mistakes\n\n- Applying CRTP to dynamic plugin-style problems.\n- Hard-to-read template inheritance chains.\n- Assuming CRTP always outperforms virtual calls.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "functions-lambdas",
+  "title": "Functions Lambdas",
+  "content": "# Functions and Lambdas\n\n## Overview\n\nPractical function design and functional-style composition with lambdas.\n\n## Key Rules\n\n- Pass large objects by const reference unless ownership transfer is intended.\n- Capture minimally in lambdas (\\[x\\], \\[&\\] with caution).\n- Prefer pure helper functions when possible.\n- Keep side effects explicit and localized.\n\n## Quick Snippet\n\n``` cpp\nstd::transform(v.begin(), v.end(), v.begin(),\n    [factor](int x){ return x * factor; });\n```\n\n## Common Mistakes\n\n- Dangling reference captures.\n- Mutable lambdas hiding state changes.\n- Too many positional parameters without grouping.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

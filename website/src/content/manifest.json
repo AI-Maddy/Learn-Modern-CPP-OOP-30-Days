@@ -1,0 +1,365 @@
+{
+  "days": [
+    {
+      "day": 0,
+      "title": "Setup And Basics",
+      "slug": "day-00",
+      "cluster": "foundations",
+      "clusterLabel": "Foundations",
+      "clusterColor": "blue",
+      "clusterIcon": "🔵"
+    },
+    {
+      "day": 1,
+      "title": "Variables Types Constexpr",
+      "slug": "day-01",
+      "cluster": "foundations",
+      "clusterLabel": "Foundations",
+      "clusterColor": "blue",
+      "clusterIcon": "🔵"
+    },
+    {
+      "day": 2,
+      "title": "Functions Lambdas",
+      "slug": "day-02",
+      "cluster": "foundations",
+      "clusterLabel": "Foundations",
+      "clusterColor": "blue",
+      "clusterIcon": "🔵"
+    },
+    {
+      "day": 3,
+      "title": "Classes Encapsulation",
+      "slug": "day-03",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 4,
+      "title": "Constructors Destructors RAII",
+      "slug": "day-04",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 5,
+      "title": "Smart Pointers Ownership",
+      "slug": "day-05",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 6,
+      "title": "Inheritance Polymorphism",
+      "slug": "day-06",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 7,
+      "title": "Virtual Override Final Abstract",
+      "slug": "day-07",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 8,
+      "title": "Advanced OOP Patterns",
+      "slug": "day-08",
+      "cluster": "oop-core",
+      "clusterLabel": "OOP Core",
+      "clusterColor": "green",
+      "clusterIcon": "🟢"
+    },
+    {
+      "day": 9,
+      "title": "Templates Basics",
+      "slug": "day-09",
+      "cluster": "templates",
+      "clusterLabel": "Templates & Generics",
+      "clusterColor": "violet",
+      "clusterIcon": "🟣"
+    },
+    {
+      "day": 10,
+      "title": "Concepts Constraints C++20",
+      "slug": "day-10",
+      "cluster": "templates",
+      "clusterLabel": "Templates & Generics",
+      "clusterColor": "violet",
+      "clusterIcon": "🟣"
+    },
+    {
+      "day": 11,
+      "title": "Generic OOP Design",
+      "slug": "day-11",
+      "cluster": "templates",
+      "clusterLabel": "Templates & Generics",
+      "clusterColor": "violet",
+      "clusterIcon": "🟣"
+    },
+    {
+      "day": 12,
+      "title": "Ranges Views C++20",
+      "slug": "day-12",
+      "cluster": "templates",
+      "clusterLabel": "Templates & Generics",
+      "clusterColor": "violet",
+      "clusterIcon": "🟣"
+    },
+    {
+      "day": 13,
+      "title": "Move Semantics Rvalue Refs",
+      "slug": "day-13",
+      "cluster": "memory",
+      "clusterLabel": "Memory & Ownership",
+      "clusterColor": "red",
+      "clusterIcon": "🔴"
+    },
+    {
+      "day": 14,
+      "title": "Rule of 5 Copy Move",
+      "slug": "day-14",
+      "cluster": "memory",
+      "clusterLabel": "Memory & Ownership",
+      "clusterColor": "red",
+      "clusterIcon": "🔴"
+    },
+    {
+      "day": 15,
+      "title": "Error Handling Expected C++23",
+      "slug": "day-15",
+      "cluster": "memory",
+      "clusterLabel": "Memory & Ownership",
+      "clusterColor": "red",
+      "clusterIcon": "🔴"
+    },
+    {
+      "day": 16,
+      "title": "Modules Basics C++20",
+      "slug": "day-16",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 17,
+      "title": "Design Patterns OOP",
+      "slug": "day-17",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 18,
+      "title": "SOLID Principles",
+      "slug": "day-18",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 19,
+      "title": "Testing Catch2 TDD",
+      "slug": "day-19",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 20,
+      "title": "Static Polymorphism CRTP",
+      "slug": "day-20",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 21,
+      "title": "PIMPL Idiom Type Erasure",
+      "slug": "day-21",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 22,
+      "title": "Performance Tips OOP",
+      "slug": "day-22",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 23,
+      "title": "Modern Features Preview C++26",
+      "slug": "day-23",
+      "cluster": "modern-cpp",
+      "clusterLabel": "Modern C++20/23",
+      "clusterColor": "orange",
+      "clusterIcon": "🟠"
+    },
+    {
+      "day": 24,
+      "title": "Mini Project 1 Bank System",
+      "slug": "day-24",
+      "cluster": "projects",
+      "clusterLabel": "Mini Projects",
+      "clusterColor": "yellow",
+      "clusterIcon": "🟡"
+    },
+    {
+      "day": 25,
+      "title": "Mini Project 2 Shape Editor",
+      "slug": "day-25",
+      "cluster": "projects",
+      "clusterLabel": "Mini Projects",
+      "clusterColor": "yellow",
+      "clusterIcon": "🟡"
+    },
+    {
+      "day": 26,
+      "title": "Mini Project 3 Game Entities",
+      "slug": "day-26",
+      "cluster": "projects",
+      "clusterLabel": "Mini Projects",
+      "clusterColor": "yellow",
+      "clusterIcon": "🟡"
+    },
+    {
+      "day": 27,
+      "title": "Refactoring Legacy Code",
+      "slug": "day-27",
+      "cluster": "projects",
+      "clusterLabel": "Mini Projects",
+      "clusterColor": "yellow",
+      "clusterIcon": "🟡"
+    },
+    {
+      "day": 28,
+      "title": "Code Review Common Pitfalls",
+      "slug": "day-28",
+      "cluster": "review",
+      "clusterLabel": "Review & Cert Prep",
+      "clusterColor": "slate",
+      "clusterIcon": "⚪"
+    },
+    {
+      "day": 29,
+      "title": "Advanced Topics Deep Dive",
+      "slug": "day-29",
+      "cluster": "review",
+      "clusterLabel": "Review & Cert Prep",
+      "clusterColor": "slate",
+      "clusterIcon": "⚪"
+    },
+    {
+      "day": 30,
+      "title": "Review Cert Prep Next Steps",
+      "slug": "day-30",
+      "cluster": "review",
+      "clusterLabel": "Review & Cert Prep",
+      "clusterColor": "slate",
+      "clusterIcon": "⚪"
+    }
+  ],
+  "clusters": {
+    "foundations": {
+      "days": [
+        0,
+        1,
+        2
+      ],
+      "color": "blue",
+      "icon": "🔵",
+      "label": "Foundations"
+    },
+    "oop-core": {
+      "days": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "color": "green",
+      "icon": "🟢",
+      "label": "OOP Core"
+    },
+    "templates": {
+      "days": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "color": "violet",
+      "icon": "🟣",
+      "label": "Templates & Generics"
+    },
+    "memory": {
+      "days": [
+        13,
+        14,
+        15
+      ],
+      "color": "red",
+      "icon": "🔴",
+      "label": "Memory & Ownership"
+    },
+    "modern-cpp": {
+      "days": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "color": "orange",
+      "icon": "🟠",
+      "label": "Modern C++20/23"
+    },
+    "projects": {
+      "days": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "color": "yellow",
+      "icon": "🟡",
+      "label": "Mini Projects"
+    },
+    "review": {
+      "days": [
+        28,
+        29,
+        30
+      ],
+      "color": "slate",
+      "icon": "⚪",
+      "label": "Review & Cert Prep"
+    }
+  }
+}

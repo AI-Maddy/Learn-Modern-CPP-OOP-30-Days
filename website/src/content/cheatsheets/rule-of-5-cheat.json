@@ -1,0 +1,5 @@
+{
+  "slug": "rule-of-5-cheat",
+  "title": "Rule Of 5 Cheat",
+  "content": "# Rule of 5 Cheat\n\n## Overview\n\nSpecial member function guidance for resource-owning types.\n\n## Key Rules\n\n- If you define one of dtor/copy/move ops, consider all five.\n- Prefer Rule of Zero when possible via standard types.\n- Use copy-and-swap for strong exception safety in copy assignment.\n- Handle self-assignment gracefully.\n\n## Quick Snippet\n\n``` cpp\nclass Buffer {\n  public:\n    Buffer(const Buffer&);\n    Buffer& operator=(const Buffer&);\n    Buffer(Buffer&&) noexcept;\n    Buffer& operator=(Buffer&&) noexcept;\n    ~Buffer();\n};\n```\n\n## Common Mistakes\n\n- Shallow copy of owning raw pointer.\n- Forgetting move assignment after move ctor.\n- Missing noexcept on move operations.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,5 @@
+{
+  "slug": "raii-smart-pointers",
+  "title": "Raii Smart Pointers",
+  "content": "# RAII + Smart Pointers\n\n## Overview\n\nOwnership and lifetime safety using modern C++ resource primitives.\n\n## Key Rules\n\n- Use unique_ptr as default owning pointer.\n- Use shared_ptr only for true shared ownership.\n- Use weak_ptr to break cycles.\n- Model non-owning references with raw/reference/span.\n\n## Quick Snippet\n\n``` cpp\nauto owner = std::make_unique<Node>();\nauto shared = std::make_shared<Node>();\nstd::weak_ptr<Node> observer = shared;\n```\n\n## Common Mistakes\n\n- shared_ptr everywhere.\n- Circular ownership graphs.\n- Returning raw pointers that outlive owners.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

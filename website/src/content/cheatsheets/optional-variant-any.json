@@ -1,0 +1,5 @@
+{
+  "slug": "optional-variant-any",
+  "title": "Optional Variant Any",
+  "content": "# Optional, Variant, Any\n\n## Overview\n\nModel optionality, alternatives, and dynamic type containers.\n\n## Key Rules\n\n- Use optional\\<T\\> for maybe-present values.\n- Use variant for finite known alternatives.\n- Use any sparingly for open type sets.\n- Prefer std::visit for variant handling.\n\n## Quick Snippet\n\n``` cpp\nstd::variant<int, std::string> v = 42;\nstd::visit([](const auto& x){ std::cout << x; }, v);\n```\n\n## Common Mistakes\n\n- Using any where variant is better.\n- Unchecked std::get on variant.\n- Treating optional absence as error without context.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

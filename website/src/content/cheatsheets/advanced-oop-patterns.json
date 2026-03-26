@@ -1,0 +1,5 @@
+{
+  "slug": "advanced-oop-patterns",
+  "title": "Advanced Oop Patterns",
+  "content": "# Advanced OOP Patterns\n\n## Overview\n\nOOP-focused structural patterns for extensibility and maintainability.\n\n## Key Rules\n\n- Strategy: replace conditionals with interchangeable behavior.\n- Template Method: fixed workflow with customizable steps.\n- State: model behavior transitions explicitly.\n- Dependency Injection: decouple policy from mechanism.\n\n## Quick Snippet\n\n``` cpp\nclass PricingStrategy {\n  public:\n    virtual ~PricingStrategy() = default;\n    virtual double apply(double base) const = 0;\n};\n```\n\n## Common Mistakes\n\n- Pattern overuse for small codebases.\n- Too many indirection layers.\n- Naming patterns without solving real design pain.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

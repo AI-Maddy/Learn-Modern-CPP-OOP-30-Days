@@ -1,0 +1,5 @@
+{
+  "slug": "performance-tips-oop",
+  "title": "Performance Tips Oop",
+  "content": "# Performance Tips OOP\n\n## Overview\n\nLow-risk optimizations that preserve design quality.\n\n## Key Rules\n\n- Reserve capacity for growing containers.\n- Avoid unnecessary dynamic allocation.\n- Pass by const reference where appropriate.\n- Measure with benchmark/profiler before and after changes.\n\n## Quick Snippet\n\n``` cpp\nstd::vector<Record> rows;\nrows.reserve(1000);\nrows.emplace_back(\"alpha\", 42);\n```\n\n## Common Mistakes\n\n- Optimizing blind without baseline.\n- Complex micro-optimizations harming readability.\n- Ignoring allocator and data layout effects.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

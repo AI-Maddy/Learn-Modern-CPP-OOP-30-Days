@@ -1,0 +1,82 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const files = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+const sheets = Object.values(files).map((m: any) => m.default ?? m);
+sheets.sort((a: any, b: any) => a.title.localeCompare(b.title));
+
+// Assign category tags based on title keywords
+function categorize(title: string): { label: string; color: string } {
+  const t = title.toLowerCase();
+  if (t.includes("raii") || t.includes("smart") || t.includes("memory") || t.includes("rule of 5") || t.includes("move")) return { label: "Memory", color: "#ef4444" };
+  if (t.includes("template") || t.includes("concept") || t.includes("generic") || t.includes("crtp") || t.includes("type eras") || t.includes("pimpl")) return { label: "Templates", color: "#8b5cf6" };
+  if (t.includes("oop") || t.includes("class") || t.includes("inherit") || t.includes("virtual") || t.includes("composition")) return { label: "OOP", color: "#22c55e" };
+  if (t.includes("c++20") || t.includes("c++23") || t.includes("range") || t.includes("module") || t.includes("structured")) return { label: "Modern C++", color: "#f97316" };
+  if (t.includes("solid") || t.includes("pattern") || t.includes("refactor") || t.includes("pitfall") || t.includes("review") || t.includes("guideline")) return { label: "Design", color: "#3b82f6" };
+  if (t.includes("test") || t.includes("catch2") || t.includes("debug")) return { label: "Testing", color: "#14b8a6" };
+  if (t.includes("perf") || t.includes("optional") || t.includes("variant") || t.includes("error") || t.includes("uniform") || t.includes("lambda") || t.includes("function") || t.includes("variable")) return { label: "Core", color: "#60a5fa" };
+  return { label: "C++", color: "#64748b" };
+}
+---
+<Base title="Cheatsheets">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-xs text-slate-600 font-mono mb-3">📋 Quick Reference</div>
+      <h1 class="text-3xl font-extrabold text-white mb-3">Cheatsheets</h1>
+      <p class="text-slate-400 max-w-2xl text-sm leading-relaxed">
+        28 compact, scannable reference cards — each covers a key C++ concept with code snippets, rules, and common pitfalls.
+        Skim when reviewing, or bookmark for quick lookup during practice.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        {["Memory","Templates","OOP","Modern C++","Design","Testing","Core"].map(cat => (
+          <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.06] text-slate-500 text-xs font-medium">{cat}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {sheets.map((s: any, i: number) => {
+        const cat = categorize(s.title);
+        const codeMatch = s.content.match(/```[\w]*\n([\s\S]*?)```/);
+        const preview = codeMatch ? codeMatch[1].slice(0, 140).trimEnd() : null;
+        return (
+          <a
+            href={`/cheatsheets/${s.slug}`}
+            class="group flex flex-col p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all animate-fade-up cursor-pointer"
+            style={`animation-delay:${i * 25}ms; --hover-color:${cat.color}`}
+          >
+            <!-- Category badge -->
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
+                style={`color:${cat.color}; background:${cat.color}18; border:1px solid ${cat.color}30`}>
+                {cat.label}
+              </span>
+              <span class="text-[10px] text-slate-700 font-mono">cpp</span>
+            </div>
+
+            <!-- Title -->
+            <div class="font-semibold text-slate-200 group-hover:text-white transition-colors mb-3 leading-snug text-sm">
+              {s.title}
+            </div>
+
+            <!-- Code preview -->
+            {preview && (
+              <pre class="text-[10px] text-slate-600 font-mono bg-[#0d1117] border border-white/[0.04] rounded-lg p-3 overflow-hidden flex-1 leading-5 mb-3">
+                {preview}
+              </pre>
+            )}
+
+            <!-- Footer -->
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-white/[0.04]">
+              <span class="text-[10px] text-slate-700">C++ reference card</span>
+              <span class="text-xs opacity-0 group-hover:opacity-100 transition-all font-semibold" style={`color:${cat.color}`}>View →</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</Base>

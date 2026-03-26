@@ -1,0 +1,5 @@
+{
+  "slug": "common-pitfalls",
+  "title": "Common Pitfalls",
+  "content": "# Common Pitfalls\n\n## Overview\n\nRecurring design and implementation mistakes in modern C++ OOP codebases.\n\n## Key Rules\n\n- Unclear ownership/lifetime contracts.\n- Leaky abstractions and weak invariants.\n- Overuse of inheritance and global mutable state.\n- Insufficient tests around edge/error behavior.\n\n## Quick Snippet\n\n``` cpp\nvoid process(const std::vector<Item>& items);\nstd::unique_ptr<Service> make_service();\n```\n\n## Common Mistakes\n\n- Implicit conversions causing ambiguity.\n- Exception-unsafe resource handling.\n- Copy-heavy APIs for large objects.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

@@ -1,0 +1,96 @@
+---
+import Base from "../../layouts/Base.astro";
+import DayTabs from "../../components/DayTabs";
+import { allDays, getClusterStyle } from "../../lib/content";
+import type { DayData } from "../../lib/types";
+
+export function getStaticPaths() {
+  return allDays.map(d => ({ params: { slug: d.slug } }));
+}
+
+const { slug } = Astro.params;
+// Load full day data at build time
+const data: DayData = await import(`../../content/days/${slug}.json`).then(m => m.default);
+const s = getClusterStyle(data.clusterColor);
+
+const prev = allDays.find(d => d.day === data.day - 1);
+const next = allDays.find(d => d.day === data.day + 1);
+---
+<Base title={`Day ${data.day} — ${data.title}`}>
+  <div class="max-w-5xl mx-auto px-4 py-10">
+
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-xs text-slate-600 mb-6 font-mono">
+      <a href="/" class="hover:text-slate-400 transition-colors">Home</a>
+      <span class="text-slate-800">›</span>
+      <a href="/" class={`${s.text} hover:opacity-80 transition-opacity`}>{data.clusterIcon} {data.clusterLabel}</a>
+      <span class="text-slate-800">›</span>
+      <span class="text-slate-400">Day {String(data.day).padStart(2, "0")}</span>
+    </div>
+
+    <!-- Header card -->
+    <div class={`relative rounded-2xl border ${s.border} overflow-hidden mb-8`}>
+      <!-- Top accent bar -->
+      <div class={`h-0.5 w-full`} style={`background:linear-gradient(90deg, transparent, ${s.text.replace('text-','').replace('-400','')}, transparent)`}></div>
+      <!-- Glow -->
+      <div class="absolute inset-0 pointer-events-none" style={`background:radial-gradient(ellipse at 10% 50%, color-mix(in srgb, currentColor 6%, transparent), transparent 60%)`}></div>
+
+      <div class={`${s.bg} p-6`}>
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div class="flex-1 min-w-0">
+            <div class={`text-xs font-mono font-bold ${s.text} mb-2 flex items-center gap-2`}>
+              <span class={`px-2 py-0.5 rounded border ${s.border} ${s.badge}`}>
+                Day {String(data.day).padStart(2, "0")} / 30
+              </span>
+              <span class={`px-2 py-0.5 rounded border ${s.border} ${s.badge}`}>
+                {data.clusterIcon} {data.clusterLabel}
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
+              {data.title}
+            </h1>
+            <div class="flex items-center gap-2 flex-wrap text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-500 border border-white/[0.06]">📖 Overview · 🧠 Theory · 💻 Code · ⚠️ Pitfalls</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-500 border border-white/[0.06]">⌨️ Press 1–4 to switch tabs</span>
+            </div>
+          </div>
+          <div class={`text-7xl font-black select-none hidden sm:block`} style="opacity:0.07; font-variant-numeric: tabular-nums;">
+            {String(data.day).padStart(2, "0")}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabbed content (React island) -->
+    <DayTabs
+      client:load
+      readme={data.readme}
+      theory={data.theory}
+      pitfalls={data.pitfalls}
+      code={data.code}
+      clusterColor={data.clusterColor}
+    />
+
+    <!-- Prev / Next navigation -->
+    <div class="flex justify-between mt-14 gap-4">
+      {prev ? (
+        <a href={`/day/${prev.slug}`} class="flex-1 group flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+          <div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 group-hover:text-slate-300 transition-colors text-sm">←</div>
+          <div>
+            <div class="text-xs text-slate-700 font-mono">Previous</div>
+            <div class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors">Day {String(prev.day).padStart(2,"0")}: {prev.title}</div>
+          </div>
+        </a>
+      ) : <div class="flex-1" />}
+      {next ? (
+        <a href={`/day/${next.slug}`} class="flex-1 group flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all text-right">
+          <div class="flex-1 min-w-0">
+            <div class="text-xs text-slate-700 font-mono">Next</div>
+            <div class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors truncate">Day {String(next.day).padStart(2,"0")}: {next.title}</div>
+          </div>
+          <div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 group-hover:text-slate-300 transition-colors text-sm shrink-0">→</div>
+        </a>
+      ) : <div class="flex-1" />}
+    </div>
+  </div>
+</Base>

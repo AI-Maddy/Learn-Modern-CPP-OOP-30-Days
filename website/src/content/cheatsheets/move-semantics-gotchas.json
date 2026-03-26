@@ -1,0 +1,5 @@
+{
+  "slug": "move-semantics-gotchas",
+  "title": "Move Semantics Gotchas",
+  "content": "# Move Semantics Gotchas\n\n## Overview\n\nCommon traps and safe patterns around moves and value categories.\n\n## Key Rules\n\n- Moved-from objects must remain valid but unspecified.\n- Mark move operations noexcept when possible.\n- Use std::move only when ownership transfer is intended.\n- Prefer return-by-value with NRVO over manual optimizations.\n\n## Quick Snippet\n\n``` cpp\nstd::string s = \"abc\";\nstd::string t = std::move(s);\n// s is valid but unspecified\n```\n\n## Common Mistakes\n\n- Using moved-from objects as if unchanged.\n- Moving from const objects (copy occurs).\n- Double-moving the same value unexpectedly.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}

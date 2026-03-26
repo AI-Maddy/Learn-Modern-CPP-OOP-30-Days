@@ -1,0 +1,5 @@
+{
+  "slug": "inheritance-polymorphism",
+  "title": "Inheritance Polymorphism",
+  "content": "# Inheritance and Polymorphism\n\n## Overview\n\nWhen and how to model substitutable behavior through base interfaces.\n\n## Key Rules\n\n- Use inheritance only for is-a relationships.\n- Always give polymorphic bases virtual destructors.\n- Prefer composition if substitution is not required.\n- Document behavioral contracts in base classes.\n\n## Quick Snippet\n\n``` cpp\nclass Shape {\n  public:\n    virtual ~Shape() = default;\n    virtual double area() const = 0;\n};\n```\n\n## Common Mistakes\n\n- Slicing objects by value.\n- Downcasting as primary control flow.\n- Breaking LSP with narrower derived behavior.\n\n## Review Checklist\n\n- Can you explain the tradeoff of the chosen approach?\n- Is ownership/lifetime explicit at API boundaries?\n- Is there at least one test or assertion for non-trivial behavior?\n\n## Related Paths\n\n- Day modules: `src/Day-*`\n- Sequence guide: `docs/day-index.rst`\n- Weekly plan: `docs/30-day-roadmap.rst`\n"
+}
