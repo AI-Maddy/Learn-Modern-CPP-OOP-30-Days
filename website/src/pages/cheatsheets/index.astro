@@ -1,34 +1,79 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// cheatsheets/index.astro  —  The /cheatsheets listing page.
+//
+// Displays all 28 cheatsheets as a searchable grid of cards.
+// Each card shows the category badge, title, and a small code preview
+// extracted from the first fenced code block in the cheatsheet content.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the shared layout so the navbar and footer appear automatically
 import Base from "../../layouts/Base.astro";
 
+// import.meta.glob expands the wildcard to every cheatsheet JSON at BUILD TIME.
+// eager: true loads them all at once rather than as lazy async imports.
 const files = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+
+// Convert the glob result (an object keyed by file path) into a plain array.
+// m.default handles the ESM default-export wrapping that Vite adds to JSON imports.
 const sheets = Object.values(files).map((m: any) => m.default ?? m);
+
+// Sort alphabetically by title so the grid looks ordered regardless of file order
 sheets.sort((a: any, b: any) => a.title.localeCompare(b.title));
 
-// Assign category tags based on title keywords
+// ── categorize ─────────────────────────────────────────────────────────────
+// Given a cheatsheet title, returns a { label, color } object used to render
+// the category badge on each card.  The matching is intentionally broad
+// (keyword-based) since we don't store explicit categories in the JSON.
 function categorize(title: string): { label: string; color: string } {
-  const t = title.toLowerCase();
-  if (t.includes("raii") || t.includes("smart") || t.includes("memory") || t.includes("rule of 5") || t.includes("move")) return { label: "Memory", color: "#ef4444" };
-  if (t.includes("template") || t.includes("concept") || t.includes("generic") || t.includes("crtp") || t.includes("type eras") || t.includes("pimpl")) return { label: "Templates", color: "#8b5cf6" };
-  if (t.includes("oop") || t.includes("class") || t.includes("inherit") || t.includes("virtual") || t.includes("composition")) return { label: "OOP", color: "#22c55e" };
-  if (t.includes("c++20") || t.includes("c++23") || t.includes("range") || t.includes("module") || t.includes("structured")) return { label: "Modern C++", color: "#f97316" };
-  if (t.includes("solid") || t.includes("pattern") || t.includes("refactor") || t.includes("pitfall") || t.includes("review") || t.includes("guideline")) return { label: "Design", color: "#3b82f6" };
-  if (t.includes("test") || t.includes("catch2") || t.includes("debug")) return { label: "Testing", color: "#14b8a6" };
-  if (t.includes("perf") || t.includes("optional") || t.includes("variant") || t.includes("error") || t.includes("uniform") || t.includes("lambda") || t.includes("function") || t.includes("variable")) return { label: "Core", color: "#60a5fa" };
+  const t = title.toLowerCase(); // Case-insensitive matching
+
+  // Memory-management topics → red
+  if (t.includes("raii") || t.includes("smart") || t.includes("memory") || t.includes("rule of 5") || t.includes("move"))
+    return { label: "Memory", color: "#ef4444" };
+
+  // Template / generic-programming topics → violet
+  if (t.includes("template") || t.includes("concept") || t.includes("generic") || t.includes("crtp") || t.includes("type eras") || t.includes("pimpl"))
+    return { label: "Templates", color: "#8b5cf6" };
+
+  // OOP / class-design topics → green
+  if (t.includes("oop") || t.includes("class") || t.includes("inherit") || t.includes("virtual") || t.includes("composition"))
+    return { label: "OOP", color: "#22c55e" };
+
+  // C++20 / C++23 language features → orange
+  if (t.includes("c++20") || t.includes("c++23") || t.includes("range") || t.includes("module") || t.includes("structured"))
+    return { label: "Modern C++", color: "#f97316" };
+
+  // Software design / patterns / guidelines → blue
+  if (t.includes("solid") || t.includes("pattern") || t.includes("refactor") || t.includes("pitfall") || t.includes("review") || t.includes("guideline"))
+    return { label: "Design", color: "#3b82f6" };
+
+  // Testing and debugging tools → teal
+  if (t.includes("test") || t.includes("catch2") || t.includes("debug"))
+    return { label: "Testing", color: "#14b8a6" };
+
+  // Core language / utility topics → light blue
+  if (t.includes("perf") || t.includes("optional") || t.includes("variant") || t.includes("error") || t.includes("uniform") || t.includes("lambda") || t.includes("function") || t.includes("variable"))
+    return { label: "Core", color: "#60a5fa" };
+
+  // Fallback when no keyword matches
   return { label: "C++", color: "#64748b" };
 }
 ---
+{/* Use the Base layout; "Cheatsheets" becomes the browser-tab title */}
 <Base title="Cheatsheets">
   <div class="max-w-7xl mx-auto px-4 py-12">
 
-    <!-- Header -->
+    {/* ── Page header ───────────────────────────────────────────────────── */}
     <div class="mb-10">
+      {/* Small monospace label above the heading */}
       <div class="text-xs text-slate-600 font-mono mb-3">📋 Quick Reference</div>
       <h1 class="text-3xl font-extrabold text-white mb-3">Cheatsheets</h1>
       <p class="text-slate-400 max-w-2xl text-sm leading-relaxed">
         28 compact, scannable reference cards — each covers a key C++ concept with code snippets, rules, and common pitfalls.
         Skim when reviewing, or bookmark for quick lookup during practice.
       </p>
+      {/* Category legend: shows all available tags so users know how cards are labelled */}
       <div class="flex flex-wrap gap-2 mt-4">
         {["Memory","Templates","OOP","Modern C++","Design","Testing","Core"].map(cat => (
           <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.06] text-slate-500 text-xs font-medium">{cat}</span>
@@ -36,42 +81,60 @@ function categorize(title: string): { label: string; color: string } {
       </div>
     </div>
 
-    <!-- Grid -->
+    {/* ── Cards grid ────────────────────────────────────────────────────── */}
+    {/* Responsive grid: 1 col mobile, 2 col sm, 3 col lg, 4 col xl */}
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {sheets.map((s: any, i: number) => {
-        const cat = categorize(s.title);
+        const cat = categorize(s.title); // Determine the category colour for this card
+
+        // Extract the first fenced code block from the Markdown content.
+        // The regex matches ```lang\n<code>``` and captures the code inside.
+        // codeMatch[1] is the captured group (the code itself).
         const codeMatch = s.content.match(/```[\w]*\n([\s\S]*?)```/);
+
+        // Trim the preview to 140 characters so it fits the card height.
+        // If no code block is found, preview is null and no preview is shown.
         const preview = codeMatch ? codeMatch[1].slice(0, 140).trimEnd() : null;
+
         return (
+          // The entire card is a link to the cheatsheet detail page
           <a
             href={`/cheatsheets/${s.slug}`}
+            {/* flex flex-col makes the card grow vertically so the footer sticks to the bottom */}
             class="group flex flex-col p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all animate-fade-up cursor-pointer"
+            {/* CSS custom property --hover-color is used in hover glow styles */}
             style={`animation-delay:${i * 25}ms; --hover-color:${cat.color}`}
           >
-            <!-- Category badge -->
+            {/* ── Category badge + file type label ───────────────────── */}
             <div class="flex items-center justify-between mb-3">
+              {/* Category badge: coloured background derived from cat.color */}
               <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
                 style={`color:${cat.color}; background:${cat.color}18; border:1px solid ${cat.color}30`}>
                 {cat.label}
               </span>
+              {/* Small "cpp" hint on the right shows this is a C++ reference */}
               <span class="text-[10px] text-slate-700 font-mono">cpp</span>
             </div>
 
-            <!-- Title -->
+            {/* ── Title ─────────────────────────────────────────────── */}
+            {/* group-hover:text-white → text brightens when the card is hovered */}
             <div class="font-semibold text-slate-200 group-hover:text-white transition-colors mb-3 leading-snug text-sm">
               {s.title}
             </div>
 
-            <!-- Code preview -->
+            {/* ── Code preview ──────────────────────────────────────── */}
+            {/* Only rendered if we found a code block in the content */}
             {preview && (
               <pre class="text-[10px] text-slate-600 font-mono bg-[#0d1117] border border-white/[0.04] rounded-lg p-3 overflow-hidden flex-1 leading-5 mb-3">
-                {preview}
+                {preview}  {/* Truncated code snippet — gives a taste of the cheatsheet */}
               </pre>
             )}
 
-            <!-- Footer -->
+            {/* ── Card footer ───────────────────────────────────────── */}
+            {/* mt-auto pushes the footer to the bottom of the flex column */}
             <div class="flex items-center justify-between mt-auto pt-3 border-t border-white/[0.04]">
               <span class="text-[10px] text-slate-700">C++ reference card</span>
+              {/* "View →" arrow: invisible by default, fades in on card hover */}
               <span class="text-xs opacity-0 group-hover:opacity-100 transition-all font-semibold" style={`color:${cat.color}`}>View →</span>
             </div>
           </a>

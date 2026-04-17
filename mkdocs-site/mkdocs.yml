@@ -1,0 +1,155 @@
+site_name: "Modern C++ OOP — 30 Days Brain Boot Camp"
+site_description: "Neural-powered learning for Modern C++ and OOP — 31 days, 7 clusters, 28 cheatsheets"
+site_author: AI-Maddy
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/brain
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.png
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+    - content.action.edit
+    - announce.dismiss
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      lang: en
+  - awesome-pages:
+      collapse_single_pages: false
+      strict: false
+      filename: .pages
+  # MyST: write .rst alongside .md (Phase 1 Foundation)
+  # Uncomment if myst-parser is installed: pip install myst-parser
+  # - mkdocs-myst
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor to this section
+      title: On This Page
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: true
+      linenums_style: pymdownx-inline
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: [docs]
+
+extra_css:
+  - stylesheets/brain-regions.css
+  - stylesheets/neural-animations.css
+  - stylesheets/flashcards.css
+  - stylesheets/code-blocks.css
+  - stylesheets/layout.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/neural-canvas.js
+  - javascripts/brain-interactions.js
+  - javascripts/flashcards.js
+  - javascripts/progress-tracker.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AI-Maddy/Learn-Modern-CPP-OOP-30-Days
+      name: Source on GitHub
+  generator: false
+  brain_regions:
+    foundations: "#3b82f6"
+    oop-core: "#10b981"
+    templates: "#8b5cf6"
+    memory: "#ef4444"
+    modern-cpp: "#f97316"
+    projects: "#eab308"
+    review: "#94a3b8"
+
+nav:
+  - 🧠 Home: index.md
+  - 📅 30-Day Journey: days/index.md
+  - 📚 Cheatsheets: cheatsheets/index.md
+  - 🗺️ Mind Map: mindmap.md
+  - ⚡ Quick Reference: quick-reference.md

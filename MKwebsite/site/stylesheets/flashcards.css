@@ -1,0 +1,199 @@
+/* ── Flashcard App ──────────────────────────────────────────────── */
+
+.fc-app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0.5rem 0 2rem;
+}
+
+/* ── Day tab strip ──────────────────────────────────────────────── */
+
+.fc-day-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.75rem;
+}
+
+.fc-day-tab {
+  padding: 0.28rem 0.7rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.fc-day-tab:hover {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+.fc-day-tab.fc-active {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+/* ── Card stage ─────────────────────────────────────────────────── */
+
+.fc-stage {
+  perspective: 1100px;
+  width: 100%;
+  height: 260px;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fc-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 14px;
+}
+
+.fc-card.fc-flipped {
+  transform: rotateY(180deg);
+}
+
+.fc-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+  overflow: auto;
+}
+
+.fc-front {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+.fc-back {
+  background: var(--md-accent-fg-color, #536dfe);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.fc-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.8rem;
+  flex-shrink: 0;
+}
+
+.fc-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.fc-text code {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+
+.fc-tap-hint {
+  font-size: 0.68rem;
+  opacity: 0.45;
+  margin-top: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ── Controls row ───────────────────────────────────────────────── */
+
+.fc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+}
+
+.fc-btn {
+  padding: 0.42rem 1rem;
+  border-radius: 7px;
+  border: 1.5px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  line-height: 1;
+}
+
+.fc-btn:hover:not(:disabled) {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+.fc-btn:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.fc-btn-primary {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+.fc-btn-primary:hover:not(:disabled) {
+  opacity: 0.82;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color, #fff);
+}
+
+.fc-progress {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+  min-width: 64px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ── Extra row (shuffle / reset) ────────────────────────────────── */
+
+.fc-extras {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ── Day title ──────────────────────────────────────────────────── */
+
+.fc-day-title {
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Hide raw markdown source ───────────────────────────────────── */
+
+.fc-hidden {
+  display: none !important;
+}

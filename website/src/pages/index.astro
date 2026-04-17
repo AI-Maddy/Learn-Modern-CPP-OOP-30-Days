@@ -1,9 +1,29 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// index.astro  —  The website homepage at /.
+//
+// Shows:
+//   1. Hero banner with tagline, stats pills, and CTA buttons
+//   2. "How it works" three-step guide
+//   3. Day grid grouped by learning cluster (7 sections)
+//   4. Quick links to Cheatsheets and Mind Map
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the shared layout that wraps everything with the nav and footer
 import Base from "../layouts/Base.astro";
+
+// Import content helpers:
+//   allDays          → array of all 31 DayMeta objects (from manifest.json)
+//   clusters         → map of cluster key → Cluster object
+//   getClusterStyle  → converts a colour name to Tailwind class strings
 import { allDays, clusters, getClusterStyle } from "../lib/content";
 
+// Define the order in which clusters appear on the page.
+// This is the natural learning progression from beginner to advanced.
 const clusterOrder = ["foundations","oop-core","templates","memory","modern-cpp","projects","review"];
 
+// Short descriptions shown in each cluster header section.
+// Written in a way that tells the student WHY each cluster matters.
 const clusterDesc: Record<string, string> = {
   foundations:  "Toolchain setup, types, constexpr, functions, lambdas — the bedrock everything else rests on.",
   "oop-core":   "Classes, RAII, smart pointers, inheritance, polymorphism — the heart of object-oriented C++.",
@@ -14,21 +34,30 @@ const clusterDesc: Record<string, string> = {
   review:       "Code-review patterns, advanced deep dives, cert prep, and next steps beyond the 30 days.",
 };
 
+// Count the total number of days for the stats pill
 const totalDays = allDays.length;
 ---
+<!-- Base layout — "Home" becomes the browser tab title prefix -->
 <Base title="Home">
 
-  <!-- Hero -->
+  <!-- ── Hero section ──────────────────────────────────────────────────────── -->
+  <!-- pt-20 pb-12 → generous vertical padding to give the hero breathing room -->
   <section class="max-w-7xl mx-auto px-4 pt-20 pb-12 text-center relative">
-    <!-- Background glow blob -->
+    <!-- Blurred gradient blob behind the hero: creates a soft ambient glow effect.
+         pointer-events-none: the blob is decorative; clicks pass through to content. -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-[0.06] bg-gradient-to-r from-blue-500 via-violet-500 to-orange-400 blur-3xl pointer-events-none"></div>
 
+    <!-- relative: establishes a stacking context so the content sits above the blob -->
     <div class="relative">
+      <!-- Version badge: animated blue dot + standards label -->
+      <!-- animate-pulse makes the dot blink to draw the eye to the badge -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/60 border border-blue-700/40 text-blue-300 text-xs font-mono mb-6 font-semibold">
         <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
         ⚡ C++17 · C++20 · C++23 · Production-Quality
       </div>
 
+      <!-- Main headline: large, gradient text for "C++ OOP" -->
+      <!-- grad-text-cpp applies the animated three-colour gradient defined in global.css -->
       <h1 class="text-4xl sm:text-6xl font-extrabold mb-5 tracking-tight leading-tight">
         <span class="text-white">Learn Modern </span>
         <span class="grad-text-cpp">C++ OOP</span>
@@ -36,13 +65,16 @@ const totalDays = allDays.length;
         <span class="text-slate-300 text-3xl sm:text-4xl font-semibold">in 30 Days</span>
       </h1>
 
+      <!-- Sub-headline: one sentence summary of the course value proposition -->
       <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
         From <strong class="text-slate-200">classes and RAII</strong> to <strong class="text-slate-200">templates, concepts, and design patterns</strong> —
         a structured daily path with deep theory, production code, pitfall guides, and 28 reference cheatsheets.
       </p>
 
-      <!-- Stats pills -->
+      <!-- Stats pills row: quick scannable facts about the course -->
+      <!-- flex-wrap: pills wrap to a second line on narrow screens -->
       <div class="flex justify-center gap-3 flex-wrap text-xs mb-10">
+        <!-- Each pill uses a stat-* CSS class defined in the style block at the bottom -->
         <span class="stat-pill stat-blue">📅 {totalDays} Days</span>
         <span class="stat-pill stat-violet">🧩 7 Learning Clusters</span>
         <span class="stat-pill stat-orange">📋 28 Cheatsheets</span>
@@ -50,14 +82,18 @@ const totalDays = allDays.length;
         <span class="stat-pill stat-red">🧪 Catch2 + TDD</span>
       </div>
 
-      <!-- CTA buttons -->
+      <!-- Call-to-action buttons: primary "Start Day 00" + two secondary links -->
       <div class="flex justify-center gap-3 flex-wrap">
+        <!-- Blue "Start Day 00" button — the main CTA.
+             hover:-translate-y-0.5 gives a subtle lift effect on hover. -->
         <a href="/day/day-00" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5">
           🚀 Start Day 00
         </a>
+        <!-- Ghost "Browse Cheatsheets" button: transparent bg, subtle border -->
         <a href="/cheatsheets" class="px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-slate-300 text-sm font-semibold border border-white/10 hover:border-white/20 transition-all">
           📋 Browse Cheatsheets
         </a>
+        <!-- Ghost "Mind Map" button -->
         <a href="/mindmap" class="px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-slate-300 text-sm font-semibold border border-white/10 hover:border-white/20 transition-all">
           🗺️ Mind Map
         </a>
@@ -65,14 +101,18 @@ const totalDays = allDays.length;
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- ── How it works ───────────────────────────────────────────────────────── -->
+  <!-- Three-step guide shown below the hero to set expectations for new visitors -->
   <section class="max-w-7xl mx-auto px-4 pb-16">
+    <!-- sm:grid-cols-3: stacked on mobile, side-by-side on ≥ 640 px -->
     <div class="grid sm:grid-cols-3 gap-4">
+      <!-- Map over the three steps to avoid repeating card markup -->
       {[
-        { icon: "🧠", step: "01", title: "Read the Theory", desc: "Each day opens with a focused deep-dive — why the concept matters, design rationale, and when to use it." },
-        { icon: "💻", step: "02", title: "Run the Code", desc: "Production-quality C++ examples you can build with CMake. Study the patterns, modify, extend." },
-        { icon: "⚠️", step: "03", title: "Study the Pitfalls", desc: "Know what breaks before you write it wrong. Every day has a curated anti-pattern guide." },
+        { icon: "🧠", step: "01", title: "Read the Theory",   desc: "Each day opens with a focused deep-dive — why the concept matters, design rationale, and when to use it." },
+        { icon: "💻", step: "02", title: "Run the Code",      desc: "Production-quality C++ examples you can build with CMake. Study the patterns, modify, extend." },
+        { icon: "⚠️", step: "03", title: "Study the Pitfalls",desc: "Know what breaks before you write it wrong. Every day has a curated anti-pattern guide." },
       ].map(item => (
+        /* Card: semi-transparent background, rounded corners */
         <div class="flex gap-4 p-5 rounded-2xl bg-white/[0.025] border border-white/[0.06]">
           <div class="text-2xl mt-0.5 shrink-0">{item.icon}</div>
           <div>
@@ -85,42 +125,54 @@ const totalDays = allDays.length;
     </div>
   </section>
 
-  <!-- Cluster legend + Grid grouped by cluster -->
+  <!-- ── Cluster sections + day cards ──────────────────────────────────────── -->
+  <!-- space-y-14: 56 px vertical gap between each cluster section -->
   <section class="max-w-7xl mx-auto px-4 pb-24 space-y-14">
     {clusterOrder.map(key => {
+      // Cluster metadata: color, icon, label (e.g. "blue", "🔵", "Foundations")
       const c = clusters[key];
+      // Tailwind class strings: border, background, text, badge — all colour-matched
       const s = getClusterStyle(c.color);
+      // Only the days that belong to this cluster
       const days = allDays.filter(d => d.cluster === key);
       return (
         <div>
-          <!-- Cluster header -->
+          {/* Cluster header: coloured banner with icon, name, description, and day count */}
           <div class={`flex items-start gap-4 p-4 rounded-xl border ${s.border} ${s.bg} mb-5`}>
+            {/* Large emoji icon: shrink-0 prevents it from being squished by the text */}
             <span class="text-3xl mt-0.5 shrink-0">{c.icon}</span>
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-3 mb-1 flex-wrap">
+                {/* Cluster name rendered in its accent colour */}
                 <h2 class={`text-base font-bold ${s.text}`}>{c.label}</h2>
+                {/* Day count badge: "6 days" or "1 day" (correct singular/plural) */}
                 <span class={`px-2 py-0.5 rounded-full text-xs font-mono border ${s.border} ${s.badge}`}>
                   {days.length} {days.length === 1 ? "day" : "days"}
                 </span>
               </div>
+              {/* Short description of what this cluster covers */}
               <p class="text-slate-500 text-xs leading-relaxed">{clusterDesc[key]}</p>
             </div>
           </div>
 
-          <!-- Day cards -->
+          {/* Day cards grid: responsive — 2 columns → 3 → 4 → 5 as screen widens */}
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {days.map((day, i) => (
+              /* Each card is a link to the day page; day-card enables the CSS hover glow */
               <a
                 href={`/day/${day.slug}`}
                 class={`day-card group relative rounded-xl border ${s.border} ${s.bg} p-4 hover:scale-[1.02] transition-all duration-200 animate-fade-up cursor-pointer`}
                 style={`animation-delay:${i * 40}ms`}
               >
+                {/* Muted "D05" prefix label */}
                 <div class={`text-xs font-mono font-bold ${s.text} mb-2 flex items-center gap-1.5`}>
                   <span class="opacity-60">D{String(day.day).padStart(2, "0")}</span>
                 </div>
+                {/* Day title: brightens to white on hover via the group-hover Tailwind trick */}
                 <div class="text-sm font-semibold text-slate-200 leading-tight group-hover:text-white transition-colors">
                   {day.title}
                 </div>
+                {/* Arrow that appears and slides right on hover — navigation hint */}
                 <div class={`absolute bottom-3 right-3 text-base ${s.text} opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-0.5`}>→</div>
               </a>
             ))}
@@ -130,16 +182,23 @@ const totalDays = allDays.length;
     })}
   </section>
 
-  <!-- Quick links -->
+  <!-- ── Quick links ────────────────────────────────────────────────────────── -->
+  <!-- Two large billboard links at the bottom for Cheatsheets and Mind Map -->
   <section class="max-w-7xl mx-auto px-4 pb-20 grid sm:grid-cols-2 gap-4">
+    <!-- Cheatsheets billboard: violet theme -->
     <a href="/cheatsheets" class="group flex items-center gap-4 p-6 rounded-2xl border border-violet-800/30 bg-violet-950/15 hover:border-violet-500/50 hover:bg-violet-950/30 hover:shadow-[0_0_30px_rgba(139,92,246,.12)] transition-all">
+      <!-- Icon box: scales up on hover to give a "lift" feel (group-hover:scale-110) -->
       <div class="w-12 h-12 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">📋</div>
       <div class="flex-1">
+        <!-- Title brightens to violet on hover -->
         <div class="font-bold text-white group-hover:text-violet-300 transition-colors mb-1">Cheatsheets</div>
         <div class="text-slate-500 text-sm">28 compact reference cards — concepts, code snippets, and rules at a glance</div>
       </div>
+      <!-- Arrow: dark until hovered, then changes to violet and slides right -->
       <span class="text-violet-800 group-hover:text-violet-400 text-xl transition-all group-hover:translate-x-1 shrink-0">→</span>
     </a>
+
+    <!-- Mind Map billboard: orange theme -->
     <a href="/mindmap" class="group flex items-center gap-4 p-6 rounded-2xl border border-orange-800/30 bg-orange-950/10 hover:border-orange-500/50 hover:bg-orange-950/20 hover:shadow-[0_0_30px_rgba(249,115,22,.1)] transition-all">
       <div class="w-12 h-12 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">🗺️</div>
       <div class="flex-1">
@@ -151,8 +210,14 @@ const totalDays = allDays.length;
   </section>
 </Base>
 
+<!-- ── Scoped styles for stat pills ────────────────────────────────────────── -->
+<!-- These classes are only used on this page so they live in a scoped style block -->
 <style>
+  /* Base pill style: flexbox row, border-radius 9999px = full pill shape */
   .stat-pill { display:inline-flex; align-items:center; gap:0.375rem; padding:0.375rem 0.875rem; border-radius:9999px; font-weight:600; }
+
+  /* Colour variants: each uses a very transparent background + matching border and text.
+     The rgba() alpha values are low (0.08 / 0.25) to keep the tint subtle. */
   .stat-blue   { background:rgba(59,130,246,.08);  border:1px solid rgba(59,130,246,.25);  color:#93c5fd; }
   .stat-violet { background:rgba(139,92,246,.08);  border:1px solid rgba(139,92,246,.25);  color:#c4b5fd; }
   .stat-orange { background:rgba(249,115,22,.08);  border:1px solid rgba(249,115,22,.25);  color:#fdba74; }

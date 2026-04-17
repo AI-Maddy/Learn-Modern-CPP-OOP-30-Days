@@ -1,16 +1,47 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// mindmap.astro  —  The /mindmap page.
+//
+// Renders a full-page interactive graph that shows all 31 curriculum days
+// as nodes connected to cluster hubs.  Uses the MindMap React component which
+// is powered by React Flow for drag / zoom / click interactivity.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the shared layout so this page gets the navbar and footer automatically
 import Base from "../layouts/Base.astro";
+
+// Import the React component that draws the interactive node graph.
+// This component uses React Flow, which requires the browser DOM API,
+// so it MUST be rendered client-side (see client:only below).
 import MindMap from "../components/MindMap";
+
+// Import the manifest JSON directly — Astro resolves JSON imports at build time.
+// manifest.days = array of all DayMeta, manifest.clusters = cluster map.
 import manifest from "../content/manifest.json";
 ---
+{/* Wrap the page in the Base layout; "Mind Map" becomes the browser tab title */}
 <Base title="Mind Map">
+  {/* Content container: centred, padded, with top breathing room */}
   <div class="max-w-7xl mx-auto px-4 py-10">
+
+    {/* Page header section */}
     <div class="mb-8">
+      {/* Breadcrumb / section label */}
       <div class="text-sm text-slate-500 mb-2">🗺️ Visual Navigation</div>
       <h1 class="text-3xl font-bold text-white mb-2">Curriculum Mind Map</h1>
+      {/* Short usage hint so first-time visitors know how to interact */}
       <p class="text-slate-400">Click any node to jump to that day. Drag to pan, scroll to zoom.</p>
     </div>
+
+    {/* Graph container: fixed 600 px height, rounded dark card.
+        overflow-hidden clips the React Flow canvas to this rounded border. */}
     <div class="rounded-2xl border border-white/10 overflow-hidden" style="height: 600px;">
+      {/* client:only="react" tells Astro:
+            1. Do NOT attempt server-side rendering for this component.
+            2. Load and hydrate it purely in the browser using React.
+          This is necessary because React Flow uses browser APIs (canvas, DOM events)
+          that are not available during static site generation.
+          manifest.days and manifest.clusters are passed as props to MindMap. */}
       <MindMap client:only="react" days={manifest.days} clusters={manifest.clusters} />
     </div>
   </div>

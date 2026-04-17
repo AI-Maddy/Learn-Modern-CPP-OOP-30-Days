@@ -1,59 +1,110 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// day/[slug].astro  —  Dynamic route that renders one curriculum day.
+//
+// URL pattern: /day/day-00, /day/day-01 … /day/day-30
+//
+// getStaticPaths() enumerates all 31 slugs so Astro pre-renders a static HTML
+// file for every day at build time.  Visitors therefore get instant page loads.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the shared layout (navbar + footer)
 import Base from "../../layouts/Base.astro";
+
+// Import the DayTabs React component — the interactive tabbed panel with
+// Overview / Theory / Code / Pitfalls tabs
 import DayTabs from "../../components/DayTabs";
+
+// Import helpers: allDays = array of all DayMeta, getClusterStyle = colour utilities
 import { allDays, getClusterStyle } from "../../lib/content";
+
+// Import the TypeScript type for fully-loaded day data
 import type { DayData } from "../../lib/types";
 
+// ── getStaticPaths ─────────────────────────────────────────────────────────
+// Astro calls this at build time to learn which [slug] values to generate pages for.
+// We map every known day to a { params: { slug } } entry.
 export function getStaticPaths() {
+  // allDays comes from the manifest; each element has a .slug field like "day-05"
   return allDays.map(d => ({ params: { slug: d.slug } }));
 }
 
+// Astro.params contains the current page's URL parameters.
+// For /day/day-05 the value is { slug: "day-05" }.
 const { slug } = Astro.params;
-// Load full day data at build time
+
+// Load the FULL day data (including readme/theory/pitfalls/code) at build time.
+// Dynamic import() returns a Promise; `await` resolves it synchronously in Astro frontmatter.
+// `.then(m => m.default)` unwraps the ES module default export.
 const data: DayData = await import(`../../content/days/${slug}.json`).then(m => m.default);
+
+// Get the Tailwind class set for this day's cluster colour (border, bg, text, badge)
 const s = getClusterStyle(data.clusterColor);
 
+// Find the previous day (day number - 1) for the bottom navigation link.
+// Array.find returns undefined if not found (e.g. day 0 has no previous day).
 const prev = allDays.find(d => d.day === data.day - 1);
+
+// Find the next day (day number + 1) for the bottom navigation link.
 const next = allDays.find(d => d.day === data.day + 1);
 ---
+{/* Pass a descriptive title to Base so it shows in the browser tab */}
 <Base title={`Day ${data.day} — ${data.title}`}>
+  {/* max-w-5xl: comfortable reading width for this content-heavy page */}
   <div class="max-w-5xl mx-auto px-4 py-10">
 
-    <!-- Breadcrumb -->
+    {/* ── Breadcrumb ─────────────────────────────────────────────────────── */}
+    {/* Shows: Home › <ClusterIcon> <ClusterLabel> › Day 05
+        Clicking Home navigates to the homepage; clicking the cluster label
+        also goes home (the homepage is grouped by cluster). */}
     <div class="flex items-center gap-2 text-xs text-slate-600 mb-6 font-mono">
       <a href="/" class="hover:text-slate-400 transition-colors">Home</a>
+      <span class="text-slate-800">›</span>  {/* › separator */}
+      <a href="/" class={`${s.text} hover:opacity-80 transition-opacity`}>
+        {data.clusterIcon} {data.clusterLabel}  {/* e.g. 🔵 Foundations */}
+      </a>
       <span class="text-slate-800">›</span>
-      <a href="/" class={`${s.text} hover:opacity-80 transition-opacity`}>{data.clusterIcon} {data.clusterLabel}</a>
-      <span class="text-slate-800">›</span>
+      {/* Zero-padded day number: padStart(2,"0") → "05" not "5" */}
       <span class="text-slate-400">Day {String(data.day).padStart(2, "0")}</span>
     </div>
 
-    <!-- Header card -->
+    {/* ── Day header card ────────────────────────────────────────────────── */}
+    {/* A decorative card with an accent colour bar and a large background day number */}
     <div class={`relative rounded-2xl border ${s.border} overflow-hidden mb-8`}>
-      <!-- Top accent bar -->
+      {/* Thin accent bar at the very top of the card — a 1 px gradient line */}
       <div class={`h-0.5 w-full`} style={`background:linear-gradient(90deg, transparent, ${s.text.replace('text-','').replace('-400','')}, transparent)`}></div>
-      <!-- Glow -->
+      {/* Radial glow: a faint colour wash behind the card content, like a backlight */}
       <div class="absolute inset-0 pointer-events-none" style={`background:radial-gradient(ellipse at 10% 50%, color-mix(in srgb, currentColor 6%, transparent), transparent 60%)`}></div>
 
+      {/* Card body: cluster-coloured background, comfortable padding */}
       <div class={`${s.bg} p-6`}>
         <div class="flex items-start justify-between gap-4 flex-wrap">
           <div class="flex-1 min-w-0">
+            {/* Pill badges: "Day 05 / 30" and "<ClusterIcon> <ClusterLabel>" */}
             <div class={`text-xs font-mono font-bold ${s.text} mb-2 flex items-center gap-2`}>
               <span class={`px-2 py-0.5 rounded border ${s.border} ${s.badge}`}>
-                Day {String(data.day).padStart(2, "0")} / 30
+                Day {String(data.day).padStart(2, "0")} / 30  {/* Progress indicator */}
               </span>
               <span class={`px-2 py-0.5 rounded border ${s.border} ${s.badge}`}>
-                {data.clusterIcon} {data.clusterLabel}
+                {data.clusterIcon} {data.clusterLabel}  {/* Cluster badge */}
               </span>
             </div>
+
+            {/* Main day title: largest text element on the page */}
             <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
               {data.title}
             </h1>
+
+            {/* Hint pills: tell the user what's available and how to navigate */}
             <div class="flex items-center gap-2 flex-wrap text-xs">
               <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-500 border border-white/[0.06]">📖 Overview · 🧠 Theory · 💻 Code · ⚠️ Pitfalls</span>
               <span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-500 border border-white/[0.06]">⌨️ Press 1–4 to switch tabs</span>
             </div>
           </div>
+
+          {/* Large ghost day number: purely decorative, very low opacity.
+              select-none prevents the user accidentally selecting it.
+              hidden sm:block hides on mobile to save space. */}
           <div class={`text-7xl font-black select-none hidden sm:block`} style="opacity:0.07; font-variant-numeric: tabular-nums;">
             {String(data.day).padStart(2, "0")}
           </div>
@@ -61,9 +112,13 @@ const next = allDays.find(d => d.day === data.day + 1);
       </div>
     </div>
 
-    <!-- Tabbed content (React island) -->
+    {/* ── Tabbed content (React island) ─────────────────────────────────── */}
+    {/* client:load hydrates this React component as soon as the page JS loads.
+        All four content strings and the cluster colour are passed as props. */}
+    {/* DayTabs props: readme/theory/pitfalls are Markdown strings; code is raw C++;
+        clusterColor drives the accent colour on the active tab button */}
     <DayTabs
-      client:load
+      client:only="react"
       readme={data.readme}
       theory={data.theory}
       pitfalls={data.pitfalls}
@@ -71,26 +126,36 @@ const next = allDays.find(d => d.day === data.day + 1);
       clusterColor={data.clusterColor}
     />
 
-    <!-- Prev / Next navigation -->
+    {/* ── Previous / Next navigation ─────────────────────────────────────── */}
+    {/* flex justify-between: puts Prev on the left and Next on the right.
+        If prev or next doesn't exist (first/last day), an empty flex-1 div
+        keeps the other button correctly positioned. */}
     <div class="flex justify-between mt-14 gap-4">
+      {/* Previous day button — only rendered if a previous day exists */}
       {prev ? (
         <a href={`/day/${prev.slug}`} class="flex-1 group flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+          {/* Left-arrow icon */}
           <div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 group-hover:text-slate-300 transition-colors text-sm">←</div>
           <div>
             <div class="text-xs text-slate-700 font-mono">Previous</div>
+            {/* Day number and title of the previous day */}
             <div class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors">Day {String(prev.day).padStart(2,"0")}: {prev.title}</div>
           </div>
         </a>
-      ) : <div class="flex-1" />}
+      ) : <div class="flex-1" />}  {/* Empty spacer when no previous day */}
+
+      {/* Next day button — only rendered if a next day exists */}
       {next ? (
         <a href={`/day/${next.slug}`} class="flex-1 group flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] hover:border-white/[0.12] bg-white/[0.02] hover:bg-white/[0.04] transition-all text-right">
           <div class="flex-1 min-w-0">
             <div class="text-xs text-slate-700 font-mono">Next</div>
+            {/* truncate prevents very long titles from overflowing the button */}
             <div class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors truncate">Day {String(next.day).padStart(2,"0")}: {next.title}</div>
           </div>
+          {/* Right-arrow icon */}
           <div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 group-hover:text-slate-300 transition-colors text-sm shrink-0">→</div>
         </a>
-      ) : <div class="flex-1" />}
+      ) : <div class="flex-1" />}  {/* Empty spacer when no next day */}
     </div>
   </div>
 </Base>

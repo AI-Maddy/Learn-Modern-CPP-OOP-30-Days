@@ -1,37 +1,78 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// [slug].astro  —  Dynamic route that renders one cheatsheet at /cheatsheets/<slug>.
+//
+// Astro uses the [slug] file-name convention to generate one page per unique
+// slug value.  getStaticPaths() tells Astro the full list of slugs at build time
+// so it can pre-render every cheatsheet page into a static HTML file.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the shared layout for the navbar / footer shell
 import Base from "../../layouts/Base.astro";
+
+// Import the React component that renders Markdown with styled code blocks
 import CheatsheetView from "../../components/CheatsheetView";
 
+// import.meta.glob is a Vite feature: expands the glob at BUILD TIME into an
+// object where each key is a file path and each value is the imported module.
+// eager: true loads all files immediately rather than as lazy async imports.
 const files = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+
+// Convert the glob result into a plain array of cheatsheet data objects.
+// m.default is the module's default export (the JSON object); `?? m` handles
+// formats where the data sits directly on `m` rather than under `.default`.
 const sheets: any[] = Object.values(files).map((m: any) => m.default ?? m);
 
+// ── getStaticPaths ─────────────────────────────────────────────────────────
+// Astro calls this function during the build to discover all the pages it
+// needs to generate.  It must return an array of { params, props } objects:
+//   params.slug  → the URL segment, e.g. "raii-smart-pointers"
+//   props.sheet  → the data passed to Astro.props inside this same file
 export function getStaticPaths() {
+  // Re-glob inside getStaticPaths because this function runs in a separate
+  // module context during the build (it cannot close over the `files` above).
   const fs = import.meta.glob("../../content/cheatsheets/*.json", { eager: true });
+
+  // Map each file to a { params, props } entry for Astro
   return Object.values(fs).map((m: any) => {
-    const s = m.default ?? m;
-    return { params: { slug: s.slug }, props: { sheet: s } };
+    const s = m.default ?? m; // Extract the cheatsheet data object
+    return {
+      params: { slug: s.slug },  // e.g. { slug: "raii-smart-pointers" }
+      props:  { sheet: s },      // Passed to this page as Astro.props.sheet
+    };
   });
 }
 
+// Destructure the `sheet` prop that Astro injects from getStaticPaths
 const { sheet } = Astro.props;
 ---
+{/* Use the Base layout; pass the cheatsheet title as the browser-tab title */}
 <Base title={sheet.title}>
+  {/* max-w-4xl: readable line width for a single-column content page */}
   <div class="max-w-4xl mx-auto px-4 py-10">
-    <!-- Breadcrumb -->
+
+    {/* ── Breadcrumb navigation ──────────────────────────────────────────── */}
+    {/* Shows the path: Home > Cheatsheets > <current title>
+        Clicking Home or Cheatsheets navigates back up the hierarchy. */}
     <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
       <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
-      <span>/</span>
+      <span>/</span>  {/* Separator between breadcrumb items */}
       <a href="/cheatsheets" class="hover:text-slate-300 transition-colors">Cheatsheets</a>
       <span>/</span>
-      <span class="text-slate-300">{sheet.title}</span>
+      <span class="text-slate-300">{sheet.title}</span> {/* Current page — not a link */}
     </div>
 
-    <!-- Header -->
+    {/* ── Hero header card ───────────────────────────────────────────────── */}
+    {/* A coloured card with the cheatsheet icon, title, and category badges */}
     <div class="flex items-start gap-4 mb-8 p-6 rounded-2xl border border-violet-500/30 bg-violet-500/5">
+      {/* Large clipboard emoji acts as the visual icon for all cheatsheets */}
       <span class="text-4xl">📋</span>
       <div>
+        {/* Small label above the title — "CHEATSHEET" in uppercase monospace */}
         <div class="text-xs font-mono text-violet-400 mb-1 uppercase tracking-widest">Cheatsheet</div>
+        {/* Main title: the human-readable name of this cheatsheet */}
         <h1 class="text-2xl font-bold text-white">{sheet.title}</h1>
+        {/* Two badges below the title: category and content type */}
         <div class="flex gap-2 mt-3">
           <span class="px-2.5 py-0.5 rounded-full text-xs bg-violet-500/20 text-violet-300 border border-violet-500/30">Quick Reference</span>
           <span class="px-2.5 py-0.5 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">C++ OOP</span>
@@ -39,10 +80,14 @@ const { sheet } = Astro.props;
       </div>
     </div>
 
-    <!-- Content (React island for interactive code copy) -->
+    {/* ── Cheatsheet content (React island) ─────────────────────────────── */}
+    {/* client:load tells Astro to hydrate this React component as soon as the
+        browser loads the page JavaScript.  The `content` prop is the full
+        Markdown string for this cheatsheet. */}
     <CheatsheetView client:load content={sheet.content} />
 
-    <!-- Back link -->
+    {/* ── Back link ─────────────────────────────────────────────────────── */}
+    {/* Placed below the content so the user can easily go back after reading */}
     <div class="mt-12 pt-6 border-t border-white/5">
       <a href="/cheatsheets" class="text-sm text-slate-500 hover:text-violet-400 transition-colors">
         ← Back to all cheatsheets

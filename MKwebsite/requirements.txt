@@ -1,0 +1,4 @@
+mkdocs-material
+myst-parser
+pymdown-extensions
+mkdocs-awesome-pages-plugin

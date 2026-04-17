@@ -1,0 +1,83 @@
+/* ── Mindmap page layout ──────────────────────────────────────── */
+
+.md-content .mermaid {
+  overflow: visible;
+}
+
+/* Give the diagram enough breathing room */
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  min-height: 640px;
+}
+
+/* ── Week branch colours (applied via :::wN class on nodes) ───── */
+/* Mermaid 10 mindmap: :::className adds the class to the <g>       */
+/* wrapping each node. We target the shape child inside that <g>.   */
+
+/* Week 1 — Foundations  → Indigo family */
+.w1 > rect,  .w1 > ellipse, .w1 > circle, .w1 > polygon, .w1 > path { fill: #3949ab !important; stroke: #1a237e !important; }
+.w1 text { fill: #ffffff !important; }
+
+/* Day nodes under W1 → lighter indigo */
+.d1 > rect, .d1 > ellipse, .d1 > circle, .d1 > polygon, .d1 > path { fill: #7986cb !important; stroke: #3949ab !important; }
+.d1 text { fill: #ffffff !important; }
+
+/* Concept nodes under W1 → very light indigo */
+.c1 > rect, .c1 > ellipse, .c1 > circle, .c1 > polygon, .c1 > path { fill: #c5cae9 !important; stroke: #7986cb !important; }
+.c1 text { fill: #1a237e !important; }
+
+/* Week 2 — Generic Programming  → Teal family */
+.w2 > rect, .w2 > ellipse, .w2 > circle, .w2 > polygon, .w2 > path { fill: #00695c !important; stroke: #004d40 !important; }
+.w2 text { fill: #ffffff !important; }
+
+.d2 > rect, .d2 > ellipse, .d2 > circle, .d2 > polygon, .d2 > path { fill: #4db6ac !important; stroke: #00695c !important; }
+.d2 text { fill: #ffffff !important; }
+
+.c2 > rect, .c2 > ellipse, .c2 > circle, .c2 > polygon, .c2 > path { fill: #b2dfdb !important; stroke: #4db6ac !important; }
+.c2 text { fill: #004d40 !important; }
+
+/* Week 3 — Robust Design  → Amber/Orange family */
+.w3 > rect, .w3 > ellipse, .w3 > circle, .w3 > polygon, .w3 > path { fill: #e65100 !important; stroke: #bf360c !important; }
+.w3 text { fill: #ffffff !important; }
+
+.d3 > rect, .d3 > ellipse, .d3 > circle, .d3 > polygon, .d3 > path { fill: #ffa726 !important; stroke: #e65100 !important; }
+.d3 text { fill: #212121 !important; }
+
+.c3 > rect, .c3 > ellipse, .c3 > circle, .c3 > polygon, .c3 > path { fill: #ffe0b2 !important; stroke: #ffa726 !important; }
+.c3 text { fill: #bf360c !important; }
+
+/* Week 4 — Advanced  → Purple family */
+.w4 > rect, .w4 > ellipse, .w4 > circle, .w4 > polygon, .w4 > path { fill: #6a1b9a !important; stroke: #4a148c !important; }
+.w4 text { fill: #ffffff !important; }
+
+.d4 > rect, .d4 > ellipse, .d4 > circle, .d4 > polygon, .d4 > path { fill: #ab47bc !important; stroke: #6a1b9a !important; }
+.d4 text { fill: #ffffff !important; }
+
+.c4 > rect, .c4 > ellipse, .c4 > circle, .c4 > polygon, .c4 > path { fill: #e1bee7 !important; stroke: #ab47bc !important; }
+.c4 text { fill: #4a148c !important; }
+
+/* ── Legend ──────────────────────────────────────────────────── */
+.mm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin: 0.5rem 0 1.5rem;
+  font-size: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--md-code-bg-color);
+}
+
+.mm-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mm-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

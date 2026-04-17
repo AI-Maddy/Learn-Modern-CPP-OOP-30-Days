@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block announce %}
+  <span>
+    🧠 <strong>30-Day C++ Brain Boot Camp</strong> — C++20/23 · RAII · OOP · Templates · TDD ·
+    <a href="{{ 'mindmap/' | url }}" style="color:#c084fc;">View Mind Map →</a>
+  </span>
+{% endblock %}
+
+{% block extrahead %}
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="{{ config.site_name }}" />
+  <meta property="og:description" content="{{ config.site_description }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Critical path: prevent FOUC on dark bg */
+    :root { color-scheme: dark; }
+    body  { background-color: #070a14; }
+  </style>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <div style="text-align:center;padding:1rem;font-size:0.7rem;color:rgba(255,255,255,0.25);">
+    Built with 🧠 MkDocs + Material · C++20/23 · Neurons firing since 2025
+  </div>
+{% endblock %}

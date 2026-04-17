@@ -1,141 +1,221 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   global.css  —  Site-wide base styles and utility classes.
+   Applied to every page via the Base.astro layout.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Import Tailwind CSS v4.  This single @import replaces the three-directive
+   approach from Tailwind v3 (@tailwind base / components / utilities). */
 @import "tailwindcss";
 
+/* ── @theme block: custom design tokens ──────────────────────────────────────
+   @theme lets us define custom CSS variables that Tailwind's JIT engine
+   recognises as utility class values.  E.g. `bg-surface-900` works because
+   we declare --color-surface-900 here.  All colours are tuned for the dark
+   blue-grey palette of this site. */
 @theme {
-  /* Cluster color palette */
+  /* ── Cluster accent colours ───────────────────────────────────────────── */
+  /* A very dark blue used as the background of blue-cluster section headers */
   --color-blue-950: #0a1628;
-  --color-cluster-blue: #3b82f6;
-  --color-cluster-green: #22c55e;
-  --color-cluster-violet: #8b5cf6;
-  --color-cluster-red: #ef4444;
-  --color-cluster-orange: #f97316;
-  --color-cluster-yellow: #eab308;
-  --color-cluster-slate: #94a3b8;
 
-  /* App surface colors */
-  --color-surface-900: #0f1117;
-  --color-surface-800: #161b27;
-  --color-surface-700: #1e2535;
-  --color-surface-600: #2a3347;
+  /* Seven cluster colours — each maps to a Tailwind utility like `text-cluster-blue` */
+  --color-cluster-blue:   #3b82f6; /* Foundations cluster: bright blue */
+  --color-cluster-green:  #22c55e; /* OOP Core cluster: emerald green */
+  --color-cluster-violet: #8b5cf6; /* Templates cluster: violet */
+  --color-cluster-red:    #ef4444; /* Memory cluster: red (danger/caution) */
+  --color-cluster-orange: #f97316; /* Modern C++ cluster: orange */
+  --color-cluster-yellow: #eab308; /* Projects cluster: yellow */
+  --color-cluster-slate:  #94a3b8; /* Review cluster: neutral slate */
 
-  /* Font */
+  /* ── Surface colours ──────────────────────────────────────────────────── */
+  /* A layered stack from darkest (900) to lighter (600).
+     900 is used for the page background, 800 for cards, 700 for borders,
+     600 for slightly elevated UI elements. */
+  --color-surface-900: #0f1117; /* Darkest layer: main page background */
+  --color-surface-800: #161b27; /* Card backgrounds */
+  --color-surface-700: #1e2535; /* Card borders, code block gutters */
+  --color-surface-600: #2a3347; /* Slightly lighter borders and separators */
+
+  /* ── Font stacks ──────────────────────────────────────────────────────── */
+  /* Inter is a clean sans-serif optimised for UI; system-ui is the fallback.
+     JetBrains Mono / Fira Code are programmer-friendly monospace fonts. */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
-/* Base */
+/* ── Base HTML/body styles ───────────────────────────────────────────────── */
+/* Applied globally to the root elements */
 html {
-  background: #070a14;
-  color: #e2e8f0;
-  font-family: "Inter", system-ui, sans-serif;
-  scroll-behavior: smooth;
+  background: #070a14;                     /* Very dark near-black page background */
+  color: #e2e8f0;                          /* Light grey default text colour */
+  font-family: "Inter", system-ui, sans-serif; /* Sans-serif body font */
+  scroll-behavior: smooth;                 /* Smooth scroll when navigating to anchor links */
 }
 
 body {
+  /* Subtle dot-grid background pattern layered via two radial gradients.
+     The first (28 px grid) adds a faint blue dot pattern;
+     the second (56 px grid, offset) adds an even fainter violet overlay.
+     background-attachment: fixed means the pattern doesn't scroll with the content
+     — it creates a sense of depth, like looking through a window. */
   background-image:
     radial-gradient(rgba(59,130,246,.04) 1px, transparent 1px),
     radial-gradient(rgba(139,92,246,.02) 1px, transparent 1px);
-  background-size: 28px 28px, 56px 56px;
-  background-attachment: fixed;
+  background-size: 28px 28px, 56px 56px;  /* Two differently-spaced grids */
+  background-attachment: fixed;           /* Pattern stays fixed while content scrolls */
 }
 
-/* Nav brand */
+/* ── Navigation brand text ───────────────────────────────────────────────── */
+/* The "Modern C++ OOP · 30 Days" brand in the navbar uses a gradient fill.
+   -webkit-background-clip: text clips the gradient to the text shape.
+   -webkit-text-fill-color: transparent makes the text itself transparent so
+   only the gradient background shows through. */
 .nav-brand {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa, #fb923c);
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #fb923c); /* Blue → violet → orange */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Gradient text utilities */
+/* ── Gradient text utilities ─────────────────────────────────────────────── */
+/* .grad-text-cpp: used on the hero "C++ OOP" headline.
+   background-size: 200% makes the gradient wider than the text, so the
+   animation can shift it left/right without showing a hard edge. */
 .grad-text-cpp {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa, #fb923c);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradAnim 6s ease infinite;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #fb923c); /* Blue → violet → orange */
+  background-size: 200%;                   /* Extra width for the animation to travel */
+  -webkit-background-clip: text;           /* Clip gradient to text outline */
+  -webkit-text-fill-color: transparent;    /* Show only the gradient, not the fill colour */
+  animation: gradAnim 6s ease infinite;   /* Slowly animate the gradient position */
 }
+
+/* Single-colour gradient utilities for headings in other contexts */
 .grad-text-blue   { background: linear-gradient(90deg,#60a5fa,#93c5fd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .grad-text-violet { background: linear-gradient(90deg,#a78bfa,#c4b5fd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .grad-text-green  { background: linear-gradient(90deg,#4ade80,#86efac);  -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .grad-text-orange { background: linear-gradient(90deg,#fb923c,#fcd34d); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 
+/* gradAnim: shifts the background-position from 0% to 100% and back,
+   creating the illusion that the gradient is flowing through the text. */
 @keyframes gradAnim { 0%,100%{background-position:0%} 50%{background-position:100%} }
 
-/* Code blocks */
+/* ── Code block font ─────────────────────────────────────────────────────── */
+/* Apply the monospace font stack to all <pre> and <code> elements globally */
 pre, code {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono); /* Uses the --font-mono custom property defined in @theme */
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #0d1117; }
-::-webkit-scrollbar-thumb { background: #1e2d42; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #2d4060; }
+/* ── Custom scrollbar ─────────────────────────────────────────────────────── */
+/* Webkit-specific scrollbar styling (Chrome, Safari, Edge).
+   Firefox uses scrollbar-color and scrollbar-width (not overridden here). */
+::-webkit-scrollbar       { width: 6px; height: 6px; }           /* Thin scrollbar */
+::-webkit-scrollbar-track { background: #0d1117; }               /* Very dark track */
+::-webkit-scrollbar-thumb { background: #1e2d42; border-radius: 3px; } /* Dark blue thumb */
+::-webkit-scrollbar-thumb:hover { background: #2d4060; }         /* Slightly brighter on hover */
 
-/* Prose overrides */
-.prose h1 { color: #f1f5f9; font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+/* ── Prose (Tailwind Typography) overrides ───────────────────────────────── */
+/* The .prose class comes from Tailwind's @tailwindcss/typography plugin.
+   We override its defaults here to match our dark-theme palette.
+   Each rule targets a specific element type inside any .prose container. */
+
+.prose h1 { color: #f1f5f9; font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; } /* Near-white, large */
+
+/* h2 has a left border accent (blue) and a bottom border separator */
 .prose h2 {
   color: #e2e8f0; font-size: 1.15rem; font-weight: 700;
-  border-bottom: 1px solid #1e2535; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 0.75rem;
+  border-bottom: 1px solid #1e2535;    /* Subtle bottom rule */
+  padding-bottom: 0.5rem;
+  margin-top: 2rem; margin-bottom: 0.75rem;
   padding-left: 0.75rem;
-  border-left: 3px solid #3b82f6;
+  border-left: 3px solid #3b82f6;     /* Blue left accent bar */
 }
-.prose h3 { color: #94a3b8; font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-.prose p { color: #cbd5e1; line-height: 1.85; margin-bottom: 0.875rem; }
-.prose strong { color: #f1f5f9; font-weight: 700; }
-.prose em { color: #7dd3fc; font-style: italic; }
+
+.prose h3 { color: #94a3b8; font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; } /* Muted grey */
+.prose p  { color: #cbd5e1; line-height: 1.85; margin-bottom: 0.875rem; }     /* Soft grey body text */
+.prose strong { color: #f1f5f9; font-weight: 700; }                           /* Bright white bold */
+.prose em     { color: #7dd3fc; font-style: italic; }                         /* Sky blue for emphasis */
+
+/* Unordered list: remove default browser bullets, add custom blue arrow */
 .prose ul { list-style: none; padding-left: 0; margin-bottom: 0.875rem; }
 .prose ul li { color: #cbd5e1; padding-left: 1.25rem; position: relative; margin-bottom: 0.3rem; }
+/* ::before pseudo-element inserts the ▸ arrow as a CSS-generated bullet */
 .prose ul li::before { content: "▸"; position: absolute; left: 0; color: #3b82f6; font-size: 0.7em; top: 0.25em; }
-.prose ol li { color: #cbd5e1; margin-bottom: 0.3rem; }
+
+.prose ol li { color: #cbd5e1; margin-bottom: 0.3rem; } /* Ordered list items */
+
+/* Links: blue text, underline only as a bottom border (not the browser default) */
 .prose a { color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96,165,250,.3); transition: border-color .2s; }
-.prose a:hover { border-bottom-color: #60a5fa; }
+.prose a:hover { border-bottom-color: #60a5fa; } /* Stronger underline on hover */
+
+/* Blockquotes: indigo left border, subtle indigo background tint */
 .prose blockquote {
-  border-left: 3px solid #4f46e5;
+  border-left: 3px solid #4f46e5;     /* Indigo accent */
   padding: 0.75rem 1rem;
   margin: 1.25rem 0;
-  background: rgba(79,70,229,.06);
-  border-radius: 0 0.5rem 0.5rem 0;
+  background: rgba(79,70,229,.06);    /* Very faint indigo tint */
+  border-radius: 0 0.5rem 0.5rem 0;  /* Round right corners only */
   color: #94a3b8;
-  font-style: normal;
+  font-style: normal;                 /* Don't italicise blockquote body */
 }
-.prose blockquote strong { color: #a5b4fc; }
+.prose blockquote strong { color: #a5b4fc; } /* Light violet for bold text inside quotes */
+
+/* Tables: full width, collapsed borders, small font */
 .prose table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.875rem; }
+/* Table header: blue tint, coloured text */
 .prose thead th { background: rgba(59,130,246,.08); color: #93c5fd; font-weight: 600; padding: 0.5rem 0.75rem; border: 1px solid #1e2d42; text-align: left; }
+/* Table cells */
 .prose tbody td { padding: 0.45rem 0.75rem; border: 1px solid #1a2235; color: #cbd5e1; }
+/* Subtle row hover highlight */
 .prose tbody tr:hover td { background: rgba(255,255,255,.02); }
+
+/* Code blocks inside .prose: dark background, blue top border, rounded corners */
 .prose pre {
-  background: #0d1117 !important;
+  background: #0d1117 !important;     /* !important overrides Tailwind Typography defaults */
   border: 1px solid #1a2640;
-  border-top: 3px solid #3b82f6;
+  border-top: 3px solid #3b82f6;     /* Prominent blue top border as visual accent */
   border-radius: 0.75rem;
   padding: 1.25rem;
-  overflow-x: auto;
+  overflow-x: auto;                  /* Horizontal scroll for very long lines */
 }
+
+/* Inline code (not inside a <pre>): indigo tint, small pill shape */
 .prose code:not(pre code) {
-  background: rgba(99,102,241,.12);
-  color: #a5b4fc;
+  background: rgba(99,102,241,.12);  /* Faint indigo background */
+  color: #a5b4fc;                    /* Light indigo text */
   padding: 0.15rem 0.45rem;
   border-radius: 0.3rem;
   font-size: 0.85em;
-  border: 1px solid rgba(99,102,241,.2);
+  border: 1px solid rgba(99,102,241,.2); /* Subtle indigo border */
 }
-.prose hr { border-color: #1e2535; margin: 2rem 0; }
 
-/* Animations */
+.prose hr { border-color: #1e2535; margin: 2rem 0; } /* Dark horizontal rule */
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+
+/* fadeUp: slides elements up and fades them in from below.
+   Used on day cards (animate-fade-up) to create a staggered entrance effect. */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(16px); } /* Start: invisible, 16 px below */
+  to   { opacity: 1; transform: translateY(0); }    /* End: fully visible, in place */
 }
-@keyframes pulseGlow {
-  0%,100% { box-shadow: 0 0 8px rgba(59,130,246,.3); }
-  50%      { box-shadow: 0 0 20px rgba(59,130,246,.6); }
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.animate-fade-up { animation: fadeUp 0.4s ease both; }
-.animate-slide-in { animation: slideIn 0.3s ease both; }
 
-/* Day card hover glow */
+/* pulseGlow: expands and contracts a blue glow shadow on an element.
+   Used on the active state of interactive elements to draw attention. */
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 8px rgba(59,130,246,.3); }  /* Small glow */
+  50%      { box-shadow: 0 0 20px rgba(59,130,246,.6); } /* Larger glow at midpoint */
+}
+
+/* slideIn: slides content in from the left when switching tabs.
+   This provides visual feedback that content has changed. */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); } /* Start: invisible, 8 px to the left */
+  to   { opacity: 1; transform: translateX(0); }    /* End: visible, original position */
+}
+
+/* Utility classes that trigger the animations above */
+.animate-fade-up  { animation: fadeUp   0.4s ease both; } /* "both" fills before and after */
+.animate-slide-in { animation: slideIn  0.3s ease both; }
+
+/* ── Day card hover glow ─────────────────────────────────────────────────── */
+/* Applied on hover of .day-card elements (the grid cards on the homepage).
+   Combines a thin white ring with a deep black drop shadow for a card-lift effect. */
 .day-card:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 4px 24px rgba(0,0,0,.4); }

@@ -1,0 +1,3646 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../roadmap/">
+      
+      
+        <link rel="next" href="../mindmap/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Flashcards - Learn Modern CPP OOP in 30 Days</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flashcards.css">
+    
+      <link rel="stylesheet" href="../stylesheets/mindmap.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flashcards-modern-c-oop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Learn Modern CPP OOP in 30 Days" class="md-header__button md-logo" aria-label="Learn Modern CPP OOP in 30 Days" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn Modern CPP OOP in 30 Days
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flashcards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Day00/" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Flashcards
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mindmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Mind Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cheatsheets/" class="md-tabs__link">
+          
+  
+  
+  Cheatsheets
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Learn Modern CPP OOP in 30 Days" class="md-nav__button md-logo" aria-label="Learn Modern CPP OOP in 30 Days" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learn Modern CPP OOP in 30 Days
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 00 - Setup and Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 01 - Variables, Types, Constexpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 02 - Functions and Lambdas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 03 - Classes and Encapsulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 04 - Constructors, Destructors, RAII
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 05 - Smart Pointers and Ownership
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 06 - Inheritance and Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 07 - Virtual, Override, Final, Abstract
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 08 - Advanced OOP Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 09 - Templates Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Concepts and Constraints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Generic OOP Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Ranges and Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - Move Semantics and Rvalue Refs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Rule of Five, Copy and Move
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Error Handling and Expected
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Modules Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Design Patterns for OOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - SOLID Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - Testing with Catch2 and TDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Static Polymorphism and CRTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - pImpl Idiom and Type Erasure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Performance Tips for OOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Modern Features Preview (C++26)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Mini Project 1: Bank System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Mini Project 2: Shape Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Mini Project 3: Game Entities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - Refactoring Legacy Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - Code Review and Common Pitfalls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Advanced Topics Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Day30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Review, Cert Prep, Next Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flashcards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#day-00-environment-setup-and-build-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 00: Environment Setup and Build System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-01-c-core-syntax-refresher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 01: C++ Core Syntax Refresher
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-02-functions-lambdas-and-parameter-passing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 02: Functions, Lambdas, and Parameter Passing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-03-classes-encapsulation-and-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 03: Classes, Encapsulation, and Invariants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-04-constructors-destructors-and-raii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 04: Constructors, Destructors, and RAII
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-05-smart-pointers-and-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 05: Smart Pointers and Ownership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-06-inheritance-and-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 06: Inheritance and Polymorphism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-07-virtual-override-final-and-abstract-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 07: Virtual, Override, Final, and Abstract Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-08-composition-mixins-and-design-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 08: Composition, Mixins, and Design Choices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-09-templates-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 09: Templates Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-10-concepts-and-constraints-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 10: Concepts and Constraints (C++20)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-11-policy-based-design-and-static-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 11: Policy-Based Design and Static Polymorphism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-12-ranges-and-views-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 12: Ranges and Views (C++20)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-13-move-semantics-and-perfect-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 13: Move Semantics and Perfect Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-14-rule-of-five-and-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 14: Rule of Five and Resource Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-15-error-handling-and-stdexpected-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 15: Error Handling and std::expected (C++23)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-16-modules-c20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 16: Modules (C++20)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-17-design-patterns-in-modern-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 17: Design Patterns in Modern C++
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-18-solid-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 18: SOLID Principles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-19-testing-with-catch2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 19: Testing with Catch2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-20-crtp-and-static-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 20: CRTP and Static Polymorphism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-21-type-erasure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 21: Type Erasure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-22-performance-tips-for-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 22: Performance Tips for OOP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-23-modern-features-preview-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 23: Modern Features Preview — C++26
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-24-mini-project-1-bank-account-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 24: Mini Project 1 — Bank Account System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-25-mini-project-2-shape-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 25: Mini Project 2 — Shape Editor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-26-mini-project-3-game-entities-ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 26: Mini Project 3 — Game Entities (ECS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-27-refactoring-legacy-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 27: Refactoring Legacy Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-28-code-review-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 28: Code Review Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-29-advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 29: Advanced Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-30-review-certification-prep-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 30: Review, Certification Prep, and Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mindmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mind Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cheatsheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Language
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Language
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/variables-types-constexpr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables, Types & Constexpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/uniform-initialization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uniform Initialization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/functions-lambdas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions & Lambdas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/structured-bindings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Bindings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/modern-cpp20-23-cheat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern C++20/23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/cpp-core-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Core Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP & Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OOP & Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/classes-constructors-raii/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes, Constructors & RAII
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/inheritance-polymorphism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance & Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/composition-vs-inheritance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composition vs Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/advanced-oop-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced OOP Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/oop-principles-solid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP Principles & SOLID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/refactoring-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refactoring Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/common-pitfalls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Pitfalls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory & Ownership
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Memory & Ownership
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/raii-smart-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAII & Smart Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/move-semantics-gotchas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Move Semantics Gotchas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/rule-of-5-cheat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule of Five
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/memory-layout-and-object-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Layout & Object Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates & Generic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Templates & Generic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/templates-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/templates-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates & Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/crtp-static-polymorphism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRTP & Static Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/type-erasure-pimpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Erasure & pImpl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Utilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modern Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/ranges-and-views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ranges & Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/optional-variant-any/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional, Variant, Any
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/error-handling-expected/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling & Expected
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/modules-cpp20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules (C++20)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Tooling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance & Tooling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/performance-tips-oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/debugging-tools-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debugging Tools 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/catch2-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catch2 Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="flashcards-modern-c-oop">Flashcards: Modern C++ OOP<a class="headerlink" href="#flashcards-modern-c-oop" title="Permanent link">&para;</a></h1>
+<p>Use these flashcards to test your knowledge. Cover the answer, try to recall, then reveal.</p>
+<hr />
+<h2 id="day-00-environment-setup-and-build-system">Day 00: Environment Setup and Build System<a class="headerlink" href="#day-00-environment-setup-and-build-system" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the purpose of an out-of-source build in CMake, and how do you create one?</p>
+<p><strong>A:</strong> An out-of-source build keeps generated files separate from the source tree, preventing pollution and making clean builds trivial. You create one with <code>cmake -S . -B build</code>, which places all build artefacts under <code>build/</code>.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>cmake --build build -- -j$(nproc)</code> do, and why is the <code>-j</code> flag useful?</p>
+<p><strong>A:</strong> It invokes the underlying build system (e.g., Make or Ninja) from the <code>build/</code> directory. The <code>-j$(nproc)</code> flag parallelises compilation across all available CPU cores, significantly reducing build times.</p>
+<hr />
+<p><strong>Q:</strong> What is the role of <code>target_compile_features(my_target PRIVATE cxx_std_23)</code> in CMakeLists.txt?</p>
+<p><strong>A:</strong> It tells CMake to compile <code>my_target</code> using at least C++23, propagating the correct <code>-std=c++23</code> flag without hardcoding compiler-specific flags. Using <code>PRIVATE</code> means the requirement does not propagate to consumers of the target.</p>
+<hr />
+<p><strong>Q:</strong> What is the risk of placing all compilation in a single translation unit (unity build) for learning?</p>
+<p><strong>A:</strong> Single-file builds avoid linker issues and simplify the setup for small projects, but they do not reflect real-world multi-file projects. They hide ODR violations and slow down incremental compilation as code grows.</p>
+<hr />
+<p><strong>Q:</strong> Why should you prefer <code>target_include_directories</code> over manually adding <code>-I</code> flags to compiler options?</p>
+<p><strong>A:</strong> <code>target_include_directories</code> is transitive and works correctly with CMake's dependency graph, so consumers automatically get the right include paths. Manual <code>-I</code> flags break when targets are linked and do not compose.</p>
+<hr />
+<h2 id="day-01-c-core-syntax-refresher">Day 01: C++ Core Syntax Refresher<a class="headerlink" href="#day-01-c-core-syntax-refresher" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> Why does brace initialisation (<code>{}</code>) prevent narrowing conversions while parenthesis initialisation does not?</p>
+<p><strong>A:</strong> The C++ standard mandates that brace initialisation is ill-formed if the initialiser cannot be converted to the target type without a narrowing conversion, so <code>int x{3.14}</code> is a compile error. Parenthesis initialisation silently truncates.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between <code>const</code> and <code>constexpr</code> on a variable?</p>
+<p><strong>A:</strong> <code>const</code> means the variable cannot be modified after initialisation but its value may not be known at compile time. <code>constexpr</code> requires the value to be a compile-time constant and allows it to appear in contexts like template arguments and array sizes.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>auto [key, value] = *it;</code> demonstrate, and what C++ version introduced it?</p>
+<p><strong>A:</strong> It demonstrates structured bindings, introduced in C++17, which decompose a <code>std::pair</code> (or aggregate) into named variables. This eliminates <code>it-&gt;first</code> / <code>it-&gt;second</code> noise and clarifies intent.</p>
+<hr />
+<p><strong>Q:</strong> What is the pitfall of using <code>auto</code> with a proxy-returning container like <code>std::vector&lt;bool&gt;</code>?</p>
+<p><strong>A:</strong> <code>std::vector&lt;bool&gt;</code> returns a proxy object, not <code>bool&amp;</code>, so <code>auto x = v[0]</code> deduces <code>x</code> as the proxy type rather than <code>bool</code>. Modifying <code>x</code> may behave unexpectedly; use <code>bool x = v[0]</code> explicitly.</p>
+<hr />
+<p><strong>Q:</strong> What is a value category, and why does it matter for move semantics?</p>
+<p><strong>A:</strong> Every expression has a value category: an lvalue refers to an addressable object, while an rvalue (prvalue/xvalue) is a temporary or "movable from" object. Move semantics rely on detecting rvalues to steal resources instead of copying them.</p>
+<hr />
+<h2 id="day-02-functions-lambdas-and-parameter-passing">Day 02: Functions, Lambdas, and Parameter Passing<a class="headerlink" href="#day-02-functions-lambdas-and-parameter-passing" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> When should you pass a parameter by <code>const T&amp;</code> versus by value?</p>
+<p><strong>A:</strong> Pass by <code>const T&amp;</code> when the object is expensive to copy and you only need to read it. Pass by value when you need a local copy anyway, or when the type is cheap to copy (e.g., arithmetic types, iterators).</p>
+<hr />
+<p><strong>Q:</strong> What does <code>[[nodiscard]]</code> on a function tell the compiler, and why is it useful for error-handling functions?</p>
+<p><strong>A:</strong> It instructs the compiler to warn when the return value is discarded without being used. For functions like <code>load_file()</code> that return an error indicator, silently ignoring the result is almost always a bug.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between capturing by value (<code>[=]</code>) and by reference (<code>[&amp;]</code>) in a lambda?</p>
+<p><strong>A:</strong> <code>[=]</code> copies all used variables at the point of lambda creation, so changes to the originals do not affect the lambda. <code>[&amp;]</code> stores references, which is efficient but dangerous if the lambda outlives the referenced variables.</p>
+<hr />
+<p><strong>Q:</strong> Why can <code>std::function&lt;void()&gt;</code> introduce heap allocation, and what is the alternative in performance-critical code?</p>
+<p><strong>A:</strong> <code>std::function</code> uses type erasure and allocates on the heap when the stored callable exceeds its small-buffer threshold. In hot paths, a template parameter (e.g., <code>template&lt;typename F&gt; void apply(F f)</code>) resolves the callable at compile time with zero overhead.</p>
+<hr />
+<p><strong>Q:</strong> What does this code do, and what pitfall does it illustrate?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// returns ?</span>
+</code></pre></div>
+<p><strong>A:</strong> It returns 198 because the lambda captures <code>x</code> by reference and reads the current value (99) when called. The pitfall is that capture-by-reference creates a dangling reference if <code>x</code> goes out of scope before the lambda is called.</p>
+<hr />
+<h2 id="day-03-classes-encapsulation-and-invariants">Day 03: Classes, Encapsulation, and Invariants<a class="headerlink" href="#day-03-classes-encapsulation-and-invariants" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is a class invariant, and who is responsible for maintaining it?</p>
+<p><strong>A:</strong> A class invariant is a condition that must hold true for all valid objects of a class (e.g., <code>size_ &lt;= capacity_</code>). It is established by the constructor, and every public method must preserve it before returning.</p>
+<hr />
+<p><strong>Q:</strong> Why should setters validate input rather than blindly assigning?</p>
+<p><strong>A:</strong> A setter that validates maintains the class invariant, ensuring the object is always in a consistent state. Blind assignment transfers the burden of correctness to every caller, making invariant violations easy to introduce.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>explicit</code> on a constructor prevent, and when should it be omitted?</p>
+<p><strong>A:</strong> <code>explicit</code> prevents the constructor from being used for implicit conversions and copy-initialisation (<code>T x = value</code>). Omit it only when implicit conversion is semantically meaningful, such as <code>std::string</code> from a string literal.</p>
+<hr />
+<p><strong>Q:</strong> What is the "tell, don't ask" principle, and how does it relate to encapsulation?</p>
+<p><strong>A:</strong> Instead of asking an object for its state and making decisions externally, you tell the object what to do and let it decide. This keeps decision logic inside the class where it can enforce invariants and avoids scattered conditionals.</p>
+<hr />
+<p><strong>Q:</strong> What is the pitfall of returning a non-<code>const</code> reference to a private member?</p>
+<p><strong>A:</strong> It breaks encapsulation by giving external code direct write access to the member, bypassing all validation logic. The class loses control of its invariant because callers can modify the member without the class knowing.</p>
+<hr />
+<h2 id="day-04-constructors-destructors-and-raii">Day 04: Constructors, Destructors, and RAII<a class="headerlink" href="#day-04-constructors-destructors-and-raii" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is RAII, and how does it guarantee resource cleanup?</p>
+<p><strong>A:</strong> Resource Acquisition Is Initialisation ties resource lifetime to object lifetime. The constructor acquires the resource and the destructor releases it, so the resource is freed automatically when the object goes out of scope — even if an exception is thrown.</p>
+<hr />
+<p><strong>Q:</strong> Why must destructors never throw exceptions?</p>
+<p><strong>A:</strong> If a destructor throws during stack unwinding (already handling another exception), <code>std::terminate</code> is called and the program aborts. Destructors are implicitly <code>noexcept</code> in C++11 and beyond; any throwing destructor violates this contract.</p>
+<hr />
+<p><strong>Q:</strong> What is the two-phase initialisation anti-pattern, and why is it problematic?</p>
+<p><strong>A:</strong> Two-phase init separates construction from a separate <code>init()</code> call, meaning the object exists in an invalid intermediate state between the two. This forces every user to remember to call <code>init()</code> and makes it impossible to use <code>const</code> objects.</p>
+<hr />
+<p><strong>Q:</strong> What does a delegating constructor do?</p>
+<p><strong>A:</strong> A delegating constructor calls another constructor of the same class in its member-initialiser list, allowing shared initialisation logic without code duplication. The delegated-to constructor runs first and establishes the invariant.</p>
+<hr />
+<p><strong>Q:</strong> Why prefer member-initialiser lists over assignment in the constructor body?</p>
+<p><strong>A:</strong> Members are always default-constructed before the body runs. Assigning in the body means default-constructing then assigning, which is two operations. The initialiser list directly constructs, which is more efficient and required for <code>const</code> and reference members.</p>
+<hr />
+<h2 id="day-05-smart-pointers-and-ownership">Day 05: Smart Pointers and Ownership<a class="headerlink" href="#day-05-smart-pointers-and-ownership" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the ownership model difference between <code>std::unique_ptr</code> and <code>std::shared_ptr</code>?</p>
+<p><strong>A:</strong> <code>unique_ptr</code> models exclusive ownership — exactly one pointer owns the resource, and it is destroyed when the pointer goes out of scope or is explicitly released. <code>shared_ptr</code> models shared ownership via reference counting, destroying the resource when the last owner is destroyed.</p>
+<hr />
+<p><strong>Q:</strong> Why should you use <code>std::make_unique&lt;T&gt;()</code> instead of <code>new T()</code>?</p>
+<p><strong>A:</strong> <code>make_unique</code> is exception-safe (no memory leak if the constructor throws), reads more clearly, and avoids repeating the type. It also prevents certain undefined behaviours that arise from manually pairing <code>new</code> and <code>unique_ptr</code>.</p>
+<hr />
+<p><strong>Q:</strong> What problem does <code>std::weak_ptr</code> solve?</p>
+<p><strong>A:</strong> <code>weak_ptr</code> breaks reference cycles between <code>shared_ptr</code> instances that would otherwise keep objects alive forever. It holds a non-owning reference that must be promoted to a <code>shared_ptr</code> via <code>lock()</code> before use, returning <code>nullptr</code> if the object has been destroyed.</p>
+<hr />
+<p><strong>Q:</strong> What is the pitfall of storing <code>this</code> in a <code>shared_ptr</code> directly?</p>
+<p><strong>A:</strong> Constructing a <code>shared_ptr</code> from <code>this</code> creates a second, independent reference count, so the object may be destroyed while the original <code>shared_ptr</code> still thinks it is alive. Use <code>std::enable_shared_from_this</code> and call <code>shared_from_this()</code> instead.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>std::unique_ptr</code> with a custom deleter look like, and when is it useful?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">FILE</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fclose</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;f.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fclose</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>A:</strong> This wraps a C-style <code>FILE*</code> in a <code>unique_ptr</code> using <code>fclose</code> as the custom deleter, so the file is closed automatically. It is useful for any C resource (sockets, handles) that uses a non-<code>delete</code> cleanup function.</p>
+<hr />
+<h2 id="day-06-inheritance-and-polymorphism">Day 06: Inheritance and Polymorphism<a class="headerlink" href="#day-06-inheritance-and-polymorphism" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is object slicing, and how do you prevent it?</p>
+<p><strong>A:</strong> Slicing occurs when a derived object is assigned to a base object by value, discarding the derived portion and the vtable pointer. Prevent it by using pointers or references to base (<code>Base*</code>, <code>Base&amp;</code>) for polymorphic code.</p>
+<hr />
+<p><strong>Q:</strong> Why must a polymorphic base class have a virtual destructor?</p>
+<p><strong>A:</strong> When deleting a derived object through a <code>Base*</code>, the compiler calls the destructor indicated by the static type unless it is virtual. Without <code>virtual ~Base()</code>, the derived destructor never runs, causing resource leaks.</p>
+<hr />
+<p><strong>Q:</strong> How does a vtable enable runtime polymorphism?</p>
+<p><strong>A:</strong> Each class with virtual functions has a vtable — a table of function pointers to its virtual methods. Each object stores a vptr pointing to its class's vtable, so a virtual call dispatches through the vptr at runtime to the correct override.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>dynamic_cast&lt;Derived*&gt;(base_ptr)</code> return if the cast is invalid?</p>
+<p><strong>A:</strong> It returns <code>nullptr</code> for pointer casts. For reference casts (<code>dynamic_cast&lt;Derived&amp;&gt;</code>), it throws <code>std::bad_cast</code>. Always check the result of a pointer <code>dynamic_cast</code> before dereferencing.</p>
+<hr />
+<p><strong>Q:</strong> When is <code>std::variant</code> + <code>std::visit</code> preferable to virtual dispatch?</p>
+<p><strong>A:</strong> When the set of types is closed (known at compile time), <code>std::variant</code> avoids heap allocation and virtual call overhead. It also provides exhaustiveness checking — adding a new type without handling it is a compile error.</p>
+<hr />
+<h2 id="day-07-virtual-override-final-and-abstract-classes">Day 07: Virtual, Override, Final, and Abstract Classes<a class="headerlink" href="#day-07-virtual-override-final-and-abstract-classes" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What makes a class abstract, and what happens if you try to instantiate it?</p>
+<p><strong>A:</strong> A class is abstract if it has at least one pure virtual function (<code>= 0</code>). Attempting to instantiate it directly is a compile error; it can only be used through pointers or references to derived classes that implement all pure virtuals.</p>
+<hr />
+<p><strong>Q:</strong> What compiler protection does <code>override</code> provide?</p>
+<p><strong>A:</strong> <code>override</code> causes a compile error if the function does not actually override a virtual function in a base class (e.g., signature mismatch or missing <code>virtual</code> in base). Without it, a mismatched signature silently creates a new, non-overriding function.</p>
+<hr />
+<p><strong>Q:</strong> What is the NVI (Non-Virtual Interface) idiom, and what invariant guarantee does it provide?</p>
+<p><strong>A:</strong> NVI makes the public interface non-virtual while the virtual customisation points are <code>protected</code> or <code>private</code>. The public wrapper enforces pre/post conditions that no override can bypass, guaranteeing invariants around every customisation.</p>
+<hr />
+<p><strong>Q:</strong> What is a covariant return type, and how does it eliminate casts?</p>
+<p><strong>A:</strong> An override may return a pointer or reference to a more-derived type than the base virtual's return type. In a <code>clone()</code> pattern, <code>Derived* clone() override</code> can return <code>Derived*</code> directly, allowing callers to use the result without <code>dynamic_cast</code>.</p>
+<hr />
+<p><strong>Q:</strong> What devirtualisation benefit does <code>final</code> on a class provide?</p>
+<p><strong>A:</strong> When a class is <code>final</code>, the compiler knows no further derived classes exist, so virtual calls through a concrete <code>final</code> type can be resolved at compile time and potentially inlined, eliminating the vtable dispatch overhead.</p>
+<hr />
+<h2 id="day-08-composition-mixins-and-design-choices">Day 08: Composition, Mixins, and Design Choices<a class="headerlink" href="#day-08-composition-mixins-and-design-choices" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> Why is composition generally preferred over inheritance for code reuse?</p>
+<p><strong>A:</strong> Inheritance creates tight coupling through the base class interface and can expose implementation details. Composition is more flexible — you can swap components at runtime or compile time, and changes to a component don't propagate unexpectedly.</p>
+<hr />
+<p><strong>Q:</strong> What is the Strategy pattern, and how does it relate to composition?</p>
+<p><strong>A:</strong> Strategy defines a family of algorithms behind an interface and makes them interchangeable at runtime by composing the context object with a strategy object. It is composition over inheritance: the context delegates to the strategy rather than inheriting behaviour.</p>
+<hr />
+<p><strong>Q:</strong> What is the Interface Segregation Principle, and how does it affect class design?</p>
+<p><strong>A:</strong> ISP states that clients should not be forced to depend on interfaces they don't use. It means splitting fat interfaces into focused ones, so implementing classes only need to provide the methods that are relevant to their responsibilities.</p>
+<hr />
+<p><strong>Q:</strong> What is the pImpl idiom, and what compilation benefit does it provide?</p>
+<p><strong>A:</strong> pImpl (pointer to implementation) hides a class's private data behind a forward-declared implementation struct, stored via a <code>unique_ptr</code>. Changes to private members do not recompile clients, providing a stable ABI and faster incremental builds.</p>
+<hr />
+<p><strong>Q:</strong> What is the pitfall of deep inheritance hierarchies?</p>
+<p><strong>A:</strong> Deep hierarchies create fragile base class problems: changes to intermediate classes propagate unpredictably. They also make code hard to understand because behaviour is spread across multiple levels, and they may force unneeded interface implementation on derived classes.</p>
+<hr />
+<h2 id="day-09-templates-basics">Day 09: Templates Basics<a class="headerlink" href="#day-09-templates-basics" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is a function template, and when is it instantiated?</p>
+<p><strong>A:</strong> A function template is a blueprint parameterised by types or values. It is instantiated (concrete code generated) by the compiler at the point of use when it deduces or is explicitly given template arguments.</p>
+<hr />
+<p><strong>Q:</strong> What is template argument deduction, and when might it fail?</p>
+<p><strong>A:</strong> The compiler deduces template arguments from function call arguments. It fails when arguments have conflicting deductions (e.g., <code>T</code> deduced as both <code>int</code> and <code>double</code>), when the argument is a brace-enclosed initialiser, or when deduction requires a conversion.</p>
+<hr />
+<p><strong>Q:</strong> What is the purpose of a variadic template and fold expression?</p>
+<p><strong>A:</strong> Variadic templates accept any number of type or value arguments. Fold expressions (C++17) apply a binary operator across the pack, enabling concise implementations of <code>sum&lt;1,2,3&gt;()</code> or <code>print(args...)</code> without explicit recursion.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>typename T::value_type</code> inside a template require, and how do you fix a compile error related to it?</p>
+<p><strong>A:</strong> <code>value_type</code> is a dependent name — its interpretation depends on <code>T</code>. The compiler does not treat it as a type by default, so you must write <code>typename T::value_type</code> explicitly to tell the compiler it names a type.</p>
+<hr />
+<p><strong>Q:</strong> What is explicit template instantiation and why would you use it?</p>
+<p><strong>A:</strong> <code>template class MyClass&lt;int&gt;;</code> forces the compiler to instantiate the template for <code>int</code> in the current translation unit. This reduces compile times and object size when the same instantiation would otherwise appear in many translation units.</p>
+<hr />
+<h2 id="day-10-concepts-and-constraints-c20">Day 10: Concepts and Constraints (C++20)<a class="headerlink" href="#day-10-concepts-and-constraints-c20" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the difference between a <code>requires</code> clause and a <code>requires</code> expression?</p>
+<p><strong>A:</strong> A <code>requires</code> clause is a boolean predicate on a template parameter (e.g., <code>requires Sortable&lt;T&gt;</code>). A <code>requires</code> expression is a body of syntactic constraints that evaluates to <code>bool</code> — it can appear inside a <code>requires</code> clause to check operations inline.</p>
+<hr />
+<p><strong>Q:</strong> What does concept subsumption mean for overload resolution?</p>
+<p><strong>A:</strong> If concept A implies concept B (A subsumes B), then a function constrained by A is more specialised than one constrained by B and will be preferred in overload resolution. This allows writing general and specialised overloads without ambiguity.</p>
+<hr />
+<p><strong>Q:</strong> Write a concept that constrains <code>T</code> to types that support <code>+=</code> with <code>int</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">concept</span><span class="w"> </span><span class="nc">AddAssignable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div>
+<p><strong>A:</strong> The <code>requires</code> expression checks that the expression <code>x += n</code> is well-formed for a value of type <code>T</code> and an <code>int</code>. Any type satisfying this is accepted; others produce a clear constraint violation error.</p>
+<hr />
+<p><strong>Q:</strong> What is <code>std::regular</code>, and what operations does it require?</p>
+<p><strong>A:</strong> <code>std::regular</code> is a standard concept requiring default construction, copy construction/assignment, move construction/assignment, and equality comparison (<code>==</code>). It models types that behave like "values" in the mathematical sense.</p>
+<hr />
+<p><strong>Q:</strong> Why is a concept error message friendlier than a raw SFINAE failure?</p>
+<p><strong>A:</strong> Concepts produce a single, targeted diagnostic naming the unsatisfied concept and the failed constraint. SFINAE failures produce cascading template substitution errors that are notoriously verbose and difficult to trace to the root cause.</p>
+<hr />
+<h2 id="day-11-policy-based-design-and-static-polymorphism">Day 11: Policy-Based Design and Static Polymorphism<a class="headerlink" href="#day-11-policy-based-design-and-static-polymorphism" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is policy-based design, and how does it differ from runtime polymorphism?</p>
+<p><strong>A:</strong> Policy-based design passes behaviours as template parameters, allowing the compiler to inline and optimise the combined policy. Runtime polymorphism (virtual dispatch) defers the decision to runtime via vtable, incurring indirect call overhead.</p>
+<hr />
+<p><strong>Q:</strong> What is CRTP (Curiously Recurring Template Pattern)?</p>
+<p><strong>A:</strong> CRTP is a pattern where a derived class passes itself as a template argument to its base: <code>class Derived : public Base&lt;Derived&gt;</code>. The base can call methods on the derived type statically, achieving polymorphism without virtual dispatch.</p>
+<hr />
+<p><strong>Q:</strong> What is the mixin accumulation pattern, and how does it compose behaviours?</p>
+<p><strong>A:</strong> Mixins are small base classes providing one behaviour each (e.g., <code>Serialisable</code>, <code>Comparable</code>). A class inherits from multiple mixins via a variadic template chain: <code>class MyType : public Mixin1&lt;MyType&gt;, public Mixin2&lt;MyType&gt;</code>.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall arises when using CRTP if the derived class forgets to pass itself?</p>
+<p><strong>A:</strong> If <code>class Derived : public Base&lt;SomeOtherType&gt;</code> is written, <code>Base</code> casts <code>this</code> to the wrong type, producing undefined behaviour at runtime with no compile-time error. A <code>static_assert(std::is_base_of_v&lt;Base&lt;Derived&gt;, Derived&gt;)</code> in the base can catch this.</p>
+<hr />
+<p><strong>Q:</strong> When is static polymorphism (CRTP/policies) inappropriate?</p>
+<p><strong>A:</strong> When the concrete type is not known until runtime (plugin systems, user-selected algorithms), or when separate compilation of each instantiation is required. Static polymorphism also increases compile times and binary size for many instantiations.</p>
+<hr />
+<h2 id="day-12-ranges-and-views-c20">Day 12: Ranges and Views (C++20)<a class="headerlink" href="#day-12-ranges-and-views-c20" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What does "lazy evaluation" mean for a <code>std::views</code> pipeline?</p>
+<p><strong>A:</strong> A view does not process elements when constructed; it stores only the transformation description. Elements are computed on demand as the pipeline is iterated, avoiding materialisation of intermediate containers.</p>
+<hr />
+<p><strong>Q:</strong> What does the pipe operator (<code>|</code>) do in a Ranges pipeline?</p>
+<p><strong>A:</strong> The pipe operator composes range adaptors: <code>v | std::views::filter(pred) | std::views::transform(fn)</code> builds a view that lazily applies <code>filter</code> then <code>transform</code> when iterated. It is syntactic sugar for <code>std::views::transform(std::views::filter(v, pred), fn)</code>.</p>
+<hr />
+<p><strong>Q:</strong> What is a dangling view, and how does it arise with temporaries?</p>
+<p><strong>A:</strong> A view that references a temporary container becomes dangling when the temporary is destroyed. <code>auto v = std::vector{1,2,3} | std::views::filter(...);</code> is dangling immediately; always ensure the underlying range outlives the view.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between <code>std::views::transform</code> and <code>std::ranges::transform</code>?</p>
+<p><strong>A:</strong> <code>std::views::transform</code> returns a lazy view; no work is done until you iterate. <code>std::ranges::transform</code> is an eager algorithm that writes results into an output range immediately, similar to <code>std::transform</code>.</p>
+<hr />
+<p><strong>Q:</strong> How do you materialise a view into a <code>std::vector</code> in C++23?</p>
+<p><strong>A:</strong> Use <code>std::ranges::to&lt;std::vector&gt;(view)</code> (C++23), or in C++20 use the range constructor: <code>std::vector&lt;T&gt;(view.begin(), view.end())</code>. The C++23 <code>to</code> helper is more concise and works with pipe syntax.</p>
+<hr />
+<h2 id="day-13-move-semantics-and-perfect-forwarding">Day 13: Move Semantics and Perfect Forwarding<a class="headerlink" href="#day-13-move-semantics-and-perfect-forwarding" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the difference between an lvalue reference and an rvalue reference?</p>
+<p><strong>A:</strong> An lvalue reference (<code>T&amp;</code>) binds to named, addressable objects. An rvalue reference (<code>T&amp;&amp;</code>) binds only to temporaries or objects explicitly cast with <code>std::move</code>, enabling the called function to "steal" the resource rather than copying.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>std::move</code> actually do?</p>
+<p><strong>A:</strong> <code>std::move</code> is a cast — it converts an lvalue to an xvalue (a type of rvalue). It does not move anything itself; it signals that the caller permits the resource to be moved from, enabling the move constructor/assignment to be selected.</p>
+<hr />
+<p><strong>Q:</strong> What is NRVO, and why should you return local variables by value rather than <code>std::move</code>?</p>
+<p><strong>A:</strong> Named Return Value Optimisation allows the compiler to construct the return value directly in the caller's storage, eliding the copy/move entirely. Applying <code>std::move</code> on a return value prevents NRVO and may cause an unnecessary move instead of elision.</p>
+<hr />
+<p><strong>Q:</strong> What is perfect forwarding, and what syntax enables it?</p>
+<p><strong>A:</strong> Perfect forwarding preserves the value category of arguments when passing them to another function. It uses a forwarding reference (<code>T&amp;&amp;</code> in a template context) combined with <code>std::forward&lt;T&gt;(arg)</code>, which casts to rvalue only if <code>T</code> was deduced as an rvalue reference.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall does this code demonstrate?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">sink</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">relay</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">sink</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// moves or copies?</span>
+</code></pre></div>
+<p><strong>A:</strong> <code>s</code> is an rvalue reference but it is an lvalue inside the function body (it has a name). Calling <code>sink(s)</code> copies instead of moves. You must write <code>sink(std::move(s))</code> to actually move the string into <code>sink</code>.</p>
+<hr />
+<h2 id="day-14-rule-of-five-and-resource-management">Day 14: Rule of Five and Resource Management<a class="headerlink" href="#day-14-rule-of-five-and-resource-management" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What are the five special member functions, and when does the Rule of Five apply?</p>
+<p><strong>A:</strong> Destructor, copy constructor, copy assignment, move constructor, move assignment. The Rule of Five applies when you manage a raw resource: if you define any one of these, you almost certainly need to define or explicitly delete all five.</p>
+<hr />
+<p><strong>Q:</strong> What is the copy-and-swap idiom, and what exception safety guarantee does it provide?</p>
+<p><strong>A:</strong> Copy-and-swap implements assignment by constructing a copy, then swapping with <code>*this</code>. It provides the strong exception safety guarantee: if the copy throws, <code>*this</code> is unchanged; the swap is <code>noexcept</code>.</p>
+<hr />
+<p><strong>Q:</strong> What is the Rule of Zero?</p>
+<p><strong>A:</strong> If a class manages no raw resources directly (using smart pointers and RAII wrappers instead), define none of the five special members. The compiler-generated versions are correct, and defining them manually only introduces risk.</p>
+<hr />
+<p><strong>Q:</strong> Why is <code>noexcept</code> on move operations important for containers like <code>std::vector</code>?</p>
+<p><strong>A:</strong> <code>std::vector</code> reallocation uses move if the move constructor is <code>noexcept</code>, otherwise it copies to preserve the strong exception guarantee. Without <code>noexcept</code>, your type copies on reallocation even when a move would be safe.</p>
+<hr />
+<p><strong>Q:</strong> What exception safety level does this assignment operator provide, and is it correct?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">MyClass</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MyClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">rhs</span><span class="p">.</span><span class="n">size_</span><span class="p">];</span><span class="w">  </span><span class="c1">// throws?</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>A:</strong> Only the basic guarantee: if <code>new</code> throws, <code>data_</code> is a dangling pointer and the object is in an invalid state. The copy-and-swap idiom fixes this by not modifying <code>*this</code> until a successful copy is made.</p>
+<hr />
+<h2 id="day-15-error-handling-and-stdexpected-c23">Day 15: Error Handling and std::expected (C++23)<a class="headerlink" href="#day-15-error-handling-and-stdexpected-c23" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> When should you use exceptions versus <code>std::expected&lt;T,E&gt;</code>?</p>
+<p><strong>A:</strong> Use exceptions for truly unexpected conditions (e.g., out-of-memory) or when propagating errors through many layers without touching intermediate code. Use <code>std::expected</code> when failure is a normal, expected outcome that callers should explicitly handle.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>std::expected&lt;T, E&gt;</code> differ from returning an error code?</p>
+<p><strong>A:</strong> <code>std::expected</code> carries either a success value or an error value in a single return type, making it impossible to accidentally use the value when an error occurred. With <code>[[nodiscard]]</code>, discarding the result is a compiler warning.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>.and_then</code> do in an <code>std::expected</code> pipeline?</p>
+<p><strong>A:</strong> <code>.and_then(f)</code> calls <code>f</code> with the success value only if the expected holds a value, propagating the error unchanged otherwise. It enables building a chain of fallible operations without nested <code>if</code> error checks.</p>
+<hr />
+<p><strong>Q:</strong> What is <code>std::unexpected</code>, and how is it used?</p>
+<p><strong>A:</strong> <code>std::unexpected&lt;E&gt;</code> wraps an error value and is used to construct the error case of <code>std::expected</code>: <code>return std::unexpected{ConfigError::file_not_found};</code>. It distinguishes error construction from value construction at the call site.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>noexcept</code> on a function promise the compiler, and what happens if the promise is broken?</p>
+<p><strong>A:</strong> <code>noexcept</code> promises the function will never throw. If an exception propagates out of a <code>noexcept</code> function, <code>std::terminate</code> is called immediately. The compiler uses this guarantee to elide stack-unwinding infrastructure.</p>
+<hr />
+<h2 id="day-16-modules-c20">Day 16: Modules (C++20)<a class="headerlink" href="#day-16-modules-c20" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is a Binary Module Interface (BMI), and how does it differ from a precompiled header?</p>
+<p><strong>A:</strong> A BMI is a compiled representation of a module's exported interface, produced once and reused by importers. Unlike a PCH, a BMI exposes only explicitly exported declarations, hiding internal implementation details and avoiding macro leakage.</p>
+<hr />
+<p><strong>Q:</strong> What is the global module fragment, and why is it needed?</p>
+<p><strong>A:</strong> The global module fragment (<code>module;</code> before <code>export module name;</code>) is where you place <code>#include</code> directives for legacy headers. Declarations from these headers are not exported with the module, keeping the module interface clean.</p>
+<hr />
+<p><strong>Q:</strong> What is a module partition, and when would you use one?</p>
+<p><strong>A:</strong> A module partition (<code>export module MyLib:part;</code>) splits a large module into separately compiled files. The primary module interface re-exports selected partitions, enabling large-scale organisation without a monolithic interface file.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall arises when mixing <code>#include</code> and <code>import</code> in the same translation unit?</p>
+<p><strong>A:</strong> Macros from <code>#include</code>d headers can affect module-imported code, and the global module fragment ordering rules are strict. The safest practice is to use <code>#include</code> only in the global module fragment and <code>import</code> for all module dependencies.</p>
+<hr />
+<p><strong>Q:</strong> Why does <code>import std;</code> require a dedicated <code>std</code> module to be installed?</p>
+<p><strong>A:</strong> <code>import std;</code> imports the entire C++ standard library as a pre-built module, but the compiler must have a pre-compiled standard library module available. Not all toolchains provide this; GCC and MSVC support it in recent versions, but setup varies.</p>
+<hr />
+<h2 id="day-17-design-patterns-in-modern-c">Day 17: Design Patterns in Modern C++<a class="headerlink" href="#day-17-design-patterns-in-modern-c" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> How does the Factory Method pattern differ from a simple constructor call?</p>
+<p><strong>A:</strong> A factory method returns a pointer to a base type, hiding which concrete subclass is constructed. This decouples the caller from the concrete type and allows changing the created subclass without modifying the caller.</p>
+<hr />
+<p><strong>Q:</strong> How is the Observer pattern implemented in modern C++?</p>
+<p><strong>A:</strong> An <code>Observable</code> holds a <code>std::vector&lt;std::function&lt;void(Event)&gt;&gt;</code> of subscribers. <code>subscribe()</code> adds a callback, and <code>notify()</code> iterates the list calling each. <code>std::function</code> allows any callable (lambda, method, free function) as an observer.</p>
+<hr />
+<p><strong>Q:</strong> What is the Decorator pattern, and how does it avoid subclass explosion?</p>
+<p><strong>A:</strong> Decorator wraps an object in another object implementing the same interface, adding behaviour before/after delegation. Instead of one subclass per combination of features, you compose decorators at runtime: <code>make_unique&lt;Logging&gt;(make_unique&lt;Caching&gt;(core))</code>.</p>
+<hr />
+<p><strong>Q:</strong> Why is the Command pattern useful for undo/redo?</p>
+<p><strong>A:</strong> Each command encapsulates an action and its inverse as <code>execute()</code> and <code>undo()</code>. A history stack of command objects lets you replay or reverse operations without coupling the UI to the underlying data model.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall arises with the Singleton pattern in multithreaded code?</p>
+<p><strong>A:</strong> A naively implemented Singleton can have a race condition during first initialisation. In C++11+, local <code>static</code> variables are initialised in a thread-safe manner, so <code>static MyClass instance;</code> inside a <code>getInstance()</code> function is safe.</p>
+<hr />
+<h2 id="day-18-solid-principles">Day 18: SOLID Principles<a class="headerlink" href="#day-18-solid-principles" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What does the Single Responsibility Principle say, and how does a "God class" violate it?</p>
+<p><strong>A:</strong> SRP states a class should have only one reason to change — one responsibility. A God class accumulates unrelated responsibilities (parsing, networking, UI), meaning any change to any concern requires modifying the same class.</p>
+<hr />
+<p><strong>Q:</strong> How do you apply the Open/Closed Principle with templates or virtual dispatch?</p>
+<p><strong>A:</strong> Design so new behaviour is added by writing new types (new strategy classes or new template arguments) rather than modifying existing code. The existing class is "closed" to modification but "open" for extension through its abstraction points.</p>
+<hr />
+<p><strong>Q:</strong> What is the Liskov Substitution Principle, and what is a classic violation?</p>
+<p><strong>A:</strong> LSP requires that derived classes can be substituted for their base class without altering program correctness. The classic violation is <code>Square</code> inheriting from <code>Rectangle</code>: setting width on a <code>Rectangle*</code> that points to a <code>Square</code> breaks the width/height invariant.</p>
+<hr />
+<p><strong>Q:</strong> What is constructor injection, and why is it preferred over setter injection for required dependencies?</p>
+<p><strong>A:</strong> Constructor injection passes dependencies through the constructor, making them available immediately and allowing them to be <code>const</code> members. Setter injection permits objects to exist in an incomplete state, complicating reasoning about validity.</p>
+<hr />
+<p><strong>Q:</strong> What does the Dependency Inversion Principle say, and how do interfaces implement it?</p>
+<p><strong>A:</strong> High-level modules should not depend on low-level modules; both should depend on abstractions. By depending on <code>IDatabase*</code> rather than <code>MySQLDatabase*</code>, the high-level module is decoupled and can work with any conforming implementation.</p>
+<hr />
+<h2 id="day-19-testing-with-catch2">Day 19: Testing with Catch2<a class="headerlink" href="#day-19-testing-with-catch2" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the red-green-refactor TDD cycle?</p>
+<p><strong>A:</strong> Write a failing test (red), write the minimal code to make it pass (green), then improve the design without breaking tests (refactor). This rhythm ensures every piece of code has a test and that refactoring is safe.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between <code>REQUIRE</code> and <code>CHECK</code> in Catch2?</p>
+<p><strong>A:</strong> <code>REQUIRE</code> halts the current test case immediately on failure. <code>CHECK</code> records the failure but continues executing the test, allowing all failures in a test to be reported in a single run.</p>
+<hr />
+<p><strong>Q:</strong> What is a test double, and what are the four main kinds?</p>
+<p><strong>A:</strong> A test double replaces a real dependency in tests. The four kinds are: stub (returns fixed values), fake (working but simplified implementation), mock (verifies interactions/call counts), and spy (records calls for later inspection).</p>
+<hr />
+<p><strong>Q:</strong> What is a characterisation test, and when is it used?</p>
+<p><strong>A:</strong> A characterisation test documents the current (possibly buggy) behaviour of existing code before refactoring. It provides a safety net: if refactoring changes the output, the test fails, alerting you to unintended behaviour changes.</p>
+<hr />
+<p><strong>Q:</strong> What is the <code>SECTION</code> construct in Catch2, and why is it useful?</p>
+<p><strong>A:</strong> <code>SECTION</code> divides a single <code>TEST_CASE</code> into independent sub-scenarios that each start from the shared setup code above them. Each <code>SECTION</code> runs as a separate test path, reducing duplication while keeping setup clean.</p>
+<hr />
+<h2 id="day-20-crtp-and-static-polymorphism">Day 20: CRTP and Static Polymorphism<a class="headerlink" href="#day-20-crtp-and-static-polymorphism" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> How does CRTP achieve static polymorphism without vtables?</p>
+<p><strong>A:</strong> The base template casts <code>this</code> to <code>Derived&amp;</code> and calls methods directly: <code>static_cast&lt;Derived&amp;&gt;(*this).method()</code>. The call is resolved at compile time through the template instantiation, so there is no vtable and calls can be inlined.</p>
+<hr />
+<p><strong>Q:</strong> What is <code>std::span&lt;T&gt;</code>, and how does it differ from a raw pointer?</p>
+<p><strong>A:</strong> <code>std::span&lt;T&gt;</code> is a non-owning view over a contiguous sequence, carrying both a pointer and a size. Unlike a raw pointer, it enables range-based iteration, bounds checking (in debug mode), and passes without knowing the container type.</p>
+<hr />
+<p><strong>Q:</strong> What is a CRTP mixin, and how do you use it to add comparison operators?</p>
+<p><strong>A:</strong> A mixin base implements derived operators (<code>!=</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) in terms of primitives (<code>==</code>, <code>&lt;</code>) provided by the derived class. By inheriting <code>Comparable&lt;Derived&gt;</code>, the derived class gets all comparison operators without writing each one.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall arises if you use CRTP base classes with non-virtual destructors polymorphically?</p>
+<p><strong>A:</strong> If you <code>delete</code> a derived object through a <code>Base&lt;Derived&gt;*</code>, the derived destructor does not run because the base destructor is not virtual. CRTP bases should either have a <code>protected</code> non-virtual destructor (preventing deletion through base pointer) or a <code>virtual</code> one.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>std::ranges::sort</code> use a concept constraint to enforce requirements on its input?</p>
+<p><strong>A:</strong> <code>std::ranges::sort</code> requires <code>std::sortable&lt;I&gt;</code>, which checks that the iterator supports random access, swapping, and less-than comparison. If you pass an unsorted container, you get a clear concept violation instead of a cryptic template error.</p>
+<hr />
+<h2 id="day-21-type-erasure">Day 21: Type Erasure<a class="headerlink" href="#day-21-type-erasure" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What problem does type erasure solve?</p>
+<p><strong>A:</strong> Type erasure allows code to work with objects of arbitrary types without knowing the concrete type at compile time, without requiring a common base class. It provides runtime polymorphism for types that do not share an inheritance hierarchy.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>std::function&lt;void()&gt;</code> perform type erasure?</p>
+<p><strong>A:</strong> <code>std::function</code> stores any callable in an internal buffer using a virtual dispatch table (or similar mechanism). The stored callable's type is erased; the only interface exposed is the call operator with the specified signature.</p>
+<hr />
+<p><strong>Q:</strong> What is the Concept/Model type erasure pattern?</p>
+<p><strong>A:</strong> A <code>Concept</code> abstract base defines the interface. A <code>Model&lt;T&gt;</code> template derives from <code>Concept</code> and holds a concrete <code>T</code>, delegating all calls to it. The outer type stores a <code>unique_ptr&lt;Concept&gt;</code>, providing polymorphism without inheritance on <code>T</code>.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between <code>std::any</code> and <code>std::variant</code> for type erasure?</p>
+<p><strong>A:</strong> <code>std::variant&lt;A,B,C&gt;</code> holds exactly one of a fixed set of types and provides exhaustive dispatch via <code>std::visit</code>. <code>std::any</code> holds any type without a fixed set but requires <code>any_cast</code> for access and loses compile-time exhaustiveness checking.</p>
+<hr />
+<p><strong>Q:</strong> What is the SBO threshold in <code>std::function</code>, and what happens when it is exceeded?</p>
+<p><strong>A:</strong> Small-buffer optimisation stores callables up to a threshold (typically 24–32 bytes) inline without heap allocation. Larger callables (those capturing many variables) overflow the buffer and trigger a heap allocation, adding latency.</p>
+<hr />
+<h2 id="day-22-performance-tips-for-oop">Day 22: Performance Tips for OOP<a class="headerlink" href="#day-22-performance-tips-for-oop" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the difference between Array-of-Structs (AoS) and Struct-of-Arrays (SoA), and when is SoA faster?</p>
+<p><strong>A:</strong> AoS stores each object contiguously: <code>[x,y,z, x,y,z, ...]</code>. SoA stores each field contiguously: <code>[x,x,x,...], [y,y,y,...], [z,z,z,...]</code>. SoA is faster for loops that access only one or two fields because those fields fit in cache without loading unused fields.</p>
+<hr />
+<p><strong>Q:</strong> What is devirtualisation, and what enables it?</p>
+<p><strong>A:</strong> Devirtualisation is when the compiler converts a virtual call to a direct call or inlines it, eliminating vtable dispatch. It is enabled by <code>final</code> on the class, local type deduction (knowing the concrete type), or link-time optimisation (LTO).</p>
+<hr />
+<p><strong>Q:</strong> What is hot/cold field splitting, and why does it improve performance?</p>
+<p><strong>A:</strong> Hot/cold splitting moves frequently-accessed fields into a compact "hot" struct and rarely-accessed fields into a "cold" struct accessed via pointer. The hot struct fits in fewer cache lines, improving cache hit rate for common operations.</p>
+<hr />
+<p><strong>Q:</strong> Why should you not apply <code>[[likely]]</code> or <code>[[unlikely]]</code> without profiling data?</p>
+<p><strong>A:</strong> Intuition about branch probability is often wrong. An incorrect hint tells the compiler to optimise for the wrong path, degrading performance for the common case. Always measure branch frequencies with a profiler before applying these attributes.</p>
+<hr />
+<p><strong>Q:</strong> What is the pitfall of storing polymorphic objects as <code>vector&lt;unique_ptr&lt;Base&gt;&gt;</code>?</p>
+<p><strong>A:</strong> Each object is allocated separately on the heap, scattering them across memory. Iterating the vector causes one cache miss per object, destroying cache efficiency compared to a contiguous array. Use SoA or object pools for hot polymorphic collections.</p>
+<hr />
+<h2 id="day-23-modern-features-preview-c26">Day 23: Modern Features Preview — C++26<a class="headerlink" href="#day-23-modern-features-preview-c26" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What does static reflection (P2996) enable that was not possible before in standard C++?</p>
+<p><strong>A:</strong> Static reflection provides compile-time introspection of type structure (member names, types, enumerators) as first-class values. This eliminates external code generators for serialisation, enum-to-string conversion, and similar boilerplate.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>inspect</code> (P2688 pattern matching) improve on <code>std::visit</code> + <code>overloaded</code>?</p>
+<p><strong>A:</strong> <code>inspect</code> provides a readable, structured syntax for multi-way dispatch with type, value, and structural patterns in a single block. <code>std::visit</code> + <code>overloaded</code> requires constructing an overload set manually and is more verbose.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between a C++26 <code>pre()</code> contract and <code>assert()</code>?</p>
+<p><strong>A:</strong> <code>pre()</code> is a language-level precondition on a function declaration expressing a caller obligation, while <code>assert()</code> is a runtime check inside the function body. Contracts can be enabled, disabled, or set to observe mode independently of <code>NDEBUG</code>.</p>
+<hr />
+<p><strong>Q:</strong> What does "merged into C++26 draft" mean for compiler support?</p>
+<p><strong>A:</strong> It means the ISO committee voted to include the feature in the specification being developed, but it does NOT mean any released compiler supports it. Compiler implementation typically lags 6–24 months behind the specification. Always check cppreference compiler support tables.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>std::inplace_vector&lt;T, N&gt;</code> provide, and how does <code>try_push_back</code> differ from <code>push_back</code>?</p>
+<p><strong>A:</strong> <code>inplace_vector</code> is a <code>vector</code>-like container with fixed inline storage of <code>N</code> elements — no heap allocation. <code>push_back</code> throws <code>std::bad_alloc</code> when full; <code>try_push_back</code> returns a null pointer on overflow, allowing graceful handling without exceptions.</p>
+<hr />
+<p><strong>Q:</strong> Why does the feature-test macro pattern <code>#if defined(__cpp_reflection)</code> matter for C++26 features?</p>
+<p><strong>A:</strong> It allows code to use native C++26 features when available and fall back to portable alternatives (e.g., Boost.PFR) when not. This enables gradual adoption without breaking CI on compilers that have not yet implemented the feature.</p>
+<hr />
+<h2 id="day-24-mini-project-1-bank-account-system">Day 24: Mini Project 1 — Bank Account System<a class="headerlink" href="#day-24-mini-project-1-bank-account-system" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What SOLID principles does a well-designed <code>BankAccount</code> class hierarchy apply?</p>
+<p><strong>A:</strong> SRP: each account type handles only its own rules. OCP: adding a new account type (e.g., <code>InvestmentAccount</code>) requires no changes to existing code. LSP: all account types can be used through <code>IAccount*</code> without special casing. DIP: the transaction engine depends on <code>IAccount</code>, not concrete types.</p>
+<hr />
+<p><strong>Q:</strong> Why is <code>std::expected&lt;Money, TransactionError&gt;</code> a better return type for <code>withdraw()</code> than throwing an exception?</p>
+<p><strong>A:</strong> Insufficient funds is an expected, recoverable outcome — not an exceptional condition. <code>std::expected</code> makes the error visible in the type signature, prevents accidental discard, and allows building pipelines with <code>.and_then</code> without exception-handling overhead.</p>
+<hr />
+<p><strong>Q:</strong> How does the Observer pattern apply to a bank account system?</p>
+<p><strong>A:</strong> The account is the subject; transaction loggers, fraud detectors, and notification services are observers. When a transaction occurs, the account notifies all observers via a callback list, decoupling the account from any specific monitoring logic.</p>
+<hr />
+<p><strong>Q:</strong> What is the role of a repository pattern in the bank system project?</p>
+<p><strong>A:</strong> A repository abstracts persistence behind an interface (<code>IAccountRepository</code>), so the domain logic (transfers, interest calculation) does not depend on the storage mechanism (in-memory, SQL, file). This enables testing with a fake in-memory repository.</p>
+<hr />
+<p><strong>Q:</strong> Why should <code>Money</code> be a value type with <code>operator==</code> and no implicit conversion from <code>double</code>?</p>
+<p><strong>A:</strong> Floating-point arithmetic causes rounding errors unsuitable for financial calculations. A <code>Money</code> type using integer cents prevents floating-point accumulation and <code>explicit</code> construction prevents accidental implicit conversions from raw <code>double</code> literals.</p>
+<hr />
+<h2 id="day-25-mini-project-2-shape-editor">Day 25: Mini Project 2 — Shape Editor<a class="headerlink" href="#day-25-mini-project-2-shape-editor" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What design pattern is central to a shape editor's undo/redo system?</p>
+<p><strong>A:</strong> The Command pattern: each editing operation (move, resize, delete) is encapsulated as an object with <code>execute()</code> and <code>undo()</code>. A history stack replays or reverses commands without the editor knowing the details of each operation.</p>
+<hr />
+<p><strong>Q:</strong> How does the Composite pattern apply to grouped shapes?</p>
+<p><strong>A:</strong> A <code>ShapeGroup</code> implements the same <code>IShape</code> interface as <code>Circle</code>, <code>Rectangle</code>, etc. It holds a <code>vector&lt;shared_ptr&lt;IShape&gt;&gt;</code> of children and delegates operations (draw, hit-test, move) to each child. The editor treats groups and primitives identically.</p>
+<hr />
+<p><strong>Q:</strong> Why is a scene graph represented as a tree rather than a flat list?</p>
+<p><strong>A:</strong> A tree naturally represents nesting: groups contain shapes, groups can contain other groups. Transformations (translate, scale) applied to a parent propagate to all children. A flat list cannot represent hierarchical containment or grouped transforms.</p>
+<hr />
+<p><strong>Q:</strong> What is the Visitor pattern, and how does it help with operations on a shape hierarchy?</p>
+<p><strong>A:</strong> Visitor separates an operation (e.g., serialisation, area calculation) from the object structure. A <code>ShapeVisitor</code> has <code>visit(Circle&amp;)</code>, <code>visit(Rectangle&amp;)</code> etc. Each shape calls <code>visitor.visit(*this)</code>, allowing new operations without modifying shape classes.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>std::variant&lt;Circle, Rectangle, Triangle&gt;</code> compare to a virtual dispatch shape hierarchy for a closed set of shapes?</p>
+<p><strong>A:</strong> <code>std::variant</code> avoids heap allocation and virtual dispatch, provides exhaustive checking when adding a new shape type, and enables <code>std::visit</code> with a local overload set. It is preferable when the set of shapes is fixed; virtual dispatch is better for open extension.</p>
+<hr />
+<h2 id="day-26-mini-project-3-game-entities-ecs">Day 26: Mini Project 3 — Game Entities (ECS)<a class="headerlink" href="#day-26-mini-project-3-game-entities-ecs" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is an Entity Component System (ECS), and why is it used in game development?</p>
+<p><strong>A:</strong> ECS separates data (components) from logic (systems) and identity (entities are just IDs). All components of one type are stored contiguously, making update loops cache-friendly. Systems iterate component arrays rather than objects, enabling high-throughput updates.</p>
+<hr />
+<p><strong>Q:</strong> How does SoA storage of components improve cache performance in an ECS?</p>
+<p><strong>A:</strong> Storing one component type per array means a system iterating only <code>Position</code> components accesses contiguous memory with no gaps from other components. This maximises cache utilisation versus AoS where each object mixes all components.</p>
+<hr />
+<p><strong>Q:</strong> What is an event bus, and how does it decouple game systems?</p>
+<p><strong>A:</strong> An event bus allows systems to communicate by publishing and subscribing to typed events without direct references. A collision system publishes <code>CollisionEvent</code>; an audio system and a damage system subscribe independently, so neither system knows about the other.</p>
+<hr />
+<p><strong>Q:</strong> What is spatial partitioning (e.g., a grid), and what performance problem does it solve?</p>
+<p><strong>A:</strong> Spatial partitioning divides world space into cells so that collision and proximity queries only check entities in the same or neighbouring cells, reducing O(n²) brute-force pair checks to near O(n) for sparse scenes.</p>
+<hr />
+<p><strong>Q:</strong> Why is the Archetype pattern used in production ECS engines like Unity DOTS?</p>
+<p><strong>A:</strong> Archetypes group entities with the same set of component types into contiguous arrays. When a component is added or removed, the entity moves to the matching archetype. This keeps iteration over a specific component combination maximally cache-friendly.</p>
+<hr />
+<h2 id="day-27-refactoring-legacy-code">Day 27: Refactoring Legacy Code<a class="headerlink" href="#day-27-refactoring-legacy-code" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is a characterisation test, and why must it come before refactoring?</p>
+<p><strong>A:</strong> A characterisation test captures the current behaviour of legacy code by running it and asserting the actual output. Before refactoring, it creates a safety net: any unintended behavioural change causes a test failure, enabling confident transformation.</p>
+<hr />
+<p><strong>Q:</strong> What is the Strangler Fig pattern for incremental refactoring?</p>
+<p><strong>A:</strong> The Strangler Fig gradually replaces legacy code by building new functionality alongside the old, routing more traffic to the new code over time, until the old code can be removed. It avoids a risky big-bang rewrite and keeps the system functional throughout.</p>
+<hr />
+<p><strong>Q:</strong> What are two common code smells that indicate a class violates SRP?</p>
+<p><strong>A:</strong> A "God class" with many unrelated methods, and a class whose name contains "And" or "Manager". Both indicate multiple responsibilities that should be split into separate classes.</p>
+<hr />
+<p><strong>Q:</strong> How does <code>clang-tidy</code> help during refactoring?</p>
+<p><strong>A:</strong> <code>clang-tidy</code> applies automated checks and fixups (e.g., <code>modernize-use-override</code>, <code>cppcoreguidelines-*</code>) to flag and auto-correct common issues. Running it after refactoring verifies that the new code conforms to modern C++ idioms without manual review of every line.</p>
+<hr />
+<p><strong>Q:</strong> What is the "extract method" refactoring, and what precondition must hold?</p>
+<p><strong>A:</strong> Extract method moves a block of code into a named function with parameters for any local variables it needs. The precondition is that the block has a single entry point and clear data dependencies — i.e., you can identify all inputs and outputs.</p>
+<hr />
+<h2 id="day-28-code-review-practices">Day 28: Code Review Practices<a class="headerlink" href="#day-28-code-review-practices" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What are the five layers of a C++ code review checklist?</p>
+<p><strong>A:</strong> (1) Correctness (logic, UB, threading), (2) Resource management (ownership, leaks, RAII), (3) API design (clarity, error handling, <code>const</code>-correctness), (4) Performance (unnecessary copies, algorithmic complexity), and (5) Maintainability (naming, testability, coupling).</p>
+<hr />
+<p><strong>Q:</strong> What is the severity classification system for code review comments, and why is it useful?</p>
+<p><strong>A:</strong> Typically: blocker (must fix before merge), major (should fix), minor (optional improvement), nit (style). Classification helps authors prioritise and prevents minor style disagreements from blocking correct, important changes.</p>
+<hr />
+<p><strong>Q:</strong> What C++ anti-pattern does this code demonstrate?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">process</span><span class="p">(</span><span class="n">huge_vector</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>A:</strong> Passing by value copies <code>huge_vector</code> unnecessarily. Unless the function needs to modify a local copy, <code>const std::vector&lt;int&gt;&amp;</code> avoids the copy. This is the "unnecessary copy" anti-pattern, flagged by <code>clang-tidy</code>'s <code>performance-unnecessary-copy-initialization</code>.</p>
+<hr />
+<p><strong>Q:</strong> Why should <code>clang-format</code> be enforced in CI rather than reviewed manually?</p>
+<p><strong>A:</strong> Style debates in code review waste reviewer attention on subjective preferences rather than correctness and design. Automating formatting with <code>clang-format</code> in CI eliminates style disagreements entirely and keeps diffs focused on meaningful changes.</p>
+<hr />
+<p><strong>Q:</strong> What is the "boolean parameter" anti-pattern, and what is the idiomatic C++ fix?</p>
+<p><strong>A:</strong> Functions like <code>process(data, true, false)</code> use boolean flags whose meaning is opaque at the call site. The fix is a <code>enum class</code> or named struct: <code>process(data, Mode::Async, Cache::Disabled)</code> reads clearly without knowing the function signature.</p>
+<hr />
+<h2 id="day-29-advanced-topics">Day 29: Advanced Topics<a class="headerlink" href="#day-29-advanced-topics" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What are the three keywords that define a C++20 coroutine, and what does each do?</p>
+<p><strong>A:</strong> <code>co_yield</code> suspends the coroutine and yields a value to the caller. <code>co_await</code> suspends until an awaitable completes. <code>co_return</code> finalises the coroutine and optionally provides a final value.</p>
+<hr />
+<p><strong>Q:</strong> What is <code>std::pmr</code> (polymorphic memory resource), and why is it useful?</p>
+<p><strong>A:</strong> <code>std::pmr</code> provides an allocator interface that can be swapped at runtime — for example, using a stack-based <code>monotonic_buffer_resource</code> to eliminate heap allocation in a hot loop. Standard containers (<code>std::pmr::vector</code>) accept a <code>pmr::memory_resource*</code> and forward all allocations through it.</p>
+<hr />
+<p><strong>Q:</strong> What is the difference between <code>consteval</code> and <code>constexpr</code> functions?</p>
+<p><strong>A:</strong> <code>constexpr</code> functions may run at compile time or runtime. <code>consteval</code> functions (immediate functions) must always be evaluated at compile time; calling one in a runtime context is a compile error. Use <code>consteval</code> to enforce compile-time evaluation.</p>
+<hr />
+<p><strong>Q:</strong> What does <code>std::bit_cast&lt;To&gt;(from)</code> do, and why is it safer than <code>reinterpret_cast</code>?</p>
+<p><strong>A:</strong> <code>std::bit_cast</code> reinterprets the bit pattern of <code>from</code> as type <code>To</code> (both must be the same size and trivially copyable). Unlike <code>reinterpret_cast</code>, it is well-defined, <code>constexpr</code>-capable, and does not invoke undefined behaviour.</p>
+<hr />
+<p><strong>Q:</strong> What pitfall arises with coroutine lifetimes and captured references?</p>
+<p><strong>A:</strong> A coroutine's frame persists between suspension points. If the coroutine captures a reference to a local variable in the caller and the caller's frame is destroyed before the coroutine completes, the reference dangles. Always ensure coroutine lifetime is shorter than referenced objects, or capture by value.</p>
+<hr />
+<h2 id="day-30-review-certification-prep-and-next-steps">Day 30: Review, Certification Prep, and Next Steps<a class="headerlink" href="#day-30-review-certification-prep-and-next-steps" title="Permanent link">&para;</a></h2>
+<p><strong>Q:</strong> What is the most effective study technique for consolidating a large body of C++ knowledge?</p>
+<p><strong>A:</strong> Active recall — attempting to answer questions without looking — is far more effective than re-reading notes. Spaced repetition with flashcards targets weak areas efficiently; explaining concepts aloud (the Feynman technique) reveals gaps immediately.</p>
+<hr />
+<p><strong>Q:</strong> What are three signs that a C++ codebase is well-designed?</p>
+<p><strong>A:</strong> (1) New features can be added by writing new code, not modifying existing code (OCP). (2) Every class has a single, clearly nameable responsibility (SRP). (3) Tests are independent and fast, with no global state dependencies.</p>
+<hr />
+<p><strong>Q:</strong> How do the course topics build towards C++26?</p>
+<p><strong>A:</strong> The foundation (RAII, templates, concepts) makes C++26 features comprehensible. Contracts extend concepts into runtime; static reflection automates what templates and macros handle today; <code>std::execution</code> formalises the async patterns built on futures and coroutines.</p>
+<hr />
+<p><strong>Q:</strong> What is the recommended path from this course to production-grade C++ expertise?</p>
+<p><strong>A:</strong> Apply concepts in a real project (open source contribution or personal project), read the C++ Core Guidelines, study compiler explorer output to understand codegen, and follow the ISO committee papers (<code>open-std.org</code>) to stay current with the language direction.</p>
+<hr />
+<p><strong>Q:</strong> Why is benchmark-first discipline essential for C++ performance work?</p>
+<p><strong>A:</strong> Intuition about bottlenecks is unreliable — the actual hot path is almost always different from what developers expect. Profiling identifies where time is actually spent, ensuring optimisation effort is directed where it has measurable impact and is not wasted on cold paths.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.code.annotate", "content.tabs.link", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/flashcards.js"></script>
+      
+        <script src="../javascripts/d3.min.js"></script>
+      
+        <script src="../javascripts/markmap-view.js"></script>
+      
+        <script src="../javascripts/mindmap.js"></script>
+      
+    
+  </body>
+</html>

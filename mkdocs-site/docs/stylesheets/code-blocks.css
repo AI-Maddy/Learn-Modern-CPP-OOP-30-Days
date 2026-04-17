@@ -1,0 +1,214 @@
+/* ============================================================
+   CODE BLOCKS — Full syntax highlighting, copy, annotations
+   Frontal Lobe: Logic processing center
+   ============================================================ */
+
+/* ---- Code block wrapper ---- */
+.md-typeset pre > code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Rounded code blocks with top chrome bar */
+.md-typeset .highlight {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(99,102,241,0.2);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.1);
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+/* macOS traffic light chrome */
+.md-typeset .highlight::before {
+  content: '';
+  display: block;
+  height: 32px;
+  background: rgba(30,30,50,0.8);
+  border-bottom: 1px solid rgba(99,102,241,0.15);
+  padding: 0 1rem;
+  background-image:
+    radial-gradient(circle 5px at 14px 16px, #ff5f57 0%, #ff5f57 100%),
+    radial-gradient(circle 5px at 30px 16px, #febc2e 0%, #febc2e 100%),
+    radial-gradient(circle 5px at 46px 16px, #28c840 0%, #28c840 100%);
+}
+
+/* Language badge */
+.md-typeset .highlight[class*="language-"]::after,
+.md-typeset .highlight .filename {
+  position: absolute;
+  top: 6px;
+  right: 3rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(139,92,246,0.2);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: #c4b5fd;
+}
+
+/* Copy button */
+.md-typeset .md-clipboard {
+  top: 6px !important;
+  right: 6px !important;
+  color: rgba(255,255,255,0.4);
+  transition: color 200ms, box-shadow 200ms;
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.md-typeset .md-clipboard:hover {
+  color: #c4b5fd;
+  box-shadow: 0 0 8px rgba(196,181,253,0.4);
+}
+
+/* Code inside blocks */
+.md-typeset .highlight code {
+  padding: 1rem 1.25rem;
+  display: block;
+  overflow-x: auto;
+  background: #0d1117 !important;
+}
+
+/* Line numbers */
+.md-typeset .highlight .linenodiv pre,
+.md-typeset .highlight table .linenos {
+  background: rgba(0,0,0,0.3) !important;
+  border-right: 1px solid rgba(99,102,241,0.15) !important;
+  color: rgba(255,255,255,0.2) !important;
+  padding: 1rem 0.75rem !important;
+  user-select: none;
+}
+
+/* Highlighted lines (annotations) */
+.md-typeset .highlight .hll {
+  background: rgba(139,92,246,0.15) !important;
+  border-left: 2px solid #8b5cf6 !important;
+  display: block;
+}
+
+/* Inline code */
+.md-typeset code:not(.language-text) {
+  background: rgba(99,102,241,0.15) !important;
+  border: 1px solid rgba(99,102,241,0.25) !important;
+  border-radius: 0.3rem;
+  color: #c4b5fd !important;
+  padding: 0.15em 0.45em;
+  font-size: 0.85em;
+}
+
+/* ============================================================
+   C++ SYNTAX COLORS (Pygments slate)
+   ============================================================ */
+
+/* Keywords: purple — the grammar of the mind */
+[data-md-color-scheme="slate"] .highlight .k,
+[data-md-color-scheme="slate"] .highlight .kd,
+[data-md-color-scheme="slate"] .highlight .kn,
+[data-md-color-scheme="slate"] .highlight .kr,
+[data-md-color-scheme="slate"] .highlight .kt { color: #c084fc; font-weight: 600; }
+
+/* Types */
+[data-md-color-scheme="slate"] .highlight .nc,
+[data-md-color-scheme="slate"] .highlight .nn { color: #60a5fa; }
+
+/* Functions */
+[data-md-color-scheme="slate"] .highlight .nf,
+[data-md-color-scheme="slate"] .highlight .fm { color: #38bdf8; }
+
+/* Strings: green — verbal memory */
+[data-md-color-scheme="slate"] .highlight .s,
+[data-md-color-scheme="slate"] .highlight .s1,
+[data-md-color-scheme="slate"] .highlight .s2,
+[data-md-color-scheme="slate"] .highlight .sb { color: #4ade80; }
+
+/* Numbers */
+[data-md-color-scheme="slate"] .highlight .m,
+[data-md-color-scheme="slate"] .highlight .mi,
+[data-md-color-scheme="slate"] .highlight .mf { color: #fb923c; }
+
+/* Comments: grey — the subconscious */
+[data-md-color-scheme="slate"] .highlight .c,
+[data-md-color-scheme="slate"] .highlight .c1,
+[data-md-color-scheme="slate"] .highlight .cm,
+[data-md-color-scheme="slate"] .highlight .cp { color: #6b7280; font-style: italic; }
+
+/* Preprocessor: orange */
+[data-md-color-scheme="slate"] .highlight .cp { color: #fb923c; }
+
+/* Operators */
+[data-md-color-scheme="slate"] .highlight .o,
+[data-md-color-scheme="slate"] .highlight .p  { color: #94a3b8; }
+
+/* ============================================================
+   CODE TABS (pymdownx.tabbed)
+   ============================================================ */
+
+.md-typeset .tabbed-set > input + .tabbed-content {
+  animation: fadeUpIn 0.3s ease;
+}
+
+.md-typeset .tabbed-labels > label {
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 200ms;
+}
+
+.md-typeset .tabbed-labels > label:hover {
+  color: #c4b5fd;
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  color: #c4b5fd;
+  border-color: rgba(139,92,246,0.5);
+}
+
+/* ============================================================
+   DIFF CODE BLOCKS — Before/After comparison
+   ============================================================ */
+
+.md-typeset .highlight.diff .gd { background: rgba(239,68,68,0.12); color: #fca5a5; }
+.md-typeset .highlight.diff .gi { background: rgba(16,185,129,0.12); color: #6ee7b7; }
+
+/* ============================================================
+   MERMAID DIAGRAMS — Neural graph style
+   ============================================================ */
+
+.md-typeset .mermaid {
+  background: rgba(7,10,20,0.8);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+/* ============================================================
+   CODE ANNOTATION POPUPS
+   ============================================================ */
+
+.md-annotation__index {
+  background: rgba(139,92,246,0.8) !important;
+  border-radius: 50% !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: box-shadow 200ms;
+}
+
+.md-annotation__index:hover {
+  box-shadow: 0 0 8px rgba(139,92,246,0.6);
+}
+
+.md-annotation {
+  background: rgba(13,17,23,0.95);
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,92,246,0.1);
+}

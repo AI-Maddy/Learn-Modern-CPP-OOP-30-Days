@@ -1,0 +1,335 @@
+/* ============================================================
+   BRAIN REGIONS — Color-coded by cognitive function
+   Frontal  = Blue    (Logic, Planning, Code)
+   Temporal = Green   (Language, Theory, Memory)
+   Parietal = Purple  (Spatial, Math, Architecture)
+   Occipital= Orange  (Visual, Diagrams, Output)
+   Limbic   = Red     (Motivation, Why-it-matters)
+   Cerebel. = Yellow  (Practice, Pitfalls, Motor)
+   BrainStem= Slate   (Core, Reflex, Quick Ref)
+   ============================================================ */
+
+:root {
+  /* Brain region palette */
+  --brain-frontal:    #3b82f6;   /* Blue  – Logic/Code */
+  --brain-temporal:   #10b981;   /* Green – Language/Theory */
+  --brain-parietal:   #8b5cf6;   /* Violet– Architecture */
+  --brain-occipital:  #f97316;   /* Orange– Visual */
+  --brain-limbic:     #ef4444;   /* Red   – Motivation */
+  --brain-cerebellum: #eab308;   /* Yellow– Practice */
+  --brain-brainstem:  #94a3b8;   /* Slate – Core Ref */
+
+  /* Cluster → brain region mapping */
+  --cluster-foundations: var(--brain-frontal);
+  --cluster-oop-core:    var(--brain-temporal);
+  --cluster-templates:   var(--brain-parietal);
+  --cluster-memory:      var(--brain-limbic);
+  --cluster-modern-cpp:  var(--brain-occipital);
+  --cluster-projects:    var(--brain-cerebellum);
+  --cluster-review:      var(--brain-brainstem);
+
+  /* Neural glow levels */
+  --glow-sm:  0 0 8px  rgba(139, 92, 246, 0.4);
+  --glow-md:  0 0 16px rgba(139, 92, 246, 0.5);
+  --glow-lg:  0 0 32px rgba(139, 92, 246, 0.6);
+  --glow-pulse: 0 0 24px rgba(99, 102, 241, 0.7);
+
+  /* Synapse transition */
+  --synapse-speed: 300ms;
+  --synapse-ease:  cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Dark scheme overrides ---- */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #070a14;
+  --md-default-fg-color: #e2e8f0;
+  --md-code-bg-color:    #0d1117;
+  --md-primary-fg-color: #8b5cf6;
+}
+
+/* ---- Body: dot-grid neural background ---- */
+body {
+  background-image:
+    radial-gradient(circle, rgba(99,102,241,0.15) 1px, transparent 1px),
+    radial-gradient(circle, rgba(139,92,246,0.08) 1px, transparent 1px);
+  background-size: 28px 28px, 56px 56px;
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   CLUSTER COLOR BADGES & BANNERS
+   ============================================================ */
+
+/* Cluster banner strip at top of day pages */
+.brain-cluster-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Per-cluster variants */
+.brain-cluster-banner[data-cluster="foundations"]  { background: rgba(59,130,246,0.15);  border-left: 4px solid var(--brain-frontal);    color: #93c5fd; }
+.brain-cluster-banner[data-cluster="oop-core"]     { background: rgba(16,185,129,0.15);  border-left: 4px solid var(--brain-temporal);   color: #6ee7b7; }
+.brain-cluster-banner[data-cluster="templates"]    { background: rgba(139,92,246,0.15);  border-left: 4px solid var(--brain-parietal);   color: #c4b5fd; }
+.brain-cluster-banner[data-cluster="memory"]       { background: rgba(239,68,68,0.15);   border-left: 4px solid var(--brain-limbic);     color: #fca5a5; }
+.brain-cluster-banner[data-cluster="modern-cpp"]   { background: rgba(249,115,22,0.15);  border-left: 4px solid var(--brain-occipital);  color: #fdba74; }
+.brain-cluster-banner[data-cluster="projects"]     { background: rgba(234,179,8,0.15);   border-left: 4px solid var(--brain-cerebellum); color: #fde047; }
+.brain-cluster-banner[data-cluster="review"]       { background: rgba(148,163,184,0.15); border-left: 4px solid var(--brain-brainstem);  color: #cbd5e1; }
+
+/* ============================================================
+   BRAIN-REGION SECTION HEADERS
+   Each admonition type maps to a brain region
+   ============================================================ */
+
+/* Frontal Lobe — Logic/Code blocks */
+.md-typeset .admonition.code-lobe,
+.md-typeset details.code-lobe {
+  border-color: var(--brain-frontal) !important;
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.2), var(--glow-sm);
+}
+.md-typeset .code-lobe > .admonition-title,
+.md-typeset .code-lobe > summary {
+  background: rgba(59,130,246,0.15) !important;
+  color: #93c5fd !important;
+}
+.md-typeset .code-lobe > .admonition-title::before,
+.md-typeset .code-lobe > summary::before {
+  background-color: var(--brain-frontal) !important;
+  -webkit-mask-image: var(--md-admonition-icon--note) !important;
+}
+
+/* Temporal Lobe — Theory/Language */
+.md-typeset .admonition.theory-lobe,
+.md-typeset details.theory-lobe {
+  border-color: var(--brain-temporal) !important;
+  box-shadow: 0 0 0 1px rgba(16,185,129,0.2), 0 0 8px rgba(16,185,129,0.3);
+}
+.md-typeset .theory-lobe > .admonition-title,
+.md-typeset .theory-lobe > summary {
+  background: rgba(16,185,129,0.15) !important;
+  color: #6ee7b7 !important;
+}
+
+/* Parietal Lobe — Architecture/Math */
+.md-typeset .admonition.arch-lobe,
+.md-typeset details.arch-lobe {
+  border-color: var(--brain-parietal) !important;
+  box-shadow: 0 0 0 1px rgba(139,92,246,0.2), var(--glow-sm);
+}
+.md-typeset .arch-lobe > .admonition-title,
+.md-typeset .arch-lobe > summary {
+  background: rgba(139,92,246,0.15) !important;
+  color: #c4b5fd !important;
+}
+
+/* Limbic — Motivation/Why */
+.md-typeset .admonition.why-lobe,
+.md-typeset details.why-lobe {
+  border-color: var(--brain-limbic) !important;
+  box-shadow: 0 0 0 1px rgba(239,68,68,0.2), 0 0 8px rgba(239,68,68,0.25);
+}
+.md-typeset .why-lobe > .admonition-title,
+.md-typeset .why-lobe > summary {
+  background: rgba(239,68,68,0.15) !important;
+  color: #fca5a5 !important;
+}
+
+/* Cerebellum — Practice/Pitfalls */
+.md-typeset .admonition.pitfall-lobe,
+.md-typeset details.pitfall-lobe {
+  border-color: var(--brain-cerebellum) !important;
+  box-shadow: 0 0 0 1px rgba(234,179,8,0.2), 0 0 8px rgba(234,179,8,0.25);
+}
+.md-typeset .pitfall-lobe > .admonition-title,
+.md-typeset .pitfall-lobe > summary {
+  background: rgba(234,179,8,0.15) !important;
+  color: #fde047 !important;
+}
+
+/* ============================================================
+   NAVIGATION — Cluster-colored nav tabs
+   ============================================================ */
+
+.md-tabs__link[href*="foundations"],
+.md-nav__link[href*="foundations"] { border-left-color: var(--brain-frontal); }
+.md-tabs__link[href*="oop"],
+.md-nav__link[href*="oop"]         { border-left-color: var(--brain-temporal); }
+.md-tabs__link[href*="templates"],
+.md-nav__link[href*="templates"]   { border-left-color: var(--brain-parietal); }
+.md-tabs__link[href*="memory"],
+.md-nav__link[href*="memory"]      { border-left-color: var(--brain-limbic); }
+.md-tabs__link[href*="modern"],
+.md-nav__link[href*="modern"]      { border-left-color: var(--brain-occipital); }
+.md-tabs__link[href*="projects"],
+.md-nav__link[href*="projects"]    { border-left-color: var(--brain-cerebellum); }
+.md-tabs__link[href*="review"],
+.md-nav__link[href*="review"]      { border-left-color: var(--brain-brainstem); }
+
+/* Active section highlight in sidebar */
+.md-nav__item--active > .md-nav__link {
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+/* ============================================================
+   BRAIN STATS GRID (homepage hero)
+   ============================================================ */
+
+.brain-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.brain-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(139,92,246,0.3);
+  background: rgba(139,92,246,0.06);
+  text-align: center;
+  transition: all var(--synapse-speed) var(--synapse-ease);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.brain-stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(139,92,246,0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.brain-stat-card:hover::before { opacity: 1; }
+.brain-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glow-md);
+  border-color: var(--brain-parietal);
+}
+
+.brain-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #60a5fa, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brain-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+  opacity: 0.7;
+}
+
+.brain-stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   CLUSTER CARDS — Homepage day grid
+   ============================================================ */
+
+.cluster-section {
+  margin: 2rem 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.cluster-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cluster-header[data-cluster="foundations"]  { background: linear-gradient(90deg, rgba(59,130,246,0.25), transparent); }
+.cluster-header[data-cluster="oop-core"]     { background: linear-gradient(90deg, rgba(16,185,129,0.25), transparent); }
+.cluster-header[data-cluster="templates"]    { background: linear-gradient(90deg, rgba(139,92,246,0.25), transparent); }
+.cluster-header[data-cluster="memory"]       { background: linear-gradient(90deg, rgba(239,68,68,0.25), transparent); }
+.cluster-header[data-cluster="modern-cpp"]   { background: linear-gradient(90deg, rgba(249,115,22,0.25), transparent); }
+.cluster-header[data-cluster="projects"]     { background: linear-gradient(90deg, rgba(234,179,8,0.25), transparent); }
+.cluster-header[data-cluster="review"]       { background: linear-gradient(90deg, rgba(148,163,184,0.25), transparent); }
+
+.day-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.02);
+}
+
+.day-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.875rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all 250ms var(--synapse-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.day-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms var(--synapse-ease);
+}
+
+.day-card[data-cluster="foundations"]::after  { background: var(--brain-frontal); }
+.day-card[data-cluster="oop-core"]::after     { background: var(--brain-temporal); }
+.day-card[data-cluster="templates"]::after    { background: var(--brain-parietal); }
+.day-card[data-cluster="memory"]::after       { background: var(--brain-limbic); }
+.day-card[data-cluster="modern-cpp"]::after   { background: var(--brain-occipital); }
+.day-card[data-cluster="projects"]::after     { background: var(--brain-cerebellum); }
+.day-card[data-cluster="review"]::after       { background: var(--brain-brainstem); }
+
+.day-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
+.day-card:hover::after { transform: scaleX(1); }
+
+.day-card-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 0.25rem;
+}
+
+.day-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+}

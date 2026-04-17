@@ -1,0 +1,150 @@
+site_name: Learn Modern CPP OOP in 30 Days
+extra_css:
+  - stylesheets/flashcards.css
+  - stylesheets/mindmap.css
+extra_javascript:
+  - javascripts/flashcards.js
+  - javascripts/d3.min.js
+  - javascripts/markmap-view.js
+  - javascripts/mindmap.js
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.saneheaders
+  - pymdownx.highlight:
+      anchor_linenums: true
+nav:
+  - Home: index.md
+  - Days:
+      - Day 00 - Setup and Basics: Day00.md
+      - Day 01 - Variables, Types, Constexpr: Day01.md
+      - Day 02 - Functions and Lambdas: Day02.md
+      - Day 03 - Classes and Encapsulation: Day03.md
+      - Day 04 - Constructors, Destructors, RAII: Day04.md
+      - Day 05 - Smart Pointers and Ownership: Day05.md
+      - Day 06 - Inheritance and Polymorphism: Day06.md
+      - Day 07 - Virtual, Override, Final, Abstract: Day07.md
+      - Day 08 - Advanced OOP Patterns: Day08.md
+      - Day 09 - Templates Basics: Day09.md
+      - Day 10 - Concepts and Constraints: Day10.md
+      - Day 11 - Generic OOP Design: Day11.md
+      - Day 12 - Ranges and Views: Day12.md
+      - Day 13 - Move Semantics and Rvalue Refs: Day13.md
+      - Day 14 - Rule of Five, Copy and Move: Day14.md
+      - Day 15 - Error Handling and Expected: Day15.md
+      - Day 16 - Modules Basics: Day16.md
+      - Day 17 - Design Patterns for OOP: Day17.md
+      - Day 18 - SOLID Principles: Day18.md
+      - Day 19 - Testing with Catch2 and TDD: Day19.md
+      - Day 20 - Static Polymorphism and CRTP: Day20.md
+      - Day 21 - pImpl Idiom and Type Erasure: Day21.md
+      - Day 22 - Performance Tips for OOP: Day22.md
+      - Day 23 - Modern Features Preview (C++26): Day23.md
+      - "Day 24 - Mini Project 1: Bank System": Day24.md
+      - "Day 25 - Mini Project 2: Shape Editor": Day25.md
+      - "Day 26 - Mini Project 3: Game Entities": Day26.md
+      - Day 27 - Refactoring Legacy Code: Day27.md
+      - Day 28 - Code Review and Common Pitfalls: Day28.md
+      - Day 29 - Advanced Topics Deep Dive: Day29.md
+      - Day 30 - Review, Cert Prep, Next Steps: Day30.md
+  - Roadmap: roadmap.md
+  - Flashcards: flashcards.md
+  - Mind Map: mindmap.md
+  - Cheatsheets:
+      - Overview: cheatsheets.md
+      - Core Language:
+          - Variables, Types & Constexpr: cheatsheets/variables-types-constexpr.md
+          - Uniform Initialization: cheatsheets/uniform-initialization.md
+          - Functions & Lambdas: cheatsheets/functions-lambdas.md
+          - Structured Bindings: cheatsheets/structured-bindings.md
+          - Modern C++20/23: cheatsheets/modern-cpp20-23-cheat.md
+          - C++ Core Guidelines: cheatsheets/cpp-core-guidelines.md
+      - OOP & Design:
+          - Classes, Constructors & RAII: cheatsheets/classes-constructors-raii.md
+          - Inheritance & Polymorphism: cheatsheets/inheritance-polymorphism.md
+          - Composition vs Inheritance: cheatsheets/composition-vs-inheritance.md
+          - Advanced OOP Patterns: cheatsheets/advanced-oop-patterns.md
+          - OOP Principles & SOLID: cheatsheets/oop-principles-solid.md
+          - Refactoring Checklist: cheatsheets/refactoring-checklist.md
+          - Common Pitfalls: cheatsheets/common-pitfalls.md
+      - Memory & Ownership:
+          - RAII & Smart Pointers: cheatsheets/raii-smart-pointers.md
+          - Move Semantics Gotchas: cheatsheets/move-semantics-gotchas.md
+          - Rule of Five: cheatsheets/rule-of-5-cheat.md
+          - Memory Layout & Object Model: cheatsheets/memory-layout-and-object-model.md
+      - Templates & Generic:
+          - Templates Basics: cheatsheets/templates-basics.md
+          - Templates & Concepts: cheatsheets/templates-concepts.md
+          - CRTP & Static Polymorphism: cheatsheets/crtp-static-polymorphism.md
+          - Type Erasure & pImpl: cheatsheets/type-erasure-pimpl.md
+      - Modern Utilities:
+          - Ranges & Views: cheatsheets/ranges-and-views.md
+          - Optional, Variant, Any: cheatsheets/optional-variant-any.md
+          - Error Handling & Expected: cheatsheets/error-handling-expected.md
+          - Modules (C++20): cheatsheets/modules-cpp20.md
+      - Performance & Tooling:
+          - Performance Tips: cheatsheets/performance-tips-oop.md
+          - Debugging Tools 2026: cheatsheets/debugging-tools-2026.md
+          - Catch2 Testing: cheatsheets/catch2-testing.md

@@ -1,49 +1,103 @@
 ---
+// ─────────────────────────────────────────────────────────────────────────────
+// Base.astro  —  The shared layout shell for every page on the website.
+//
+// Astro layouts work like templates: a page file does  <Base title="...">
+// and all of its content is injected where the <slot /> tag appears below.
+// Every page therefore automatically gets the same <head>, navbar, and footer.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Import the global CSS file so its rules apply to every page that uses this layout.
 import "../styles/global.css";
+
+// Declare the TypeScript type for the props this layout accepts.
+// Any Astro page that uses <Base> must pass a `title` string; `description`
+// is optional (the `?` makes it optional in TypeScript).
 interface Props { title: string; description?: string; }
+
+// Astro.props contains the values passed in by the page that uses this layout.
+// Destructure `title` and `description` from it.
+// The `= "Learn Modern C++ OOP in 30 Days"` is a default value used when
+// the parent page doesn't supply a description.
 const { title, description = "Learn Modern C++ OOP in 30 Days" } = Astro.props;
+
+// Astro.url is the URL object for the current page being rendered.
+// pathname gives us the path portion, e.g. "/", "/cheatsheets", "/day/day-05".
 const path = Astro.url.pathname;
+
+// isActive decides whether a nav link should get the "active" style.
+// For the home link (href="/") we require an exact match so it doesn't
+// highlight on every page.  For other links a startsWith() check is used
+// so sub-pages (e.g. /cheatsheets/raii-smart-pointers) also highlight
+// the parent nav item (/cheatsheets).
 const isActive = (href: string) =>
   href === "/" ? path === "/" : path.startsWith(href);
 ---
-<!doctype html>
-<html lang="en">
+<!doctype html>  <!-- Tell the browser this is an HTML5 document -->
+<html lang="en"> <!-- `lang` helps screen readers and search engines -->
 <head>
+  <!-- UTF-8 encoding: required to display emoji, Unicode arrows, etc. correctly -->
   <meta charset="UTF-8" />
+  <!-- viewport meta: makes the page scale properly on mobile devices -->
   <meta name="viewport" content="width=device-width" />
+  <!-- description is shown by Google and social-media link previews -->
   <meta name="description" content={description} />
+  <!-- Page title shown in the browser tab; the `{title}` part is injected per page -->
   <title>{title} — Modern C++ OOP</title>
+  <!-- preconnect hints tell the browser to open a TCP connection to Google Fonts
+       before it parses the font link below, reducing the latency of font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Load Inter (body/UI text) and JetBrains Mono (code) from Google Fonts.
+       `display=swap` means the system font is shown while the custom font loads,
+       preventing invisible text (FOIT). -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
+<!-- min-h-screen: ensures the body is at least as tall as the viewport,
+     so the footer always sits at the bottom even on short pages -->
 <body class="min-h-screen">
 
-  <!-- Nav -->
+  <!-- ── Navigation bar ────────────────────────────────────────────────────── -->
+  <!-- sticky top-0: the nav stays visible at the top when the user scrolls.
+       z-50: keeps it above all other content (higher z-index wins in overlap).
+       backdrop-blur-xl: applies a frosted-glass blur to the content behind the nav,
+       giving depth without fully hiding the page content. -->
   <nav class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#090c17]/95 backdrop-blur-xl">
+    <!-- max-w-7xl: limit content width on very wide screens (1280 px max).
+         mx-auto: center the content horizontally.  h-14: fixed 56 px height. -->
     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
 
-      <!-- Brand -->
+      <!-- ── Brand / logo link ─────────────────────────────────────────────── -->
+      <!-- Clicking the brand always takes you back to the home page. -->
       <a href="/" class="flex items-center gap-2 font-extrabold text-sm group">
+        <!-- The lightning bolt icon: gradient background, rounded square shape.
+             group-hover:scale-110 → scales up slightly when the parent <a> is hovered
+             (the "group" class on the <a> enables this child reaction). -->
         <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 via-violet-500 to-orange-400 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">⚡</span>
+        <!-- hidden sm:block → hide on mobile (small screens), show on ≥ 640 px -->
         <span class="nav-brand hidden sm:block">Modern C++ OOP · 30 Days</span>
       </a>
 
-      <!-- Links -->
+      <!-- ── Navigation links ───────────────────────────────────────────────── -->
       <div class="flex items-center gap-0.5 text-xs font-medium">
+        {/* Build nav links from an array so adding/removing a link only
+            requires changing the array, not duplicating JSX markup. */}
         {[
-          { href: "/", icon: "🏠", label: "Home" },
-          { href: "/cheatsheets", icon: "📋", label: "Cheatsheets" },
-          { href: "/mindmap", icon: "🗺️", label: "Mind Map" },
+          { href: "/",           icon: "🏠", label: "Home" },
+          { href: "/cheatsheets",icon: "📋", label: "Cheatsheets" },
+          { href: "/mindmap",    icon: "🗺️", label: "Mind Map" },
         ].map(({ href, icon, label }) => (
           <a
             href={href}
+            {/* Apply "active" Tailwind classes when this link's href matches
+                the current page path; otherwise use the hover style. */}
             class={`px-3 py-1.5 rounded-lg transition-all ${
               isActive(href)
-                ? "bg-blue-500/15 text-blue-300 border border-blue-500/30"
-                : "text-slate-500 hover:text-slate-200 hover:bg-white/[0.06]"
+                ? "bg-blue-500/15 text-blue-300 border border-blue-500/30"  // Active page style
+                : "text-slate-500 hover:text-slate-200 hover:bg-white/[0.06]" // Inactive hover style
             }`}
           >
+            {/* mr-1: small right margin separates the icon from the label text */}
             <span class="mr-1">{icon}</span>{label}
           </a>
         ))}
@@ -51,20 +105,28 @@ const isActive = (href: string) =>
     </div>
   </nav>
 
+  <!-- ── Main content area ──────────────────────────────────────────────────── -->
   <main>
+    <!-- <slot /> is where Astro injects the content of the page that uses this layout.
+         Think of it like a placeholder that says "put the child content here". -->
     <slot />
   </main>
 
-  <!-- Footer -->
+  <!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+  <!-- mt-24: large top margin separates the footer from the main content.
+       py-12: vertical padding inside the footer. -->
   <footer class="border-t border-white/[0.05] mt-24 py-12">
     <div class="max-w-7xl mx-auto px-4">
+      <!-- grid sm:grid-cols-3: single column on mobile, 3 columns on ≥ 640 px -->
       <div class="grid sm:grid-cols-3 gap-8 mb-8">
+        <!-- Column 1: Brand description -->
         <div>
           <div class="font-bold text-slate-300 mb-3 text-sm">⚡ Modern C++ OOP</div>
           <p class="text-slate-600 text-xs leading-relaxed">
             A structured 30-day path through modern C++ — from foundations to C++23 features, design patterns, and real-world projects.
           </p>
         </div>
+        <!-- Column 2: Navigation links repeated for users who scroll to the footer -->
         <div>
           <div class="font-bold text-slate-400 mb-3 text-xs uppercase tracking-wider">Navigate</div>
           <ul class="space-y-2 text-xs text-slate-600">
@@ -73,9 +135,12 @@ const isActive = (href: string) =>
             <li><a href="/mindmap" class="hover:text-slate-300 transition-colors">🗺️ Visual Mind Map</a></li>
           </ul>
         </div>
+        <!-- Column 3: C++ standard badges and build info -->
         <div>
           <div class="font-bold text-slate-400 mb-3 text-xs uppercase tracking-wider">Standards</div>
+          <!-- flex flex-wrap gap-2: lay badges in a row that wraps onto the next line if needed -->
           <div class="flex flex-wrap gap-2">
+            {/* Map over the three standard names to avoid repeating the badge markup */}
             {["C++17", "C++20", "C++23"].map(s => (
               <span class="px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">{s}</span>
             ))}
@@ -83,6 +148,7 @@ const isActive = (href: string) =>
           <p class="text-slate-700 text-xs mt-3">Compiled with GCC / Clang · CMake + Ninja</p>
         </div>
       </div>
+      <!-- Copyright line: new Date().getFullYear() evaluates to the current year at build time -->
       <div class="border-t border-white/[0.04] pt-6 text-center text-slate-700 text-xs">
         Built with <span class="text-blue-600">Astro</span> · {new Date().getFullYear()}
       </div>
