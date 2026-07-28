@@ -1,0 +1,343 @@
+/* ============================================================
+   NEURAL ANIMATIONS — Synaptic firing, pulse, flow effects
+   Every element has a living, breathing quality
+   ============================================================ */
+
+/* ---- Keyframe library ---- */
+
+@keyframes synapticPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+  50%       { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.25); }
+}
+
+@keyframes neuronFire {
+  0%   { transform: scale(1);    box-shadow: 0 0 4px  rgba(99,102,241,0.3); }
+  40%  { transform: scale(1.06); box-shadow: 0 0 24px rgba(99,102,241,0.8); }
+  100% { transform: scale(1);    box-shadow: 0 0 4px  rgba(99,102,241,0.3); }
+}
+
+@keyframes dendriteDraw {
+  from { stroke-dashoffset: 1000; opacity: 0; }
+  to   { stroke-dashoffset: 0;    opacity: 1; }
+}
+
+@keyframes axonFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeUpIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes brainwaveScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes hotPulse {
+  0%, 100% { color: #f97316; }
+  50%       { color: #fbbf24; text-shadow: 0 0 12px #fbbf24; }
+}
+
+/* ============================================================
+   HEADING ANIMATIONS — Each heading fires like a neuron
+   ============================================================ */
+
+.md-typeset h1 {
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 40%, #c084fc 70%, #f472b6 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  position: relative;
+  padding-left: 1rem;
+  animation: fadeUpIn 0.5s ease both;
+}
+
+.md-typeset h2::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #8b5cf6, #60a5fa);
+  animation: synapticPulse 3s ease-in-out infinite;
+}
+
+.md-typeset h3 {
+  color: #c4b5fd;
+  animation: slideInLeft 0.4s ease both;
+}
+
+.md-typeset h4 {
+  color: #93c5fd;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   ANIMATED GRADIENT HERO TITLE
+   ============================================================ */
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  background: linear-gradient(90deg, #60a5fa, #818cf8, #c084fc, #f472b6, #fb923c, #60a5fa);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: axonFlow 5s linear infinite;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.75;
+  animation: fadeUpIn 0.8s ease 0.3s both;
+}
+
+/* ============================================================
+   LINK HOVER — Synapse flash
+   ============================================================ */
+
+.md-typeset a:not(.md-button) {
+  color: #818cf8;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(129,140,248,0.3);
+  transition: all 200ms;
+}
+
+.md-typeset a:not(.md-button):hover {
+  color: #c4b5fd;
+  border-bottom-color: #c4b5fd;
+  text-shadow: 0 0 8px rgba(196,181,253,0.5);
+}
+
+/* ============================================================
+   CARD ENTRANCE — Staggered neural firing pattern
+   ============================================================ */
+
+.md-typeset .grid > * {
+  animation: fadeUpIn 0.4s ease both;
+}
+
+.md-typeset .grid > *:nth-child(1)  { animation-delay: 0.05s; }
+.md-typeset .grid > *:nth-child(2)  { animation-delay: 0.10s; }
+.md-typeset .grid > *:nth-child(3)  { animation-delay: 0.15s; }
+.md-typeset .grid > *:nth-child(4)  { animation-delay: 0.20s; }
+.md-typeset .grid > *:nth-child(5)  { animation-delay: 0.25s; }
+.md-typeset .grid > *:nth-child(6)  { animation-delay: 0.30s; }
+.md-typeset .grid > *:nth-child(7)  { animation-delay: 0.35s; }
+.md-typeset .grid > *:nth-child(8)  { animation-delay: 0.40s; }
+.md-typeset .grid > *:nth-child(9)  { animation-delay: 0.45s; }
+.md-typeset .grid > *:nth-child(10) { animation-delay: 0.50s; }
+
+/* ============================================================
+   MATERIAL CARDS — Neural pulse on hover
+   ============================================================ */
+
+.md-typeset .md-button {
+  border-radius: 0.5rem;
+  transition: all 250ms var(--synapse-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.md-typeset .md-button::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 400ms, height 400ms;
+}
+
+.md-typeset .md-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.md-typeset .md-button:hover {
+  box-shadow: var(--glow-md);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   TABLE — Synaptic row highlighting
+   ============================================================ */
+
+.md-typeset table:not([class]) {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(139,92,246,0.15);
+  color: #c4b5fd;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.md-typeset table:not([class]) tr {
+  transition: background 150ms;
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(139,92,246,0.08);
+}
+
+/* ============================================================
+   ADMONITION — Pulse border on hover
+   ============================================================ */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.5rem;
+  transition: box-shadow 250ms;
+}
+
+.md-typeset .admonition:hover,
+.md-typeset details:hover {
+  box-shadow: var(--glow-sm);
+}
+
+/* ============================================================
+   BRAINWAVE DIVIDER
+   ============================================================ */
+
+.brainwave-divider {
+  height: 32px;
+  width: 200%;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.3;
+}
+
+.brainwave-divider svg {
+  animation: brainwaveScroll 4s linear infinite;
+  width: 200%;
+}
+
+/* ============================================================
+   PROGRESS NEURON BAR
+   ============================================================ */
+
+.neural-progress {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(139,92,246,0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.neural-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  background-size: 200% 100%;
+  animation: axonFlow 2s linear infinite;
+  transition: width 800ms var(--synapse-ease);
+}
+
+/* ============================================================
+   TAG PILLS — Neurotransmitter badges
+   ============================================================ */
+
+.neurotag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid;
+  animation: synapticPulse 4s ease-in-out infinite;
+}
+
+.neurotag-cpp20    { color: #60a5fa; border-color: rgba(96,165,250,0.4);  background: rgba(96,165,250,0.1); }
+.neurotag-cpp23    { color: #c084fc; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.1); }
+.neurotag-raii     { color: #34d399; border-color: rgba(52,211,153,0.4);  background: rgba(52,211,153,0.1); }
+.neurotag-oop      { color: #fb923c; border-color: rgba(251,146,60,0.4);  background: rgba(251,146,60,0.1); }
+.neurotag-perf     { color: #f472b6; border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.1); }
+
+/* ============================================================
+   SCROLL REVEAL — Elements fade in as they enter viewport
+   (Enhanced by brain-interactions.js)
+   ============================================================ */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   CURSOR BLINK (Typewriter elements)
+   ============================================================ */
+
+.typewriter::after {
+  content: '|';
+  animation: blink-cursor 1s step-end infinite;
+  color: #8b5cf6;
+}
