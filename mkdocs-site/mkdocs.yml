@@ -8,21 +8,13 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  # Dark-only: the custom stylesheets (brain-regions, layout, code-blocks,
+  # overrides/main.html) are written for a dark background. A light palette
+  # left dark backgrounds behind dark text, hiding most of the content.
   palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: deep purple
-      accent: cyan
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep purple
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
+    scheme: slate
+    primary: deep purple
+    accent: cyan
   font:
     text: Inter
     code: JetBrains Mono
@@ -31,9 +23,6 @@ theme:
     repo: fontawesome/brands/github
   favicon: assets/favicon.png
   features:
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
