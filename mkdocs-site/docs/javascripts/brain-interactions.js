@@ -172,7 +172,10 @@
      TOOLTIP ENHANCEMENT — Code term tooltips
      ============================================================ */
   function initTooltips() {
-    // Automatic abbreviation lookup for C++ terms
+    // Automatic abbreviation lookup for C++ terms.
+    // Walks text nodes only -- never rewrites innerHTML, which would destroy
+    // elements already wired up by other scripts (scroll-reveal observers,
+    // flashcard click handlers, copy buttons, mermaid, progress widget).
     const terms = {
       'RAII':  'Resource Acquisition Is Initialization',
       'CRTP':  'Curiously Recurring Template Pattern',
@@ -183,11 +186,33 @@
     };
     const content = document.querySelector('.md-content__inner');
     if (!content) return;
-    Object.entries(terms).forEach(([term, def]) => {
-      content.innerHTML = content.innerHTML.replace(
-        new RegExp(`\\b(${term})\\b(?![^<]*>)(?!.*<\/abbr>)`, 'g'),
-        `<abbr title="${def}">$1</abbr>`
-      );
+    const re = new RegExp('\\b(' + Object.keys(terms).join('|') + ')\\b', 'g');
+    const skip = 'abbr, code, pre, a, script, style, textarea, h1, h2, h3, .mermaid';
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !re.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        re.lastIndex = 0;
+        return node.parentElement && node.parentElement.closest(skip)
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const frag = document.createDocumentFragment();
+      const text = node.nodeValue;
+      let last = 0, m;
+      re.lastIndex = 0;
+      while ((m = re.exec(text))) {
+        frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const abbr = document.createElement('abbr');
+        abbr.title = terms[m[1]];
+        abbr.textContent = m[1];
+        frag.appendChild(abbr);
+        last = m.index + m[1].length;
+      }
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
     });
   }
 
@@ -236,7 +261,19 @@
   /* ============================================================
      MAIN INIT
      ============================================================ */
+  /* ============================================================
+     CLUSTER BANNER — render **bold** that Markdown skips inside raw HTML
+     ============================================================ */
+  function initBannerBold() {
+    document.querySelectorAll('.brain-cluster-banner').forEach(b => {
+      if (b.innerHTML.includes('**')) {
+        b.innerHTML = b.innerHTML.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      }
+    });
+  }
+
   function init() {
+    initBannerBold();
     initScrollReveal();
     initProgressBar();
     initTypewriter();
@@ -252,13 +289,11 @@
     setTimeout(initTooltips, 500);
   }
 
-  // Material instant navigation re-fires
+  // Run once per page load (navigation.instant is disabled in mkdocs.yml,
+  // so every page is a full load and DOMContentLoaded fires exactly once).
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
-  // Re-init after instant navigation
-  document.addEventListener('DOMContentLoaded', init);
 })();
