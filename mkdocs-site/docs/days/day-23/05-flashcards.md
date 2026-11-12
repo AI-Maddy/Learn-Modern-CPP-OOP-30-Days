@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and std::format. C++23 delivered std::expected, import std;, std::mdspan, and std::print. C++26, finalised in 2026, brings transf</div>
+      <div class="flashcard-a">C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and std::format. C++23 delivered std::expected, import std;, std::mdspan, and std::print.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from assert() in that they are part of the function declaration and can be verified, disabled, or a</div>
+      <div class="flashcard-a">Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from assert() in that they are part of the function declaration and can be verified, disabled, or…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -124,7 +124,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">std::execution provides a composable, asynchronous programming model based on senders (descriptions of async work) and receivers (continuations).</div>
+      <div class="flashcard-a">std::execution provides a composable, asynchronous programming model based on senders (descriptions of async work) and receivers (continuations). Key concepts: A sender is a lazy description of work.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A fixed-capacity vector stored entirely on the stack (or inside the parent object) — no heap allocation, no indirection, same interface as std::vector.</div>
+      <div class="flashcard-a">A fixed-capacity vector stored entirely on the stack (or inside the parent object) — no heap allocation, no indirection, same interface as std::vector. Comparison of inplace_vector with alternatives:</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -164,17 +164,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a"><table style="width:97%;">
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 20%" />
-<col style="width: 35%" />
-<col style="width: 2%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td rowspan="2"><blockquote>
-<p>Featur</div>
+      <div class="flashcard-a">Using them today: stdexec (NVIDIA&#x27;s reference P2300 implementation) is available on GitHub and works on C++20 compilers. boost::static_vector provides inplace_vector semantics today.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -194,10 +184,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">C++11/14  C++17      C++20        C++23         C++26
-    ────────  ───────    ──────────   ──────────    ──────────────────
-    move sem  structured modules      expected      reflection
-    lambdas   bindings   concept</div>
+      <div class="flashcard-a">C++11/14 C++17 C++20 C++23 C++26 ──────── ─────── ────────── ────────── ────────────────── move sem structured modules expected reflection lambdas bindings concepts print/println pattern matching smart ptr if-init…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -225,7 +212,7 @@ title: "05 — Flashcards · Day 23"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1. What does the reflection operator \\^^T\\ produce and how is it used?</div>
+      <div class="flashcard-a">Q1. What does the reflection operator \\^^T\\ produce and how is it used? ^^T produces a std::meta::info — a compile-time constant value that represents the type T in the reflection system.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -249,7 +236,7 @@ title: "05 — Flashcards · Day 23"
 
 
 ??? question "Motivation — The Evolving Language"
-    C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and std::format. C++23 delivered std::expected, import std;, std::mdspan, and std::print. C++26, finalised in 2026, brings transf
+    C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and std::format. C++23 delivered std::expected, import std;, std::mdspan, and std::print.
 
 ??? question "Static Reflection — P2996 (Merged into C++26)"
     Static reflection allows querying properties of types at compile time as first-class language values, without macros or code generation.
@@ -258,35 +245,22 @@ title: "05 — Flashcards · Day 23"
     Pattern matching provides a structured multi-way dispatch over values and types, extending switch to work with arbitrary types including std::variant, std::optional, structs, and ranges.
 
 ??? question "Contracts — P2900 (Merged into C++26)"
-    Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from assert() in that they are part of the function declaration and can be verified, disabled, or a
+    Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from assert() in that they are part of the function declaration and can be verified, disabled, or…
 
 ??? question "`std::execution` — P2300 Senders/Receivers (Merged into C++26)"
-    std::execution provides a composable, asynchronous programming model based on senders (descriptions of async work) and receivers (continuations).
+    std::execution provides a composable, asynchronous programming model based on senders (descriptions of async work) and receivers (continuations). Key concepts: A sender is a lazy description of work.
 
 ??? question "`std::inplace_vector` — P0843 (Merged into C++26)"
-    A fixed-capacity vector stored entirely on the stack (or inside the parent object) — no heap allocation, no indirection, same interface as std::vector.
+    A fixed-capacity vector stored entirely on the stack (or inside the parent object) — no heap allocation, no indirection, same interface as std::vector. Comparison of inplace_vector with alternatives:
 
 ??? question "What Is Stable vs Experimental (Early 2025)"
-    <table style="width:97%;">
-    <colgroup>
-    <col style="width: 38%" />
-    <col style="width: 20%" />
-    <col style="width: 35%" />
-    <col style="width: 2%" />
-    </colgroup>
-    <tbody>
-    <tr class="odd">
-    <td rowspan="2"><blockquote>
-    <p>Featur
+    Using them today: stdexec (NVIDIA's reference P2300 implementation) is available on GitHub and works on C++20 compilers. boost::static_vector provides inplace_vector semantics today.
 
 ??? question "Modern C++ Trajectory"
-    C++11/14  C++17      C++20        C++23         C++26
-        ────────  ───────    ──────────   ──────────    ──────────────────
-        move sem  structured modules      expected      reflection
-        lambdas   bindings   concept
+    C++11/14 C++17 C++20 C++23 C++26 ──────── ─────── ────────── ────────── ────────────────── move sem structured modules expected reflection lambdas bindings concepts print/println pattern matching smart ptr if-init…
 
 ??? question "Self-Check Questions"
-    Q1. What does the reflection operator \\^^T\\ produce and how is it used?
+    Q1. What does the reflection operator \\^^T\\ produce and how is it used? ^^T produces a std::meta::info — a compile-time constant value that represents the type T in the reflection system.
 
 
 ---
@@ -295,54 +269,22 @@ title: "05 — Flashcards · Day 23"
 
 
 ??? question "⚠️ Pitfall: Pitfall 1 — Using C++26 Reflection in Production Without Stable Compiler Support"
-    Problem: Adopting `^^T` reflection syntax in production code before the feature is available in released, stable compilers used by the whole team.
-
-    BAD:
-
-    ``` cpp
-    // Requires Clang trunk with -freflec
+    Problem: Adopting ^^T reflection syntax in production code before the feature is available in released, stable compilers used by the whole team.
 
 ??? question "⚠️ Pitfall: Pitfall 2 — Contracts Used as Defensive Programming Instead of Design"
     Problem: Adding contracts to every function as a defensive coding habit instead of using them to express caller/callee responsibilities at API boundaries.
 
-    BAD:
-
-    ``` cpp
-    // Contracts on a private imp
-
 ??? question "⚠️ Pitfall: Pitfall 3 — Misunderstanding `inspect` Exhaustiveness"
-    Problem: Assuming that an `inspect` block without a catch-all handles all cases, leading to a compile error or silent fallthrough at runtime.
-
-    BAD (assuming the P2688 experimental syntax):
-
-    ``` cpp
-    s
+    Problem: Assuming that an inspect block without a catch-all handles all cases, leading to a compile error or silent fallthrough at runtime.
 
 ??? question "⚠️ Pitfall: Pitfall 4 — Blocking on a Sender with `sync_wait` Inside Async Contexts"
-    Problem: Calling `std::execution::syncwait` inside a coroutine or a thread-pool task, blocking a thread that should remain free for other work.
-
-    BAD:
-
-    ``` cpp
-    namespace ex = std::execution;
-
-    // A tas
+    Problem: Calling std::execution::sync_wait inside a coroutine or a thread-pool task, blocking a thread that should remain free for other work. BAD: Why it fails: sync_wait blocks the calling thread.
 
 ??? question "⚠️ Pitfall: Pitfall 5 — `std::inplace_vector` Overflow Without Checking"
-    Problem: Using `pushback` on a full `inplacevector` throws `std::badalloc`, but this is often unexpected because "allocation failure" feels irrelevant for a stack-based container.
-
-    BAD:
-
-    ``` cpp
-    std:
+    Problem: Using push_back on a full inplace_vector throws std::bad_alloc, but this is often unexpected because "allocation failure" feels irrelevant for a stack-based container.
 
 ??? question "⚠️ Pitfall: Pitfall 6 — Confusing Merged-into-Draft with Implemented-in-Compiler"
-    Problem: Reading that a paper is "merged into C++26" and assuming it is available in released compilers immediately.
-
-    BAD assumption:
-
-    ``` cpp
-    // P2996 (Reflection) merged into C++26 draft — so let's
+    Problem: Reading that a paper is "merged into C++26" and assuming it is available in released compilers immediately. BAD assumption: Why it fails: "Merged into the C++26 working draft" means the ISO…
 
 
 ---

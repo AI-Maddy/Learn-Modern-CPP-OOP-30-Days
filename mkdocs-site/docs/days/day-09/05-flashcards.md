@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Imagine writing max() once for int, then again for double, then again for std::string. Duplicated logic, duplicated bugs, duplicated maintenance. C++ templates let you write code once and instantiate it for any type that</div>
+      <div class="flashcard-a">Imagine writing max() once for int, then again for double, then again for std::string. Duplicated logic, duplicated bugs, duplicated maintenance.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters.</div>
+      <div class="flashcard-a">A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters. Multiple template parameters</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,7 +76,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters.</div>
+      <div class="flashcard-a">Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters. Out-of-class member function definition</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -164,7 +164,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Variadic templates accept any number of template arguments. They underpin std::tuple, std::variant, and perfect forwarding.</div>
+      <div class="flashcard-a">Variadic templates accept any number of template arguments. They underpin std::tuple, std::variant, and perfect forwarding. ASCII diagram — fold expression expansion: sum_all(1, 2, 3, 4)…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Every unique set of template arguments produces a separate compiled entity. This has implications for compile time and binary size.</div>
+      <div class="flashcard-a">Every unique set of template arguments produces a separate compiled entity. This has implications for compile time and binary size. Explicit instantiation — declare in a header, define in one .cpp Non-template base…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -212,7 +212,7 @@ title: "05 — Flashcards · Day 09"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What does "template type deduction" mean, and how does it differ from a cast?</div>
+      <div class="flashcard-a">1. What does &quot;template type deduction&quot; mean, and how does it differ from a cast? Deduction is the compiler inferring T from call-site argument types at compile time.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -236,13 +236,13 @@ title: "05 — Flashcards · Day 09"
 
 
 ??? question "Motivation"
-    Imagine writing max() once for int, then again for double, then again for std::string. Duplicated logic, duplicated bugs, duplicated maintenance. C++ templates let you write code once and instantiate it for any type that
+    Imagine writing max() once for int, then again for double, then again for std::string. Duplicated logic, duplicated bugs, duplicated maintenance.
 
 ??? question "Function Templates"
-    A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters.
+    A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters. Multiple template parameters
 
 ??? question "Class Templates"
-    Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters.
+    Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters. Out-of-class member function definition
 
 ??? question "Template Type Deduction"
     The compiler infers template arguments from the function call arguments. The rules closely mirror the rules for auto deduction.
@@ -254,13 +254,13 @@ title: "05 — Flashcards · Day 09"
     A full specialisation provides a completely different implementation for one exact set of template arguments. A partial specialisation handles a family of argument combinations.
 
 ??? question "Variadic Templates"
-    Variadic templates accept any number of template arguments. They underpin std::tuple, std::variant, and perfect forwarding.
+    Variadic templates accept any number of template arguments. They underpin std::tuple, std::variant, and perfect forwarding. ASCII diagram — fold expression expansion: sum_all(1, 2, 3, 4)…
 
 ??? question "Template Instantiation Cost"
-    Every unique set of template arguments produces a separate compiled entity. This has implications for compile time and binary size.
+    Every unique set of template arguments produces a separate compiled entity. This has implications for compile time and binary size. Explicit instantiation — declare in a header, define in one .cpp Non-template base…
 
 ??? question "Self-Check Questions"
-    1.  What does "template type deduction" mean, and how does it differ from a cast?
+    1. What does "template type deduction" mean, and how does it differ from a cast? Deduction is the compiler inferring T from call-site argument types at compile time.
 
 
 ---
@@ -271,48 +271,20 @@ title: "05 — Flashcards · Day 09"
 ??? question "⚠️ Pitfall: Pitfall 1: Template Definition in a .cpp File"
     Description: Placing a template's definition in a .cpp file and its declaration in a header. The linker cannot find the instantiation for translation units that only see the header.
 
-    BAD
-
-    ``` cpp
-    //
-
 ??? question "⚠️ Pitfall: Pitfall 2: Accidental Copy in Pass-by-Value Template"
-    Description: A template function taking `T` by value makes an unexpected deep copy of a large object because the caller passed an lvalue.
-
-    BAD
-
-    ``` cpp
-    template <typename T>
-    void store(T item) {
+    Description: A template function taking T by value makes an unexpected deep copy of a large object because the caller passed an lvalue.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Specialising Function Templates — Use Overloads Instead"
     Description: Partially specialising a function template is not allowed, and full specialisation interacts poorly with overload resolution in surprising ways.
 
-    BAD
-
-    ``` cpp
-    template <typename T>
-    std::
-
 ??? question "⚠️ Pitfall: Pitfall 4: Dependent Name Lookup — Missing `typename` and `template`"
-    Description: Inside a template, names that depend on a template parameter need `typename` (for types) or `template` (for templates) to help the compiler parse correctly.
-
-    BAD
-
-    ``` cpp
-    template <typen
+    Description: Inside a template, names that depend on a template parameter need typename (for types) or template (for templates) to help the compiler parse correctly.
 
 ??? question "⚠️ Pitfall: Pitfall 5: Infinite Recursion in Variadic Template — Missing Base Case"
     Description: A variadic template that recurses on the parameter pack without a zero-argument base case will fail to compile with an opaque recursion error.
 
-    BAD
-
-    ``` cpp
-    template <typename... Args>
-    v
-
 ??? question "⚠️ Pitfall: Pitfall 6: Non-Type Template Parameter — ODR Violation with Inline Variables"
-    Description: Using a non-type template parameter with an address that has internal linkage can cause one-definition rule (ODR) violations when the template is instantiated in multiple translation uni
+    Description: Using a non-type template parameter with an address that has internal linkage can cause one-definition rule (ODR) violations when the template is instantiated in multiple translation…
 
 
 ---

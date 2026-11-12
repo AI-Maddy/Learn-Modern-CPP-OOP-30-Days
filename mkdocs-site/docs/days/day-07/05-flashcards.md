@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 07"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface contracts, final to seal classes and optimise v</div>
+      <div class="flashcard-a">Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface contracts, final to seal classes and optimise…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,7 +76,7 @@ title: "05 — Flashcards · Day 07"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">An interface in C++ is an abstract class with only pure virtual functions and a virtual destructor — no data members, no non-pure virtual functions.</div>
+      <div class="flashcard-a">An interface in C++ is an abstract class with only pure virtual functions and a virtual destructor — no data members, no non-pure virtual functions. Guideline: Keep interfaces narrow.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 07"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">final on a class prevents further inheritance. final on a virtual method prevents further overriding in derived classes.</div>
+      <div class="flashcard-a">final on a class prevents further inheritance. final on a virtual method prevents further overriding in derived classes. Performance benefit of \\final\\: When the compiler can prove that a class is final (no subclasses…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 07"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A derived class override may return a pointer or reference to a class that is derived from the return type of the base class function. This allows factory methods to return the most-derived type without forcing the calle</div>
+      <div class="flashcard-a">A derived class override may return a pointer or reference to a class that is derived from the return type of the base class function.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -207,35 +207,12 @@ title: "05 — Flashcards · Day 07"
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L3 · Question</div>
-      <div class="flashcard-q">Summary: virtual keywords at a glance</div>
-      <div class="flashcard-hint">Hover or click to flip →</div>
-    </div>
-    <div class="flashcard-back">
-      <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">| Keyword         | Effect                                       |
-|-----------------|----------------------------------------------|
-| virtual       | Enables runtime dispatch via vtable          |
-| = 0           | Mak</div>
-      <div class="flashcard-confidence">
-        <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
-        <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
-        <div class="confidence-dot" data-level="3" title="Okay 🟡"></div>
-        <div class="confidence-dot" data-level="4" title="Good 🟢"></div>
-        <div class="confidence-dot" data-level="5" title="Mastered 🟣"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="flashcard" data-card-id="day07-l3-1">
-  <div class="flashcard-inner">
-    <div class="flashcard-front">
-      <div class="flashcard-label">L3 · Question</div>
       <div class="flashcard-q">Self-Check Questions</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1: What happens if you forget to provide an implementation for a pure virtual function in a derived class?</div>
+      <div class="flashcard-a">Q1: What happens if you forget to provide an implementation for a pure virtual function in a derived class? The derived class itself becomes abstract. You cannot instantiate it.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -259,22 +236,22 @@ title: "05 — Flashcards · Day 07"
 
 
 ??? question "Why This Day Matters"
-    Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface contracts, final to seal classes and optimise v
+    Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface contracts, final to seal classes and optimise…
 
 ??? question "Pure Virtual Functions and Abstract Classes"
     A pure virtual function has no implementation in the base class; any derived class must provide one. A class with at least one pure virtual function is abstract — you cannot instantiate it directly.
 
 ??? question "Interface Design Principles"
-    An interface in C++ is an abstract class with only pure virtual functions and a virtual destructor — no data members, no non-pure virtual functions.
+    An interface in C++ is an abstract class with only pure virtual functions and a virtual destructor — no data members, no non-pure virtual functions. Guideline: Keep interfaces narrow.
 
 ??? question "`final` — Sealing Classes and Methods"
-    final on a class prevents further inheritance. final on a virtual method prevents further overriding in derived classes.
+    final on a class prevents further inheritance. final on a virtual method prevents further overriding in derived classes. Performance benefit of \\final\\: When the compiler can prove that a class is final (no subclasses…
 
 ??? question "Virtual Destructor Requirement"
     A class used as a polymorphic base must have a virtual destructor. This ensures the correct destructor chain is called when deleting through a base pointer.
 
 ??? question "Covariant Return Types"
-    A derived class override may return a pointer or reference to a class that is derived from the return type of the base class function. This allows factory methods to return the most-derived type without forcing the calle
+    A derived class override may return a pointer or reference to a class that is derived from the return type of the base class function.
 
 ??? question "The Non-Virtual Interface (NVI) Idiom"
     NVI separates the interface (public, non-virtual) from the implementation hooks (protected or private, virtual). The public non-virtual function performs pre/post-processing and calls the virtual hook.
@@ -282,14 +259,8 @@ title: "05 — Flashcards · Day 07"
 ??? question "Avoiding Virtual in Hot Paths"
     Virtual dispatch has two costs: an indirect call (one pointer dereference) and inhibited inlining. For hot loops (millions of calls per second), this matters.
 
-??? question "Summary: virtual keywords at a glance"
-    | Keyword         | Effect                                       |
-    |-----------------|----------------------------------------------|
-    | virtual       | Enables runtime dispatch via vtable          |
-    | = 0           | Mak
-
 ??? question "Self-Check Questions"
-    Q1: What happens if you forget to provide an implementation for a pure virtual function in a derived class?
+    Q1: What happens if you forget to provide an implementation for a pure virtual function in a derived class? The derived class itself becomes abstract. You cannot instantiate it.
 
 
 ---
@@ -298,18 +269,16 @@ title: "05 — Flashcards · Day 07"
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Forgetting `override` and Silently Creating a New Function"
-    Description: Intending to override a base class virtual function but having a slightly different signature. Without `override`, the compiler silently treats it as a new function. The base's virtual i
+    Description: Intending to override a base class virtual function but having a slightly different signature. Without override, the compiler silently treats it as a new function.
 
 ??? question "⚠️ Pitfall: Pitfall 2: Marking a Class `final` Prematurely"
-    Description: Marking a class `final` as a premature optimisation or "just in case", before understanding whether future extension is needed. This closes off legitimate extensibility and forces caller
+    Description: Marking a class final as a premature optimisation or "just in case", before understanding whether future extension is needed.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Abstract Base with Non-Virtual Destructor"
     Description: Defining an abstract base class (with pure virtual functions) but forgetting to declare the destructor virtual. Deleting a derived object through a base pointer is undefined behaviour.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Bypassing the NVI Contract by Making the Hook Public"
-    Description: Using the NVI idiom but accidentally making the virtual hook `public` instead of `protected`. Callers can then call the hook directly, bypassing the invariant-enforcing wrapper.
-
-    BAD cod
+    Description: Using the NVI idiom but accidentally making the virtual hook public instead of protected. Callers can then call the hook directly, bypassing the invariant-enforcing wrapper.
 
 
 ---

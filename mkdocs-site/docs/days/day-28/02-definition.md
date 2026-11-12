@@ -58,13 +58,15 @@ Naming, formatting, comment quality. These are important but should not dominate
 
 ```mermaid
 graph TD
-    ROOT["Code Review Common Pitfalls"] --> A["Code Review"]
-    Code_Review_Common_Pitfalls --> Code_Review["Code Review"]
-    Code_Review_Common_Pitfalls --> Mastery["Mastery"]
-    Code_Review_Common_Pitfalls --> Best_Practices["Best Practices"]
-    Code_Review_Common_Pitfalls --> C++_Core_Guidelines["C++ Core Guidelines"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Code Review Common Pitfalls"]
+    ROOT --> n0["Code Review"]
+    ROOT --> n1["Mastery"]
+    ROOT --> n2["Best Practices"]
+    ROOT --> n3["C++ Core Guidelines"]
+    classDef topic fill:#94a3b8,stroke:#94a3b8,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#94a3b8,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

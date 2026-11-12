@@ -22,41 +22,29 @@ title: "06 — Self Test · Day 02"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Functions are the primary unit of abstraction in C++. Getting their signatures right — parameter passing conventions, return types, overloading rules — determines whether your cod
+    Functions are the primary unit of abstraction in C++. Getting their signatures right — parameter passing conventions, return types, overloading rules — determines whether your…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Function Signatures and Parameter Passing**?
 
 === "✅ Answer"
-    The single most impactful decision in a function signature is how to pass each parameter.
+    The single most impactful decision in a function signature is how to pass each parameter. The golden rule: pass by const T& unless you need a copy or a mutation.
 
-``` cpp
-include <string>
-include <vector>
-
-// Pass by value: the function gets its own c
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Default Arguments**?
 
 === "✅ Answer"
-    Default arguments let callers omit trailing parameters, providing a natural API extension path.
+    Default arguments let callers omit trailing parameters, providing a natural API extension path. Tradeoff: Default arguments make callers concise but can hide the actual arguments…
 
-``` cpp
-// Default arguments must appear in the declaration (header), not definiti
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Function Overloading**?
 
 === "✅ Answer"
     Overloading lets you define multiple functions with the same name but different parameter types. The compiler selects the best match through overload resolution.
-
-``` cpp
-include
 
 
 ---

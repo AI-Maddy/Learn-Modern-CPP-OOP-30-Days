@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 26"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A naive OOP approach leads to an explosion of types:</div>
+      <div class="flashcard-a">A naive OOP approach leads to an explosion of types: Adding &quot;swimming&quot; ability to some but not all entities requires inserting a new layer in the hierarchy.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 26"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">- ECS vs deep inheritance: ECS excels when entities need arbitrary combinations of behaviour (a sword that is also a pickup that can be possessed). Pure inheritance cannot express this without an explosion of classes. Th</div>
+      <div class="flashcard-a">ECS vs deep inheritance: ECS excels when entities need arbitrary combinations of behaviour (a sword that is also a pickup that can be possessed). Pure inheritance cannot express this without an explosion of classes.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -212,7 +212,7 @@ title: "05 — Flashcards · Day 26"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What problem does the ECS pattern solve compared to deep inheritance?</div>
+      <div class="flashcard-a">1. What problem does the ECS pattern solve compared to deep inheritance? The combinatorial explosion of types when entities can have arbitrary combinations of behaviours.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -239,7 +239,7 @@ title: "05 — Flashcards · Day 26"
     Game development stress-tests every OOP skill: performance matters, objects are created and destroyed rapidly, behaviour combinations are unpredictable, and systems must communicate without tight coupling.
 
 ??? question "The Problem with Deep Inheritance in Games"
-    A naive OOP approach leads to an explosion of types:
+    A naive OOP approach leads to an explosion of types: Adding "swimming" ability to some but not all entities requires inserting a new layer in the hierarchy.
 
 ??? question "The Entity-Component System (ECS)"
     An Entity is just an ID. All data lives in Components. Systems iterate over entities that have a specific set of components.
@@ -257,10 +257,10 @@ title: "05 — Flashcards · Day 26"
     A naive collision system checks every pair of entities: O(n²). With 1000 entities that is 500,000 checks per frame. Spatial partitioning divides space into cells so only nearby entities are tested.
 
 ??? question "Design Tradeoffs"
-    - ECS vs deep inheritance: ECS excels when entities need arbitrary combinations of behaviour (a sword that is also a pickup that can be possessed). Pure inheritance cannot express this without an explosion of classes. Th
+    ECS vs deep inheritance: ECS excels when entities need arbitrary combinations of behaviour (a sword that is also a pickup that can be possessed). Pure inheritance cannot express this without an explosion of classes.
 
 ??? question "Self-Check Questions"
-    1.  What problem does the ECS pattern solve compared to deep inheritance?
+    1. What problem does the ECS pattern solve compared to deep inheritance? The combinatorial explosion of types when entities can have arbitrary combinations of behaviours.
 
 
 ---
@@ -269,39 +269,19 @@ title: "05 — Flashcards · Day 26"
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Modifying the Entity Collection During Iteration"
-    Description  
-    Destroying an entity inside the update loop while iterating the entity registry invalidates iterators and causes undefined behaviour.
-
-    BAD code
-
-    ``` cpp
-    for (auto& [id, comps] : registr
+    Description Destroying an entity inside the update loop while iterating the entity registry invalidates iterators and causes undefined behaviour.
 
 ??? question "⚠️ Pitfall: Pitfall 2: Frame-Rate-Dependent Update Logic"
-    Description  
-    Updating positions without multiplying by `dt` (delta time) makes the game run faster on high-frame-rate machines and slower on low-end ones.
-
-    BAD code
-
-    ``` cpp
-    void update(EntityRegist
+    Description Updating positions without multiplying by dt (delta time) makes the game run faster on high-frame-rate machines and slower on low-end ones.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Memory Leak from Unowned Entity Pointers"
-    Description  
-    Handing out raw pointers to components and caching them across frames is dangerous when the registry's internal storage is reallocated or the entity is destroyed.
-
-    BAD code
-
-    ``` cpp
-    Hea
+    Description Handing out raw pointers to components and caching them across frames is dangerous when the registry's internal storage is reallocated or the entity is destroyed.
 
 ??? question "⚠️ Pitfall: Pitfall 4: CRTP Base with Virtual Destructor"
-    Description  
-    Adding a virtual destructor to a CRTP base negates its zero-overhead purpose and introduces a vtable. Deleting through a base pointer is also wrong because CRTP bases are intended for s
+    Description Adding a virtual destructor to a CRTP base negates its zero-overhead purpose and introduces a vtable. Deleting through a base pointer is also wrong because CRTP bases are intended for…
 
 ??? question "⚠️ Pitfall: Pitfall 5: Event Bus Listener Capturing Dangling References"
-    Description  
-    A lambda subscribed to the event bus that captures `this` by reference remains registered after the subscribing object is destroyed, causing a dangling reference when the event fires.
+    Description A lambda subscribed to the event bus that captures this by reference remains registered after the subscribing object is destroyed, causing a dangling reference when the event fires.
 
 
 ---

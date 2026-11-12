@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 14"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime:</div>
+      <div class="flashcard-a">Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime: 1. How is the resource created? (constructor) 2.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,7 +76,7 @@ title: "05 — Flashcards · Day 14"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">If you define (or \\=delete\\) any one of the five special members, you must explicitly handle all five — because the compiler's implicit generation rules become unreliable once you intervene.</div>
+      <div class="flashcard-a">If you define (or \\=delete\\) any one of the five special members, you must explicitly handle all five — because the compiler&#x27;s implicit generation rules become unreliable once you intervene.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 14"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">= default asks the compiler to generate an operation explicitly. = delete prevents the operation entirely.</div>
+      <div class="flashcard-a">= default asks the compiler to generate an operation explicitly. = delete prevents the operation entirely. When to use = default: After suppressing an operation, to re-enable another that was implicitly deleted.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 14"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Every function provides one of four levels:</div>
+      <div class="flashcard-a">Every function provides one of four levels: nothrow: guaranteed not to throw. Must be marked noexcept. strong: if an exception is thrown, state is as-if the operation never happened.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -164,7 +164,7 @@ title: "05 — Flashcards · Day 14"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What is the Rule of Zero and when does it apply?</div>
+      <div class="flashcard-a">1. What is the Rule of Zero and when does it apply? If a class uses only members that are themselves correct RAII types (smart pointers, standard containers, value types), define none of the five special members.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -195,7 +195,7 @@ _No cards at this level._
 
 
 ??? question "Motivation"
-    Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime:
+    Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime: 1. How is the resource created? (constructor) 2.
 
 ??? question "Rule of Zero"
     The best rule: if a class does not directly manage a resource, define none of the five special members. Let the compiler generate them all.
@@ -204,16 +204,16 @@ _No cards at this level._
     If you define (or \\=delete\\) any one of the five special members, you must explicitly handle all five — because the compiler's implicit generation rules become unreliable once you intervene.
 
 ??? question "`=default` and `=delete`"
-    = default asks the compiler to generate an operation explicitly. = delete prevents the operation entirely.
+    = default asks the compiler to generate an operation explicitly. = delete prevents the operation entirely. When to use = default: After suppressing an operation, to re-enable another that was implicitly deleted.
 
 ??? question "The Copy-and-Swap Idiom"
     Copy-and-swap implements copy assignment in terms of the copy constructor and swap. It provides the strong exception guarantee: if an exception is thrown during the copy, the original object is unchanged.
 
 ??? question "Exception Safety Guarantees"
-    Every function provides one of four levels:
+    Every function provides one of four levels: nothrow: guaranteed not to throw. Must be marked noexcept. strong: if an exception is thrown, state is as-if the operation never happened.
 
 ??? question "Self-Check Questions"
-    1.  What is the Rule of Zero and when does it apply?
+    1. What is the Rule of Zero and when does it apply? If a class uses only members that are themselves correct RAII types (smart pointers, standard containers, value types), define none of the five special members.
 
 
 ---
@@ -222,30 +222,19 @@ _No cards at this level._
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Rule of Three Violation — Missing Copy Assignment"
-    Description: Defining a destructor and copy constructor but forgetting the copy assignment operator leaves the class with a compiler-generated memberwise copy assignment that does a shallow copy — a
+    Description: Defining a destructor and copy constructor but forgetting the copy assignment operator leaves the class with a compiler-generated memberwise copy assignment that does a shallow copy — a…
 
 ??? question "⚠️ Pitfall: Pitfall 2: Self-Assignment in Move Assignment"
-    Description: A move assignment operator that frees `this`'s resources before copying from `other` will corrupt the object if it is called with `obj = std::move(obj)`.
-
-    BAD
-
-    ``` cpp
-    Buffer& operator=(
+    Description: A move assignment operator that frees this's resources before copying from other will corrupt the object if it is called with obj = std::move(obj).
 
 ??? question "⚠️ Pitfall: Pitfall 3: Defining Destructor Suppresses Move Operations"
-    Description: Adding a user-defined destructor causes the compiler to suppress the implicit move constructor and move assignment operator. The class silently falls back to copies everywhere a move was
+    Description: Adding a user-defined destructor causes the compiler to suppress the implicit move constructor and move assignment operator.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Throwing in a Move Constructor — Strong Guarantee Lost"
     Description: A move constructor that throws can leave both the source and the destination in a partially-moved state — a violation of the basic guarantee.
 
-    BAD
-
-    ``` cpp
-    class Document {
-        std::stri
-
 ??? question "⚠️ Pitfall: Pitfall 5: Slicing with Copy — Copying a Derived Object as Base"
-    Description: Copying a derived-class object by value into a base-class variable slices off the derived part. The copy constructor of the base is called, not the derived, and the derived-specific data
+    Description: Copying a derived-class object by value into a base-class variable slices off the derived part. The copy constructor of the base is called, not the derived, and the derived-specific data…
 
 
 ---

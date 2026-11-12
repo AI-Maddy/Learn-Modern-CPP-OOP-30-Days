@@ -22,37 +22,29 @@ title: "06 — Self Test · Day 19"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Why Tests Matter in OOP**?
 
 === "✅ Answer"
-    A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system. In OOP specifically,
+    A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Catch2 Fundamentals**?
 
 === "✅ Answer"
-    Catch2 is a header-only (single-file) or CMake-installable test framework. It requires no separate `main()` and supports rich assertion macros.
+    Catch2 is a header-only (single-file) or CMake-installable test framework. It requires no separate main() and supports rich assertion macros.
 
-Setup with CMake (FetchContent):
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Core Assertion Macros**?
 
 === "✅ Answer"
-    ``` cpp
-REQUIRE(expr);               // fails and stops if expr is false
-CHECK(expr);                 // records failure, continues
-REQUIREFALSE(expr);         // fails if expr is
+    Approximate floating-point comparison: String matchers:
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **SECTION Mechanics — Fixture Reuse Without a Test Fixture Class**?
 
 === "✅ Answer"
-    Every `SECTION` executes from the beginning of the `TESTCASE`, so setup code at the top of the test case acts as an implicit fixture:
-
-``` cpp
-TESTCASE("Stack operations", "[stack
+    Every SECTION executes from the beginning of the TEST_CASE, so setup code at the top of the test case acts as an implicit fixture: Each SECTION starts with s containing {1, 2}…
 
 
 ---

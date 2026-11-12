@@ -8,13 +8,24 @@ theme:
   name: material
   custom_dir: overrides
   language: en
-  # Dark-only: the custom stylesheets (brain-regions, layout, code-blocks,
-  # overrides/main.html) are written for a dark background. A light palette
-  # left dark backgrounds behind dark text, hiding most of the content.
+  # Light + dark with a toggle; follows the OS setting by default.
+  # stylesheets/theme.css (loaded last) retunes the dark-first custom
+  # stylesheets for both schemes; code blocks stay dark in both.
   palette:
-    scheme: slate
-    primary: deep purple
-    accent: cyan
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
   font:
     text: Inter
     code: JetBrains Mono
@@ -111,10 +122,10 @@ extra_css:
   - stylesheets/flashcards.css
   - stylesheets/code-blocks.css
   - stylesheets/layout.css
+  - stylesheets/theme.css
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/neural-canvas.js
   - javascripts/brain-interactions.js

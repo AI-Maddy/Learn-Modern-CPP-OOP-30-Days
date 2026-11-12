@@ -22,36 +22,29 @@ title: "06 — Self Test · Day 04"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII). Tie a resource's life
+    Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII).
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Constructor Types**?
 
 === "✅ Answer"
-    C++ provides six special member functions. Today we cover the constructor family.
+    C++ provides six special member functions. Today we cover the constructor family. A constructor that can be called with no arguments.
 
- Default Constructor
-
-A constructor that can be called with no arguments.
-
-``` cpp
-class Timer {
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Member Initialiser List**?
 
 === "✅ Answer"
-    Members are initialised in declaration order, not in the order they appear in the initialiser list. Initialise all members in the initialiser list rather than assigning in the con
+    Members are initialised in declaration order, not in the order they appear in the initialiser list. Initialise all members in the initialiser list rather than assigning in the…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **RAII: The Core Pattern**?
 
 === "✅ Answer"
-    RAII links resource lifetime to object lifetime. The object's constructor acquires the resource; the destructor releases it. Because destructors run deterministically when the obj
+    RAII links resource lifetime to object lifetime. The object's constructor acquires the resource; the destructor releases it.
 
 
 ---

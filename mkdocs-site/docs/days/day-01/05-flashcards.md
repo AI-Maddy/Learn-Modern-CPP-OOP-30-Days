@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs. Choosing the right type, initialising it correctly,</div>
+      <div class="flashcard-a">Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">C++ provides a set of built-in types with platform-defined but bounded sizes.</div>
+      <div class="flashcard-a">C++ provides a set of built-in types with platform-defined but bounded sizes. Why avoid \\int\\ for everything? int is at least 16 bits but commonly 32.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,7 +76,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">C++11 introduced uniform brace initialisation, which should be your default. It prevents narrowing conversions at compile time.</div>
+      <div class="flashcard-a">C++11 introduced uniform brace initialisation, which should be your default. It prevents narrowing conversions at compile time. Design rule: Prefer {} for all variable initialisation.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -124,7 +124,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">These two keywords are related but serve distinct purposes.</div>
+      <div class="flashcard-a">These two keywords are related but serve distinct purposes. Why prefer \\constexpr\\ over \\#define\\? #define MAX 64 is a textual substitution with no type, no scope, and no debugger visibility.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Structured bindings let you unpack tuples, pairs, arrays, and aggregates into named variables, eliminating .first, .second, and get<N> noise.</div>
+      <div class="flashcard-a">Structured bindings let you unpack tuples, pairs, arrays, and aggregates into named variables, eliminating .first, .second, and get&lt;N&gt; noise.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">These are two of the most common sources of silent bugs in C++.</div>
+      <div class="flashcard-a">These are two of the most common sources of silent bugs in C++. Integer overflow (signed): Narrowing conversion: Rule: Always use brace initialisation. Use static_cast when a narrowing conversion is genuinely needed.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -212,9 +212,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">- Use {}) for all initialisations — prevents narrowing silently.
-- Use constexpr for compile-time constants instead of define.
-- Use auto for iterator types and obvious initialisers; spell out the type for domain clarity</div>
+      <div class="flashcard-a">Use {}) for all initialisations — prevents narrowing silently. Use constexpr for compile-time constants instead of #define. Use auto for iterator types and obvious initialisers; spell out the type for domain clarity.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -234,7 +232,7 @@ title: "05 — Flashcards · Day 01"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1: What is the difference between \\const\\ and \\constexpr\\? Can a \\constexpr\\ variable be used at runtime?</div>
+      <div class="flashcard-a">Q1: What is the difference between \\const\\ and \\constexpr\\? Can a \\constexpr\\ variable be used at runtime? const declares a variable whose value cannot change after initialisation; the value may be determined at…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -258,19 +256,19 @@ title: "05 — Flashcards · Day 01"
 
 
 ??? question "Why This Day Matters"
-    Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs. Choosing the right type, initialising it correctly,
+    Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs.
 
 ??? question "Fundamental Types"
-    C++ provides a set of built-in types with platform-defined but bounded sizes.
+    C++ provides a set of built-in types with platform-defined but bounded sizes. Why avoid \\int\\ for everything? int is at least 16 bits but commonly 32.
 
 ??? question "Brace Initialisation — The Modern Default"
-    C++11 introduced uniform brace initialisation, which should be your default. It prevents narrowing conversions at compile time.
+    C++11 introduced uniform brace initialisation, which should be your default. It prevents narrowing conversions at compile time. Design rule: Prefer {} for all variable initialisation.
 
 ??? question "`auto` — Type Deduction"
     auto asks the compiler to deduce the type from the initialiser. It eliminates redundancy and makes code more resilient to type changes during refactoring.
 
 ??? question "`const` vs `constexpr`"
-    These two keywords are related but serve distinct purposes.
+    These two keywords are related but serve distinct purposes. Why prefer \\constexpr\\ over \\#define\\? #define MAX 64 is a textual substitution with no type, no scope, and no debugger visibility.
 
 ??? question "Structured Bindings (C++17)"
     Structured bindings let you unpack tuples, pairs, arrays, and aggregates into named variables, eliminating .first, .second, and get<N> noise.
@@ -279,15 +277,13 @@ title: "05 — Flashcards · Day 01"
     Every expression in C++ belongs to a value category. Understanding this is essential for writing efficient code and understanding move semantics (covered in depth on Day 13).
 
 ??? question "Integer Overflow and Narrowing"
-    These are two of the most common sources of silent bugs in C++.
+    These are two of the most common sources of silent bugs in C++. Integer overflow (signed): Narrowing conversion: Rule: Always use brace initialisation. Use static_cast when a narrowing conversion is genuinely needed.
 
 ??? question "Modern C++ Best Practices Summary"
-    - Use {}) for all initialisations — prevents narrowing silently.
-    - Use constexpr for compile-time constants instead of define.
-    - Use auto for iterator types and obvious initialisers; spell out the type for domain clarity
+    Use {}) for all initialisations — prevents narrowing silently. Use constexpr for compile-time constants instead of #define. Use auto for iterator types and obvious initialisers; spell out the type for domain clarity.
 
 ??? question "Self-Check Questions"
-    Q1: What is the difference between \\const\\ and \\constexpr\\? Can a \\constexpr\\ variable be used at runtime?
+    Q1: What is the difference between \\const\\ and \\constexpr\\? Can a \\constexpr\\ variable be used at runtime? const declares a variable whose value cannot change after initialisation; the value may be determined at…
 
 
 ---
@@ -298,49 +294,17 @@ title: "05 — Flashcards · Day 01"
 ??? question "⚠️ Pitfall: Pitfall 1: Uninitialised Variables"
     Description: Declaring a variable without an initialiser and then reading from it before a guaranteed assignment. The value is indeterminate — reading it is undefined behaviour.
 
-    BAD code:
-
-    ``` cpp
-    i
-
 ??? question "⚠️ Pitfall: Pitfall 2: Silent Narrowing Conversion"
-    Description: Assigning a wider type to a narrower type using `=` or `()`, which silently truncates or changes the value with no diagnostic.
-
-    BAD code:
-
-    ``` cpp
-    double precise = 3.99999;
-    int truncated
+    Description: Assigning a wider type to a narrower type using = or (), which silently truncates or changes the value with no diagnostic.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Using `#define` for Constants"
-    Description: Defining compile-time constants with the C preprocessor macro `define` instead of `constexpr`. Macros have no type, no scope, and no debugger visibility.
-
-    BAD code:
-
-    ``` cpp
-    define MAXCO
+    Description: Defining compile-time constants with the C preprocessor macro #define instead of constexpr. Macros have no type, no scope, and no debugger visibility.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Signed/Unsigned Comparison"
-    Description: Comparing a signed integer to an unsigned integer (e.g., comparing an `int` loop counter to `std::vector::size()` which returns `std::sizet`).
-
-    BAD code:
-
-    ``` cpp
-    include <vector>
-
-    int m
+    Description: Comparing a signed integer to an unsigned integer (e.g., comparing an int loop counter to std::vector::size() which returns std::size_t).
 
 ??? question "⚠️ Pitfall: Pitfall 5: Misunderstanding `auto` Reference Semantics"
-    Description: Using `auto` without `&` when iterating over a container, causing an unexpected copy of each element.
-
-    BAD code:
-
-    ``` cpp
-    include <vector>
-    include <string>
-
-    int main() {
-        std::vector<
+    Description: Using auto without & when iterating over a container, causing an unexpected copy of each element. BAD code: Why it fails: auto name deduces std::string (a value), not std::string& (a…
 
 
 ---

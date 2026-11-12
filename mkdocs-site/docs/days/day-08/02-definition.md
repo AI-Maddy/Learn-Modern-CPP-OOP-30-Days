@@ -182,13 +182,15 @@ public:
 
 ```mermaid
 graph TD
-    ROOT["Advanced OOP Patterns"] --> A["class"]
-    Advanced_OOP_Patterns --> class["class"]
-    Advanced_OOP_Patterns --> RAII["RAII"]
-    Advanced_OOP_Patterns --> virtual["virtual"]
-    Advanced_OOP_Patterns --> override["override"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Advanced OOP Patterns"]
+    ROOT --> n0["class"]
+    ROOT --> n1["RAII"]
+    ROOT --> n2["virtual"]
+    ROOT --> n3["override"]
+    classDef topic fill:#10b981,stroke:#10b981,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#10b981,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

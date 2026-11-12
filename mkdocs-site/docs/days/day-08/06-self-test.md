@@ -22,31 +22,29 @@ title: "06 — Self Test · Day 08"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Classic object-oriented design teaches inheritance as the primary tool for code reuse. In practice, deep inheritance hierarchies become brittle: every change to a base class rippl
+    Classic object-oriented design teaches inheritance as the primary tool for code reuse. In practice, deep inheritance hierarchies become brittle: every change to a base class…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Composition over Inheritance**?
 
 === "✅ Answer"
     The canonical rule from the Gang of Four: favour object composition over class inheritance. Inheritance models an IS-A relationship; composition models HAS-A.
 
-Why inheritance hur
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **CRTP Mixins — Zero-Cost Behaviour Injection**?
 
 === "✅ Answer"
-    The Curiously Recurring Template Pattern lets a base class call methods on its derived class without virtual dispatch. Use it to inject reusable behaviour (comparable, printable,
+    The Curiously Recurring Template Pattern lets a base class call methods on its derived class without virtual dispatch.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Strategy Pattern with `std::function`**?
 
 === "✅ Answer"
-    The Strategy pattern replaces hard-coded algorithms with interchangeable policies. `std::function<Signature>` is the modern C++ way to store any callable — lambda, function pointe
+    The Strategy pattern replaces hard-coded algorithms with interchangeable policies. std::function<Signature> is the modern C++ way to store any callable — lambda, function pointer…
 
 
 ---

@@ -22,45 +22,29 @@ title: "06 — Self Test · Day 03"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points. Eve
+    A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **`class` vs `struct`**?
 
 === "✅ Answer"
-    In C++ there is only one real difference between `class` and `struct`: default access.
+    In C++ there is only one real difference between class and struct: default access. Convention: Use struct for passive data carriers with no invariants — aggregates where all…
 
-``` cpp
-struct Point {
-    int x;   // public by default
-    int y;
-};
-
-class Circle {
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Access Specifiers**?
 
 === "✅ Answer"
-    ``` cpp
-class BankAccount {
-public:
-    // Accessible to everyone
-    explicit BankAccount(std::string owner, double initialbalance);
-    void deposit(double amount);
-    bool wit
+    Access visibility: private ──> only BankAccount member functions + friends protected ──> BankAccount + derived classes public ──> anyone Design guidance: Start with everything…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Member Functions and `const`-Correctness**?
 
 === "✅ Answer"
-    `const` on a member function means "this function does not modify the observable state of the object". It lets you call the function through a `const` reference or pointer.
-
-``` c
+    const on a member function means "this function does not modify the observable state of the object". It lets you call the function through a const reference or pointer.
 
 
 ---

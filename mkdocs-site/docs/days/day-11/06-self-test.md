@@ -22,35 +22,29 @@ title: "06 — Self Test · Day 11"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline, an
+    Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Policy-Based Design**?
 
 === "✅ Answer"
-    Popularised by Andrei Alexandrescu's Modern C++ Design, policy-based design uses template parameters as "policies" — small classes that implement one aspect of behaviour. The host
+    Popularised by Andrei Alexandrescu's Modern C++ Design, policy-based design uses template parameters as "policies" — small classes that implement one aspect of behaviour.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Type-Safe Containers**?
 
 === "✅ Answer"
-    Raw `void` containers (the C approach) are fast but unsafe — you can store an `int` where a `double` is expected. Template containers enforce element types at compile time with no
+    Raw void containers (the C approach) are fast but unsafe — you can store an int where a double is expected. Template containers enforce element types at compile time with no…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Generic Algorithms with Concepts**?
 
 === "✅ Answer"
     Combine templates with C++20 concepts to write algorithms that are both generic and well-constrained.
-
-``` cpp
-include <concepts>
-include <ranges>
-include <algorithm>
-include <num
 
 
 ---

@@ -22,43 +22,29 @@ title: "06 — Self Test · Day 26"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Game development stress-tests every OOP skill: performance matters, objects are created and destroyed rapidly, behaviour combinations are unpredictable, and systems must communica
+    Game development stress-tests every OOP skill: performance matters, objects are created and destroyed rapidly, behaviour combinations are unpredictable, and systems must…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The Problem with Deep Inheritance in Games**?
 
 === "✅ Answer"
-    A naive OOP approach leads to an explosion of types:
+    A naive OOP approach leads to an explosion of types: Adding "swimming" ability to some but not all entities requires inserting a new layer in the hierarchy.
 
-``` text
-Entity
-├── Actor
-│   ├── Player
-│   │   ├── ArmedPlayer
-│   │   └── FlyingPlayer
-│   └── Enemy
-│       ├── FlyingEne
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **The Entity-Component System (ECS)**?
 
 === "✅ Answer"
     An Entity is just an ID. All data lives in Components. Systems iterate over entities that have a specific set of components.
 
-``` cpp
-include <any>
-include <cstdint>
-include <func
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **The Game Loop Pattern**?
 
 === "✅ Answer"
-    A fixed timestep loop ensures physics and game logic advance by the same `dt` regardless of frame rate. Variable-rate rendering interpolates between logic ticks for smooth visuals
+    A fixed timestep loop ensures physics and game logic advance by the same dt regardless of frame rate. Variable-rate rendering interpolates between logic ticks for smooth visuals.
 
 
 ---

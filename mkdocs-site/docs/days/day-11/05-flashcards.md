@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 11"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline, and loss of type information that prevents</div>
+      <div class="flashcard-a">Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline, and loss of type information that prevents…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 11"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Popularised by Andrei Alexandrescu's Modern C++ Design, policy-based design uses template parameters as "policies" — small classes that implement one aspect of behaviour. The host class assembles them.</div>
+      <div class="flashcard-a">Popularised by Andrei Alexandrescu&#x27;s Modern C++ Design, policy-based design uses template parameters as &quot;policies&quot; — small classes that implement one aspect of behaviour. The host class assembles them.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -124,7 +124,7 @@ title: "05 — Flashcards · Day 11"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The GoF Template Method pattern defines an algorithm's skeleton in a base class and lets subclasses override specific steps. With virtual dispatch the "steps" are virtual methods. With templates, the "steps" are template</div>
+      <div class="flashcard-a">The GoF Template Method pattern defines an algorithm&#x27;s skeleton in a base class and lets subclasses override specific steps. With virtual dispatch the &quot;steps&quot; are virtual methods.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -164,7 +164,7 @@ title: "05 — Flashcards · Day 11"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What is a policy in policy-based design, and how does it differ from a virtual function-based strategy?</div>
+      <div class="flashcard-a">1. What is a policy in policy-based design, and how does it differ from a virtual function-based strategy? A policy is a template parameter that provides a specific behaviour.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -195,7 +195,7 @@ _No cards at this level._
 
 
 ??? question "Motivation"
-    Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline, and loss of type information that prevents
+    Runtime polymorphism — virtual functions and base-class pointers — is powerful but carries costs: vtable indirection on every call, forced heap allocation, inability to inline, and loss of type information that prevents…
 
 ??? question "Policy-Based Design"
     Popularised by Andrei Alexandrescu's Modern C++ Design, policy-based design uses template parameters as "policies" — small classes that implement one aspect of behaviour. The host class assembles them.
@@ -207,13 +207,13 @@ _No cards at this level._
     Combine templates with C++20 concepts to write algorithms that are both generic and well-constrained.
 
 ??? question "Template Method Pattern via Templates"
-    The GoF Template Method pattern defines an algorithm's skeleton in a base class and lets subclasses override specific steps. With virtual dispatch the "steps" are virtual methods. With templates, the "steps" are template
+    The GoF Template Method pattern defines an algorithm's skeleton in a base class and lets subclasses override specific steps. With virtual dispatch the "steps" are virtual methods.
 
 ??? question "Compile-Time vs Runtime Polymorphism"
     Understanding when to use each approach is the key design decision.
 
 ??? question "Self-Check Questions"
-    1.  What is a policy in policy-based design, and how does it differ from a virtual function-based strategy?
+    1. What is a policy in policy-based design, and how does it differ from a virtual function-based strategy? A policy is a template parameter that provides a specific behaviour.
 
 
 ---
@@ -224,38 +224,17 @@ _No cards at this level._
 ??? question "⚠️ Pitfall: Pitfall 1: Policy Type Exposing Too Much — Breaking Encapsulation"
     Description: A policy class that provides methods with the same names as the host class's public interface can be accessed directly, bypassing the host's invariants.
 
-    BAD
-
-    ``` cpp
-    struct LoggingPolic
-
 ??? question "⚠️ Pitfall: Pitfall 2: Unconstrained Policy Parameters — Opaque Errors"
     Description: A policy-based class with no concept constraints on its template parameters produces incomprehensible errors when the wrong policy is supplied.
 
-    BAD
-
-    ``` cpp
-    template <typename Storage,
-
 ??? question "⚠️ Pitfall: Pitfall 3: Template Method Pattern — Calling Non-Existent Hook"
-    Description: In the template method pattern via CRTP or templates, calling a hook that the policy/derived class has not implemented compiles in some cases and silently does nothing, or calls a wrong
+    Description: In the template method pattern via CRTP or templates, calling a hook that the policy/derived class has not implemented compiles in some cases and silently does nothing, or calls a wrong…
 
 ??? question "⚠️ Pitfall: Pitfall 4: Mixing Compile-Time and Runtime Polymorphism Incorrectly"
     Description: Storing a policy-based type by pointer to a base class that has no virtual functions causes object slicing or broken polymorphism.
 
-    BAD
-
-    ``` cpp
-    template <typename Policy>
-    class Widget :
-
 ??? question "⚠️ Pitfall: Pitfall 5: Ring Buffer — Off-By-One in Modular Indexing"
     Description: Type-safe generic containers like ring buffers are prone to off-by-one errors in the modular index arithmetic, causing either data loss or buffer overflow.
-
-    BAD
-
-    ``` cpp
-    template <typena
 
 
 ---

@@ -153,13 +153,15 @@ double area(const ShapeV& sv) { return std::visit(AreaVisitor{}, sv); }
 
 ```mermaid
 graph TD
-    ROOT["SOLID Principles"] --> A["modules"]
-    SOLID_Principles --> modules["modules"]
-    SOLID_Principles --> SOLID["SOLID"]
-    SOLID_Principles --> CRTP["CRTP"]
-    SOLID_Principles --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["SOLID Principles"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

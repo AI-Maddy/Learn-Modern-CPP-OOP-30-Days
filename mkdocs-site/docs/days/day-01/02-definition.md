@@ -88,13 +88,15 @@ std::vector<int> v{1, 2, 3, 4, 5};
 
 ```mermaid
 graph TD
-    ROOT["Variables Types Constexpr"] --> A["std::vector"]
-    Variables_Types_Constexpr --> stdvector["std::vector"]
-    Variables_Types_Constexpr --> constexpr["constexpr"]
-    Variables_Types_Constexpr --> auto["auto"]
-    Variables_Types_Constexpr --> stdstring["std::string"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Variables Types Constexpr"]
+    ROOT --> n0["std::vector"]
+    ROOT --> n1["constexpr"]
+    ROOT --> n2["auto"]
+    ROOT --> n3["std::string"]
+    classDef topic fill:#3b82f6,stroke:#3b82f6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#3b82f6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

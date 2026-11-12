@@ -22,41 +22,29 @@ title: "06 — Self Test · Day 01"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs. Choosing t
+    Types are the backbone of C++. The type system lets the compiler prove correctness, enable optimisations, and catch entire classes of bugs before the program ever runs.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Fundamental Types**?
 
 === "✅ Answer"
-    C++ provides a set of built-in types with platform-defined but bounded sizes.
+    C++ provides a set of built-in types with platform-defined but bounded sizes. Why avoid \\int\\ for everything? int is at least 16 bits but commonly 32.
 
-``` cpp
-include <cstdint>   // fixed-width types
-include <climits>   // INTMAX, UINTMAX, ...
-
-// Pre
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Brace Initialisation — The Modern Default**?
 
 === "✅ Answer"
     C++11 introduced uniform brace initialisation, which should be your default. It prevents narrowing conversions at compile time.
 
-``` cpp
-// Brace init: safe, consistent, prevents
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`auto` — Type Deduction**?
 
 === "✅ Answer"
-    `auto` asks the compiler to deduce the type from the initialiser. It eliminates redundancy and makes code more resilient to type changes during refactoring.
-
-``` cpp
-include <vect
+    auto asks the compiler to deduce the type from the initialiser. It eliminates redundancy and makes code more resilient to type changes during refactoring.
 
 
 ---

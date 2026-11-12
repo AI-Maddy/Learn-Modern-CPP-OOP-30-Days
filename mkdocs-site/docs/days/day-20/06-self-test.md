@@ -22,40 +22,29 @@ title: "06 — Self Test · Day 20"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — The Cost of Virtual Dispatch**?
 
 === "✅ Answer"
-    Virtual dispatch is essential for runtime polymorphism but carries costs:
+    Virtual dispatch is essential for runtime polymorphism but carries costs: Indirect call — every virtual method call goes through a vtable pointer; the CPU must load the vtable…
 
-- Indirect call — every virtual method call goes through a vtable pointer; the CPU must load the vtable,
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **CRTP Mechanics**?
 
 === "✅ Answer"
-    CRTP is the idiom where a base class template takes the derived class as its template argument:
+    CRTP is the idiom where a base class template takes the derived class as its template argument: Class hierarchy (CRTP) ────────────────────── Base<ConcreteA> Base<ConcreteB> ▲ ▲…
 
-``` cpp
-template<typename Derived>
-struct Base {
-    void interface() {
-        //
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Static Interface Enforcement**?
 
 === "✅ Answer"
-    CRTP enforces that a derived class implements required methods. If `ConcreteA` forgets `implementation()`, the program fails to compile when `base.interface()` is instantiated — n
+    CRTP enforces that a derived class implements required methods. If ConcreteA forgets implementation(), the program fails to compile when base.interface() is instantiated — not at…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **CRTP for Default Implementations (Mixin Pattern)**?
 
 === "✅ Answer"
     The base class provides default behaviour by calling the derived class's customisation hook. The derived class only overrides what it needs.
-
-``` cpp
-// Provides !=, >, <=, >= fro
 
 
 ---

@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 03"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points. Every member function enforces or relies on</div>
+      <div class="flashcard-a">A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 03"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">In C++ there is only one real difference between class and struct: default access.</div>
+      <div class="flashcard-a">In C++ there is only one real difference between class and struct: default access. Convention: Use struct for passive data carriers with no invariants — aggregates where all members can be set independently without…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,14 +76,7 @@ title: "05 — Flashcards · Day 03"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">cpp
-class BankAccount {
-public:
-    // Accessible to everyone
-    explicit BankAccount(std::string owner, double initialbalance);
-    void deposit(double amount);
-    bool withdraw(double amount);
-    double balance() c</div>
+      <div class="flashcard-a">Access visibility: private ──&gt; only BankAccount member functions + friends protected ──&gt; BankAccount + derived classes public ──&gt; anyone Design guidance: Start with everything private.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -103,7 +96,7 @@ public:
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">const on a member function means "this function does not modify the observable state of the object". It lets you call the function through a const reference or pointer.</div>
+      <div class="flashcard-a">const on a member function means &quot;this function does not modify the observable state of the object&quot;. It lets you call the function through a const reference or pointer.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -191,7 +184,7 @@ public:
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">friend grants a specific function or class access to private members. It should be used sparingly, as it tightly couples two classes.</div>
+      <div class="flashcard-a">friend grants a specific function or class access to private members. It should be used sparingly, as it tightly couples two classes. Good uses of friend: \ Overloaded stream operators (operator&lt;&lt;, operator&gt;&gt;) \ Closely…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -239,7 +232,7 @@ public:
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1: What is a class invariant? Give an example from the \\Circle\\ class.</div>
+      <div class="flashcard-a">Q1: What is a class invariant? Give an example from the \\Circle\\ class. A class invariant is a condition that must hold true of an object&#x27;s internal state at all observable points (before and after any public member…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -263,20 +256,13 @@ public:
 
 
 ??? question "Why This Day Matters"
-    A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points. Every member function enforces or relies on
+    A class is more than a bundle of data and functions. A well-designed class establishes an invariant — a guarantee about its internal state that holds at all observable points.
 
 ??? question "`class` vs `struct`"
-    In C++ there is only one real difference between class and struct: default access.
+    In C++ there is only one real difference between class and struct: default access. Convention: Use struct for passive data carriers with no invariants — aggregates where all members can be set independently without…
 
 ??? question "Access Specifiers"
-    cpp
-    class BankAccount {
-    public:
-        // Accessible to everyone
-        explicit BankAccount(std::string owner, double initialbalance);
-        void deposit(double amount);
-        bool withdraw(double amount);
-        double balance() c
+    Access visibility: private ──> only BankAccount member functions + friends protected ──> BankAccount + derived classes public ──> anyone Design guidance: Start with everything private.
 
 ??? question "Member Functions and `const`-Correctness"
     const on a member function means "this function does not modify the observable state of the object". It lets you call the function through a const reference or pointer.
@@ -291,13 +277,13 @@ public:
     Not every private member needs a getter and setter pair. Over-providing accessors is a common anti-pattern that reduces encapsulation to a formality.
 
 ??? question "`friend` Declarations"
-    friend grants a specific function or class access to private members. It should be used sparingly, as it tightly couples two classes.
+    friend grants a specific function or class access to private members. It should be used sparingly, as it tightly couples two classes. Good uses of friend: \ Overloaded stream operators (operator<<, operator>>) \ Closely…
 
 ??? question "Static Members"
     static members belong to the class, not to any instance. They are useful for counters, singletons, factory functions, and compile-time constants.
 
 ??? question "Self-Check Questions"
-    Q1: What is a class invariant? Give an example from the \\Circle\\ class.
+    Q1: What is a class invariant? Give an example from the \\Circle\\ class. A class invariant is a condition that must hold true of an object's internal state at all observable points (before and after any public member…
 
 
 ---
@@ -306,23 +292,16 @@ public:
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Exposing Mutable Internal State Through Reference Getters"
-    Description: Returning a non-`const` reference or pointer to a private data member, allowing callers to bypass the class's validation logic and break invariants.
-
-    BAD code:
-
-    ``` cpp
-    include <string>
+    Description: Returning a non-const reference or pointer to a private data member, allowing callers to bypass the class's validation logic and break invariants.
 
 ??? question "⚠️ Pitfall: Pitfall 2: Missing `const` on Read-Only Member Functions"
-    Description: Forgetting `const` on member functions that do not modify the object. This prevents the function from being called on `const` objects or through `const` references, breaking const-correc
+    Description: Forgetting const on member functions that do not modify the object. This prevents the function from being called on const objects or through const references, breaking const-correct…
 
 ??? question "⚠️ Pitfall: Pitfall 3: Anemic Domain Model — Class as a Data Bag"
-    Description: Designing a class with public data members or trivial getters/setters for every field and putting all logic in external free functions. The class has no behaviour; it is just a named str
+    Description: Designing a class with public data members or trivial getters/setters for every field and putting all logic in external free functions.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Forgetting the Explicit Keyword on Single-Argument Constructors"
-    Description: A constructor taking one argument becomes an implicit conversion operator. Without `explicit`, the compiler can silently create objects of your class from an unrelated value.
-
-    BAD code:
+    Description: A constructor taking one argument becomes an implicit conversion operator. Without explicit, the compiler can silently create objects of your class from an unrelated value.
 
 
 ---

@@ -159,13 +159,15 @@ RingBuffer<std::string, 4> message_queue;
 
 ```mermaid
 graph TD
-    ROOT["Generic OOP Design"] --> A["template"]
-    Generic_OOP_Design --> template["template"]
-    Generic_OOP_Design --> concept["concept"]
-    Generic_OOP_Design --> requires["requires"]
-    Generic_OOP_Design --> stdviews["std::views"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Generic OOP Design"]
+    ROOT --> n0["template"]
+    ROOT --> n1["concept"]
+    ROOT --> n2["requires"]
+    ROOT --> n3["std::views"]
+    classDef topic fill:#8b5cf6,stroke:#8b5cf6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#8b5cf6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

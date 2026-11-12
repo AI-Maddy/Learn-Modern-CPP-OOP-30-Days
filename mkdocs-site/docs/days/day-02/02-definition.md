@@ -119,13 +119,15 @@ connect("api.example.com", 80, false);
 
 ```mermaid
 graph TD
-    ROOT["Functions Lambdas"] --> A["std::vector"]
-    Functions_Lambdas --> stdvector["std::vector"]
-    Functions_Lambdas --> constexpr["constexpr"]
-    Functions_Lambdas --> auto["auto"]
-    Functions_Lambdas --> stdstring["std::string"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Functions Lambdas"]
+    ROOT --> n0["std::vector"]
+    ROOT --> n1["constexpr"]
+    ROOT --> n2["auto"]
+    ROOT --> n3["std::string"]
+    classDef topic fill:#3b82f6,stroke:#3b82f6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#3b82f6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

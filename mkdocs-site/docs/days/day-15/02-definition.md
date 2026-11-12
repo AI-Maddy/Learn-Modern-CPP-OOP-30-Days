@@ -103,13 +103,15 @@ std::string display = find_user(99, users).value_or("Anonymous");
 
 ```mermaid
 graph TD
-    ROOT["Error Handling Expected C++23"] --> A["std::move"]
-    Error_Handling_Expected_C++23 --> stdmove["std::move"]
-    Error_Handling_Expected_C++23 --> Rule_of_Five["Rule of Five"]
-    Error_Handling_Expected_C++23 --> stdexpected["std::expected"]
-    Error_Handling_Expected_C++23 --> noexcept["noexcept"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Error Handling Expected C++23"]
+    ROOT --> n0["std::move"]
+    ROOT --> n1["Rule of Five"]
+    ROOT --> n2["std::expected"]
+    ROOT --> n3["noexcept"]
+    classDef topic fill:#ef4444,stroke:#ef4444,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#ef4444,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

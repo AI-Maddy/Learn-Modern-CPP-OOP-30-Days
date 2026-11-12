@@ -22,43 +22,29 @@ title: "06 — Self Test · Day 24"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    The best way to consolidate object-oriented knowledge is to build something real. A bank account system is an ideal first mini-project because every OOP pillar — encapsulation, in
+    The best way to consolidate object-oriented knowledge is to build something real. A bank account system is an ideal first mini-project because every OOP pillar — encapsulation…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Domain Overview**?
 
 === "✅ Answer"
-    Our bank system manages:
+    Our bank system manages: BankAccount (base) ├── SavingsAccount — earns interest, minimum balance rule └── CheckingAccount — overdraft protection, per-transaction fee Supporting…
 
-    BankAccount (base)
-    ├── SavingsAccount   — earns interest, minimum balance rule
-    └── CheckingAccount  — overdraft protection, per-transaction f
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Design Before Code**?
 
 === "✅ Answer"
-    Before writing a single line of C++, sketch responsibilities:
+    Before writing a single line of C++, sketch responsibilities: The TransactionLog lives inside BankAccount as a member.
 
-``` text
-┌─────────────────────────────────┐
-│         BankAccount             │
-│   id      : string            │
-│
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **The Transaction Value Type**?
 
 === "✅ Answer"
-    A `Transaction` is an immutable record of one financial event. Making members `const` documents that transactions are historical facts.
-
-``` cpp
-include <chrono>
-include <string>
+    A Transaction is an immutable record of one financial event. Making members const documents that transactions are historical facts. Why const members?
 
 
 ---

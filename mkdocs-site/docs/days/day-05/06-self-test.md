@@ -22,35 +22,29 @@ title: "06 — Self Test · Day 05"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Raw pointers do not convey ownership. When you see a raw pointer in a function signature, you cannot tell: does this function own the pointed-to object? Is it borrowing it? Does i
+    Raw pointers do not convey ownership. When you see a raw pointer in a function signature, you cannot tell: does this function own the pointed-to object? Is it borrowing it?
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Ownership Vocabulary**?
 
 === "✅ Answer"
-    Before examining each smart pointer, establish the vocabulary:
+    Before examining each smart pointer, establish the vocabulary: Owner: the entity responsible for destroying the resource.
 
-- Owner: the entity responsible for destroying the resource.
-- Non-owning reference: borrows access without taking
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`std::unique_ptr` — Exclusive Ownership**?
 
 === "✅ Answer"
-    `uniqueptr<T>` is a non-copyable, movable RAII wrapper. It destroys the owned object when it goes out of scope. Zero runtime overhead compared to a raw pointer.
+    unique_ptr<T> is a non-copyable, movable RAII wrapper. It destroys the owned object when it goes out of scope. Zero runtime overhead compared to a raw pointer.
 
-``` cpp
-include <
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`std::shared_ptr` — Shared Ownership**?
 
 === "✅ Answer"
-    `sharedptr<T>` maintains a reference count. The object is destroyed when the last `sharedptr` pointing to it is destroyed. Use when multiple independent owners need the object to
+    shared_ptr<T> maintains a reference count. The object is destroyed when the last shared_ptr pointing to it is destroyed.
 
 
 ---

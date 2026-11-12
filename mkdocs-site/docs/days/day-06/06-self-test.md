@@ -22,36 +22,29 @@ title: "06 — Self Test · Day 06"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Inheritance lets you express "is-a" relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically hand
+    Inheritance lets you express "is-a" relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The is-a Relationship**?
 
 === "✅ Answer"
-    Inheritance models the "is-a" relationship: a `Dog` is an `Animal`. This is distinct from "has-a" (composition): a `Car` has-an `Engine`. Use inheritance for is-a; use composition
+    Inheritance models the "is-a" relationship: a Dog is an Animal. This is distinct from "has-a" (composition): a Car has-an Engine.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Virtual Functions and the vtable**?
 
 === "✅ Answer"
     A virtual function is dispatched at runtime based on the actual type of the object, not the declared type of the pointer or reference.
 
-``` cpp
-Shape s = new Circle{5.0};
-double a
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`override` and `final`**?
 
 === "✅ Answer"
-    `override` tells the compiler "this function is intended to override a base class virtual function". If the signature does not match, the compiler reports an error.
-
-``` cpp
-class
+    override tells the compiler "this function is intended to override a base class virtual function". If the signature does not match, the compiler reports an error.
 
 
 ---

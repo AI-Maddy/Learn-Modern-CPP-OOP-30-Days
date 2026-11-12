@@ -22,36 +22,29 @@ title: "06 — Self Test · Day 07"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface contra
+    Day 06 introduced virtual functions for polymorphism. Day 07 goes deeper: pure virtual functions to mandate derived class behaviour, abstract base classes as pure interface…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Pure Virtual Functions and Abstract Classes**?
 
 === "✅ Answer"
-    A pure virtual function has no implementation in the base class; any derived class must provide one. A class with at least one pure virtual function is abstract — you cannot insta
+    A pure virtual function has no implementation in the base class; any derived class must provide one. A class with at least one pure virtual function is abstract — you cannot…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Interface Design Principles**?
 
 === "✅ Answer"
     An interface in C++ is an abstract class with only pure virtual functions and a virtual destructor — no data members, no non-pure virtual functions.
 
-``` cpp
-// Clean interface: a
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`final` — Sealing Classes and Methods**?
 
 === "✅ Answer"
-    `final` on a class prevents further inheritance. `final` on a virtual method prevents further overriding in derived classes.
-
-``` cpp
-// final on a class
-class ConcreteLogger fina
+    final on a class prevents further inheritance. final on a virtual method prevents further overriding in derived classes.
 
 
 ---

@@ -11,6 +11,10 @@ window.MathJax = {
   }
 };
 
+// MathJax loads after this file; skip until it is ready (or if the CDN is
+// unreachable) instead of throwing on every page load.
 document$.subscribe(() => {
-  MathJax.typesetPromise()
+  if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+    MathJax.typesetPromise()
+  }
 })

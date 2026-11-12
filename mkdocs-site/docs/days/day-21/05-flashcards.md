@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 21"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Two recurring problems in C++ library design:</div>
+      <div class="flashcard-a">Two recurring problems in C++ library design: Problem 1 — Compilation Firewall: A header file for a class exposes all private members to every consumer because C++ class layout must be fully known at the point of use.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,11 +56,7 @@ title: "05 — Flashcards · Day 21"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">cpp
-// widget.hpp  (public header — stable, ABI-safe)
-pragma once
-include <memory>
-include <string></div>
+      <div class="flashcard-a">Why \\~Widget()\\ must be in the \\.cpp\\: std::unique_ptr&lt;Impl&gt;&#x27;s destructor calls delete Impl. At the point where the destructor is generated (wherever ~Widget() is defined), Impl must be a complete type.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -80,7 +76,7 @@ include <string></div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class. std::function, std::any, and std::sharedptr<void> are all type-erasing vocab</div>
+      <div class="flashcard-a">Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -100,7 +96,7 @@ include <string></div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The most powerful pattern: type-erase a whole interface without inheritance.</div>
+      <div class="flashcard-a">The most powerful pattern: type-erase a whole interface without inheritance. AnyDrawable layout ────────────────── ┌──────────────────────┐ │ AnyDrawable │ │ shared_ptr&lt;Concept&gt; ├─────► Concept (vtable)…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -128,7 +124,7 @@ include <string></div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">When the set of types is known and fixed at compile time:</div>
+      <div class="flashcard-a">When the set of types is known and fixed at compile time: std::variant is stack-allocated (no heap, no pointer indirection) and the visitor is dispatched through a jump table — faster than virtual dispatch for small…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -148,9 +144,7 @@ include <string></div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">| Technique           | Heap alloc  | Type set       | Use case                          |
-|---------------------|-------------|----------------|-----------------------------------|
-| Virtual base class  | Yes (new)   |</div>
+      <div class="flashcard-a">\ SBO (Small Buffer Optimisation) avoids heap for small callables/values.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -170,7 +164,7 @@ include <string></div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1. Why must \\Widget::~Widget()\\ be defined in the \\.cpp\\ file when using pImpl with \\uniqueptr\<Impl\>\\?</div>
+      <div class="flashcard-a">Q1. Why must \\Widget::~Widget()\\ be defined in the \\.cpp\\ file when using pImpl with \\unique_ptr\&lt;Impl\&gt;\\? unique_ptr&#x27;s destructor calls delete on its managed pointer, which requires Impl to be a complete type (so…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -201,31 +195,25 @@ _No cards at this level._
 
 
 ??? question "Motivation — Hiding Implementation Details"
-    Two recurring problems in C++ library design:
+    Two recurring problems in C++ library design: Problem 1 — Compilation Firewall: A header file for a class exposes all private members to every consumer because C++ class layout must be fully known at the point of use.
 
 ??? question "The pImpl Idiom"
-    cpp
-    // widget.hpp  (public header — stable, ABI-safe)
-    pragma once
-    include <memory>
-    include <string>
+    Why \\~Widget()\\ must be in the \\.cpp\\: std::unique_ptr<Impl>'s destructor calls delete Impl. At the point where the destructor is generated (wherever ~Widget() is defined), Impl must be a complete type.
 
 ??? question "Type Erasure — Duck Typing at Runtime"
-    Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class. std::function, std::any, and std::sharedptr<void> are all type-erasing vocab
+    Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class.
 
 ??? question "Custom Type Erasure — The `AnyDrawable` Pattern"
-    The most powerful pattern: type-erase a whole interface without inheritance.
+    The most powerful pattern: type-erase a whole interface without inheritance. AnyDrawable layout ────────────────── ┌──────────────────────┐ │ AnyDrawable │ │ shared_ptr<Concept> ├─────► Concept (vtable)…
 
 ??? question "`std::variant` as Closed-Set Type Erasure"
-    When the set of types is known and fixed at compile time:
+    When the set of types is known and fixed at compile time: std::variant is stack-allocated (no heap, no pointer indirection) and the visitor is dispatched through a jump table — faster than virtual dispatch for small…
 
 ??? question "Type Erasure Technique Comparison"
-    | Technique           | Heap alloc  | Type set       | Use case                          |
-    |---------------------|-------------|----------------|-----------------------------------|
-    | Virtual base class  | Yes (new)   |
+    \ SBO (Small Buffer Optimisation) avoids heap for small callables/values.
 
 ??? question "Self-Check Questions"
-    Q1. Why must \\Widget::~Widget()\\ be defined in the \\.cpp\\ file when using pImpl with \\uniqueptr\<Impl\>\\?
+    Q1. Why must \\Widget::~Widget()\\ be defined in the \\.cpp\\ file when using pImpl with \\unique_ptr\<Impl\>\\? unique_ptr's destructor calls delete on its managed pointer, which requires Impl to be a complete type (so…
 
 
 ---
@@ -234,52 +222,22 @@ _No cards at this level._
 
 
 ??? question "⚠️ Pitfall: Pitfall 1 — Defaulting the Destructor in the Header"
-    Problem: The most common pImpl mistake: `~Widget() = default;` in the header, where `Impl` is incomplete, causes a hard compile error about deleting an incomplete type.
-
-    BAD:
-
-    ``` cpp
-    // widget.hpp
-    c
+    Problem: The most common pImpl mistake: ~Widget() = default; in the header, where Impl is incomplete, causes a hard compile error about deleting an incomplete type.
 
 ??? question "⚠️ Pitfall: Pitfall 2 — pImpl Without Move Operations (Accidentally Deleted)"
     Problem: Declaring a custom destructor suppresses the compiler-generated move constructor and move assignment operator, making the class accidentally non-movable.
 
-    BAD:
-
-    ``` cpp
-    // widget.hpp
-    class W
-
 ??? question "⚠️ Pitfall: Pitfall 3 — `std::any_cast` Without Checking First"
-    Problem: Casting `std::any` directly to the wrong type throws `std::badanycast`, which if uncaught terminates the program.
-
-    BAD:
-
-    ``` cpp
-    std::any value = std::string("hello");
-
-    // Assuming it holds
+    Problem: Casting std::any directly to the wrong type throws std::bad_any_cast, which if uncaught terminates the program. BAD: Why it fails: std::any_cast<T>(any_value) throws std::bad_any_cast if the…
 
 ??? question "⚠️ Pitfall: Pitfall 4 — Custom Type Erasure Wrapper With Shared Ownership When Unique Is Needed"
-    Problem: Using `std::sharedptr<Concept>` inside a type-erasing wrapper when the wrapper is supposed to behave as a value type with independent ownership.
-
-    BAD:
-
-    ``` cpp
-    class AnyDrawable {
-        std::s
+    Problem: Using std::shared_ptr<Concept> inside a type-erasing wrapper when the wrapper is supposed to behave as a value type with independent ownership.
 
 ??? question "⚠️ Pitfall: Pitfall 5 — pImpl Disabling the Header-Only Benefit"
-    Problem: Using pImpl on a class that is primarily used as a small, frequently-copied value type (e.g., `Point`, `Color`, `Duration`), where the heap allocation and pointer indirection hurt more than
+    Problem: Using pImpl on a class that is primarily used as a small, frequently-copied value type (e.g., Point, Color, Duration), where the heap allocation and pointer indirection hurt more than they…
 
 ??? question "⚠️ Pitfall: Pitfall 6 — `std::variant` Visitor Missing a Type Arm"
-    Problem: A `std::visit` visitor doesn't handle one of the variant alternatives, causing a compile error — but the error message is often cryptic.
-
-    BAD:
-
-    ``` cpp
-    using Shape = std::variant<Circle, Squ
+    Problem: A std::visit visitor doesn't handle one of the variant alternatives, causing a compile error — but the error message is often cryptic.
 
 
 ---

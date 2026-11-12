@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII). Tie a resource's lifetime to an object's lifetime, and the lan</div>
+      <div class="flashcard-a">Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII).</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">C++ provides six special member functions. Today we cover the constructor family.</div>
+      <div class="flashcard-a">C++ provides six special member functions. Today we cover the constructor family. A constructor that can be called with no arguments. A constructor that calls another constructor of the same class.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">RAII links resource lifetime to object lifetime. The object's constructor acquires the resource; the destructor releases it. Because destructors run deterministically when the object goes out of scope — even under except</div>
+      <div class="flashcard-a">RAII links resource lifetime to object lifetime. The object&#x27;s constructor acquires the resource; the destructor releases it. Because destructors run deterministically when the object goes out of scope — even under…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -124,7 +124,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The destructor runs when an object's lifetime ends: \ Local variable goes out of scope \ delete is called on a raw pointer \ A containing object is destroyed \ An exception unwinds the stack past the object's scope</div>
+      <div class="flashcard-a">The destructor runs when an object&#x27;s lifetime ends: \ Local variable goes out of scope \ delete is called on a raw pointer \ A containing object is destroyed \ An exception unwinds the stack past the object&#x27;s scope…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">RAII provides the foundation for exception safety. There are four levels:</div>
+      <div class="flashcard-a">RAII provides the foundation for exception safety. There are four levels: No-throw guarantee: the function never throws (noexcept). Strong guarantee: if the function throws, the program state is unchanged (rollback).</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 04"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1: Why should \\const\\ data members always be initialised in the member initialiser list?</div>
+      <div class="flashcard-a">Q1: Why should \\const\\ data members always be initialised in the member initialiser list? const members cannot be assigned after construction — they can only be set at the moment they come into existence.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -215,28 +215,28 @@ _No cards at this level._
 
 
 ??? question "Why This Day Matters"
-    Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII). Tie a resource's lifetime to an object's lifetime, and the lan
+    Resource management is the hardest problem in systems programming. C++ solves it elegantly with one principle: Resource Acquisition Is Initialization (RAII).
 
 ??? question "Constructor Types"
-    C++ provides six special member functions. Today we cover the constructor family.
+    C++ provides six special member functions. Today we cover the constructor family. A constructor that can be called with no arguments. A constructor that calls another constructor of the same class.
 
 ??? question "Member Initialiser List"
     Members are initialised in declaration order, not in the order they appear in the initialiser list. Initialise all members in the initialiser list rather than assigning in the constructor body.
 
 ??? question "RAII: The Core Pattern"
-    RAII links resource lifetime to object lifetime. The object's constructor acquires the resource; the destructor releases it. Because destructors run deterministically when the object goes out of scope — even under except
+    RAII links resource lifetime to object lifetime. The object's constructor acquires the resource; the destructor releases it. Because destructors run deterministically when the object goes out of scope — even under…
 
 ??? question "The Destructor"
-    The destructor runs when an object's lifetime ends: \ Local variable goes out of scope \ delete is called on a raw pointer \ A containing object is destroyed \ An exception unwinds the stack past the object's scope
+    The destructor runs when an object's lifetime ends: \ Local variable goes out of scope \ delete is called on a raw pointer \ A containing object is destroyed \ An exception unwinds the stack past the object's scope…
 
 ??? question "Exception Safety"
-    RAII provides the foundation for exception safety. There are four levels:
+    RAII provides the foundation for exception safety. There are four levels: No-throw guarantee: the function never throws (noexcept). Strong guarantee: if the function throws, the program state is unchanged (rollback).
 
 ??? question "Copy and Move Constructors (Brief Preview)"
     The copy constructor and move constructor are covered in depth on Day 14. A brief introduction:
 
 ??? question "Self-Check Questions"
-    Q1: Why should \\const\\ data members always be initialised in the member initialiser list?
+    Q1: Why should \\const\\ data members always be initialised in the member initialiser list? const members cannot be assigned after construction — they can only be set at the moment they come into existence.
 
 
 ---
@@ -247,23 +247,14 @@ _No cards at this level._
 ??? question "⚠️ Pitfall: Pitfall 1: Resource Leak on Early Return or Exception"
     Description: Acquiring a resource with a raw handle and relying on a cleanup call at the end of the function. Any early return or exception bypasses the cleanup.
 
-    BAD code:
-
-    ``` cpp
-    include <cstdio>
-
 ??? question "⚠️ Pitfall: Pitfall 2: Throwing from a Destructor"
-    Description: Allowing an exception to propagate out of a destructor. If the destructor is called during stack unwinding (handling another exception), this calls `std::terminate`.
-
-    BAD code:
-
-    ``` cpp
+    Description: Allowing an exception to propagate out of a destructor. If the destructor is called during stack unwinding (handling another exception), this calls std::terminate.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Wrong Initialisation Order — Relying on Initialiser List Order"
-    Description: Placing members in the initialiser list in a different order than they are declared in the class. Members are always initialised in declaration order, not initialiser list order, leading
+    Description: Placing members in the initialiser list in a different order than they are declared in the class. Members are always initialised in declaration order, not initialiser list order, leading…
 
 ??? question "⚠️ Pitfall: Pitfall 4: Constructing in Two Phases (Init Anti-Pattern)"
-    Description: Providing a default constructor that creates an unusable object, then requiring the caller to call a separate `init()` function before the object can be used. The object has a "zombie" s
+    Description: Providing a default constructor that creates an unusable object, then requiring the caller to call a separate init() function before the object can be used.
 
 
 ---

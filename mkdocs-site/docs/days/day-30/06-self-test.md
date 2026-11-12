@@ -22,41 +22,23 @@ title: "06 — Self Test · Day 30"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Thirty days of focused study have given you a complete foundation in modern C++ object-oriented programming. Today is not about new syntax — it is about consolidating what you kno
+    Thirty days of focused study have given you a complete foundation in modern C++ object-oriented programming. Today is not about new syntax — it is about consolidating what you…
 
-=== "❓ Question"
-    What is: **30-Day Knowledge Map**?
-
-=== "✅ Answer"
-    ``` text
-Week 1 — Foundations
-─────────────────────
-Day 01: Classes, constructors, destructors, access control
-Day 02: const, references, value vs reference semantics
-Day 03: Memo
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Self-Assessment Quiz (20 Questions)**?
 
 === "✅ Answer"
-    Work through each question on paper before reading the answer.
+    Work through each question on paper before reading the answer. Q1. What is the difference between = default and = delete for a special member function? A1.
 
-Q1. What is the difference between `= default` and `= delete` for a special member function?
-
-A1. `= default` asks
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **What to Learn Next**?
 
 === "✅ Answer"
-    After mastering this course, the next logical specialisations are:
-
-Concurrency and Parallelism  
-`std::thread`, `std::atomic`, `std::mutex`, lock-free data structures, `std::jthr
+    After mastering this course, the next logical specialisations are: Concurrency and Parallelism std::thread, std::atomic, std::mutex, lock-free data structures, std::jthread…
 
 
 ---
