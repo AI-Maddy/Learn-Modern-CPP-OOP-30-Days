@@ -1,0 +1,273 @@
+/* ============================================================
+   LAYOUT & MATERIAL THEME OVERRIDES
+   ============================================================ */
+
+/* ---- Header ---- */
+.md-header {
+  background: rgba(7,10,20,0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(139,92,246,0.15);
+}
+
+.md-header__title {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Nav tabs ---- */
+.md-tabs {
+  background: rgba(7,10,20,0.7) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.md-tabs__link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: color 200ms;
+}
+
+/* ---- Sidebar ---- */
+.md-sidebar {
+  background: rgba(7,10,20,0.5);
+}
+
+.md-nav__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+}
+
+.md-nav__link {
+  font-size: 0.82rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: all 150ms;
+  padding: 0.3rem 0.75rem;
+}
+
+.md-nav__link:hover {
+  color: #c4b5fd;
+  background: rgba(139,92,246,0.08);
+}
+
+/* ---- Main content area ---- */
+.md-content__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* ---- Footer ---- */
+.md-footer {
+  background: rgba(7,10,20,0.9);
+  border-top: 1px solid rgba(139,92,246,0.1);
+}
+
+.md-footer-nav__link {
+  transition: all 200ms;
+}
+
+.md-footer-nav__link:hover {
+  color: #c4b5fd;
+}
+
+/* ---- Search ---- */
+.md-search__input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(139,92,246,0.2) !important;
+  border-radius: 0.5rem !important;
+  transition: all 200ms;
+}
+
+.md-search__input:focus {
+  border-color: rgba(139,92,246,0.5) !important;
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.1) !important;
+}
+
+.md-search-result__article {
+  border-radius: 0.5rem;
+}
+
+.md-search-result__article:hover {
+  background: rgba(139,92,246,0.1);
+}
+
+/* ---- TOC (table of contents) ---- */
+.md-nav--secondary .md-nav__link {
+  font-size: 0.78rem;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  color: #c4b5fd;
+  font-weight: 600;
+}
+
+/* ---- Back to top button ---- */
+.md-top {
+  background: rgba(139,92,246,0.8) !important;
+  border-radius: 50%;
+  box-shadow: var(--glow-sm);
+  transition: all 200ms;
+}
+
+.md-top:hover {
+  background: rgba(139,92,246,1) !important;
+  box-shadow: var(--glow-md);
+  transform: translateY(-2px);
+}
+
+/* ---- Tag chips ---- */
+.md-tag {
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(139,92,246,0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139,92,246,0.25);
+  padding: 0.15em 0.5em;
+}
+
+/* ---- Grid cards (Material) ---- */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  transition: all 250ms cubic-bezier(0.4,0,0.2,1);
+  overflow: hidden;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139,92,246,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(139,92,246,0.1);
+}
+
+/* ---- Blockquote — Neural insight ---- */
+.md-typeset blockquote {
+  border-left: 3px solid #6366f1;
+  background: rgba(99,102,241,0.06);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.75rem 1rem;
+}
+
+/* ---- Horizontal rule ---- */
+.md-typeset hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.4), transparent);
+  margin: 2rem 0;
+}
+
+/* ---- Keyboard keys ---- */
+.md-typeset kbd {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-bottom-width: 2px;
+  border-radius: 0.3rem;
+  padding: 0.1em 0.4em;
+  font-size: 0.8em;
+  color: #e2e8f0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* ---- Tooltips ---- */
+.md-tooltip {
+  background: rgba(13,17,23,0.95);
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* ============================================================
+   PAGE-SPECIFIC LAYOUT HELPERS
+   ============================================================ */
+
+/* Two-column comparison */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 640px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .hero-title   { font-size: 1.75rem; }
+}
+
+/* Day navigation breadcrumb */
+.day-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1rem;
+}
+
+.day-breadcrumb a { color: rgba(139,92,246,0.8); text-decoration: none; }
+.day-breadcrumb a:hover { color: #c4b5fd; }
+
+/* Day number badge */
+.day-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1rem;
+  border: 2px solid;
+  margin-right: 0.75rem;
+}
+
+/* Prev/Next day navigation */
+.day-nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.day-nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none !important;
+  transition: all 200ms;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.day-nav-link:hover {
+  border-color: rgba(139,92,246,0.3);
+  background: rgba(139,92,246,0.05);
+}
+
+.day-nav-link span:first-child {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+}
+
+.day-nav-link span:last-child {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.day-nav-link.next { text-align: right; }
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 76.1875em) {
+  .md-content__inner { padding: 1rem 0.75rem; }
+}

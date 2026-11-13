@@ -1,0 +1,357 @@
+/* ============================================================
+   THEME — readability layer for dark (slate) and light (default)
+   Loaded last so it can retune the earlier stylesheets, which were
+   written for a dark background only.
+
+   Goals:
+   - Body text, muted text, links and code comments meet WCAG AA
+     contrast (4.5:1) in both schemes.
+   - Code blocks stay dark in both schemes, so syntax colours are the
+     same everywhere.
+   - Light scheme replaces every light-on-dark hard-coded colour.
+   ============================================================ */
+
+/* ---- Shared tokens ---------------------------------------- */
+:root,
+[data-md-color-scheme="slate"] {
+  --t-text:          #e6e9f2;
+  --t-text-muted:    #a3acc2;   /* 7.8:1 on page bg */
+  --t-heading:       #f4f5fa;
+  --t-h3:            #d0c2ff;
+  --t-h4:            #a8c8ff;
+  --t-link:          #a5b4fc;
+  --t-link-hover:    #ddd6fe;
+  --t-accent:        #a78bfa;
+  --t-surface:       rgba(255,255,255,0.035);
+  --t-surface-2:     rgba(255,255,255,0.06);
+  --t-border:        rgba(255,255,255,0.10);
+  --t-border-strong: rgba(167,139,250,0.40);
+  --t-chrome-bg:     rgba(9,12,24,0.92);
+  --t-inline-code-fg:#ddd6fe;
+  --t-inline-code-bg:rgba(139,92,246,0.18);
+  --t-inline-code-bd:rgba(139,92,246,0.30);
+  --t-grid-dot:      rgba(99,102,241,0.07);
+
+  --t-blue:   #93c5fd;
+  --t-green:  #6ee7b7;
+  --t-violet: #c4b5fd;
+  --t-red:    #fca5a5;
+  --t-orange: #fdba74;
+  --t-yellow: #fde047;
+  --t-slate:  #cbd5e1;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        #0a0e1a;
+  --md-default-fg-color:        var(--t-text);
+  --md-default-fg-color--light: var(--t-text-muted);
+  --md-typeset-color:           var(--t-text);
+  --md-typeset-a-color:         var(--t-link);
+  --md-accent-fg-color:         var(--t-link-hover);
+  --md-code-bg-color:           #0d1117;
+  --md-code-fg-color:           #e6edf3;
+}
+
+[data-md-color-scheme="default"] {
+  --t-text:          #1e2235;
+  --t-text-muted:    #545b72;   /* 6.6:1 on white */
+  --t-heading:       #111428;
+  --t-h3:            #5b21b6;
+  --t-h4:            #1d4ed8;
+  --t-link:          #4f46e5;
+  --t-link-hover:    #6d28d9;
+  --t-accent:        #6d28d9;
+  --t-surface:       #f7f7fb;
+  --t-surface-2:     #efeff7;
+  --t-border:        rgba(30,34,53,0.12);
+  --t-border-strong: rgba(109,40,217,0.35);
+  --t-chrome-bg:     rgba(255,255,255,0.94);
+  --t-inline-code-fg:#5b21b6;
+  --t-inline-code-bg:rgba(139,92,246,0.09);
+  --t-inline-code-bd:rgba(139,92,246,0.22);
+  --t-grid-dot:      rgba(79,70,229,0.06);
+
+  --t-blue:   #1d4ed8;
+  --t-green:  #047857;
+  --t-violet: #6d28d9;
+  --t-red:    #b91c1c;
+  --t-orange: #c2410c;
+  --t-yellow: #854d0e;
+  --t-slate:  #334155;
+
+  --md-default-bg-color:        #ffffff;
+  --md-default-fg-color:        var(--t-text);
+  --md-default-fg-color--light: var(--t-text-muted);
+  --md-typeset-color:           var(--t-text);
+  --md-typeset-a-color:         var(--t-link);
+  --md-accent-fg-color:         var(--t-link-hover);
+  --md-primary-fg-color:        #5b21b6;
+  /* Code blocks stay dark in light mode too */
+  --md-code-bg-color:           #0d1117;
+  --md-code-fg-color:           #e6edf3;
+}
+
+/* ---- Base typography -------------------------------------- */
+body {
+  background-color: var(--md-default-bg-color);
+  /* Quieter dot grid: the old one sat visibly behind body text */
+  background-image: radial-gradient(circle, var(--t-grid-dot) 1px, transparent 1px) !important;
+  background-size: 28px 28px !important;
+}
+
+.md-typeset {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--t-text);
+}
+
+.md-typeset h1,
+.md-typeset h2 { color: var(--t-heading); }
+.md-typeset h3 { color: var(--t-h3) !important; }
+.md-typeset h4 { color: var(--t-h4) !important; opacity: 1 !important; }
+
+.md-typeset p,
+.md-typeset li { max-width: 72ch; }
+
+/* Links: readable colour, no glow */
+.md-typeset a:not(.md-button) {
+  color: var(--t-link) !important;
+  border-bottom-color: color-mix(in srgb, var(--t-link) 35%, transparent) !important;
+}
+.md-typeset a:not(.md-button):hover {
+  color: var(--t-link-hover) !important;
+  border-bottom-color: var(--t-link-hover) !important;
+  text-shadow: none !important;
+}
+/* Heading permalinks: no underline, only visible on hover/focus */
+.md-typeset .headerlink { border-bottom: none !important; color: var(--t-text-muted) !important; }
+
+/* Inline code */
+.md-typeset code:not(.language-text) {
+  color: var(--t-inline-code-fg) !important;
+  background: var(--t-inline-code-bg) !important;
+  border-color: var(--t-inline-code-bd) !important;
+}
+.md-typeset pre code,
+.md-typeset .highlight code {
+  color: var(--md-code-fg-color) !important;
+  background: var(--md-code-bg-color) !important;
+  border: 0 !important;
+}
+
+/* ---- Code blocks ------------------------------------------- */
+.md-typeset .highlight .linenos,
+.md-typeset .highlight .linenodiv pre,
+.md-typeset .highlight [data-linenos]::before {
+  color: rgba(230,237,243,0.42) !important;
+}
+/* Comments were #6b7280 on #0d1117 (3.9:1) */
+.md-typeset .highlight .c,
+.md-typeset .highlight .c1,
+.md-typeset .highlight .cm,
+.md-typeset .highlight .ch,
+.md-typeset .highlight .cs { color: #8b949e !important; }
+.md-typeset .highlight .cp,
+.md-typeset .highlight .cpf { color: #fdba74 !important; font-style: normal; }
+.md-typeset .highlight .n,
+.md-typeset .highlight .nv,
+.md-typeset .highlight .na { color: #e6edf3; }
+.md-typeset .highlight span.filename {
+  /* Sit inside the 32px chrome bar instead of overlapping the first lines */
+  position: absolute !important;
+  top: 6px !important;
+  right: 3rem !important;
+  margin: 0 !important;
+  padding: 1px 8px !important;
+  line-height: 1.5 !important;
+  border-radius: 4px !important;
+  background: rgba(139,92,246,0.22) !important;
+  color: #ddd6fe !important;
+  z-index: 1;
+}
+.md-typeset .highlight span.filename::before { display: none !important; }
+.md-typeset .highlight .md-clipboard { top: 0.5em !important; }
+.md-typeset .highlight {
+  border-color: var(--t-border) !important;
+  background: var(--md-code-bg-color) !important;
+}
+[data-md-color-scheme="default"] .md-typeset .highlight {
+  box-shadow: 0 2px 10px rgba(15,23,42,0.12) !important;
+}
+
+/* ---- Chrome: header, tabs, sidebars, footer --------------- */
+.md-header,
+.md-tabs {
+  background: var(--t-chrome-bg) !important;
+  color: var(--t-heading) !important;
+  border-bottom-color: var(--t-border) !important;
+}
+.md-tabs__link { color: var(--t-text-muted); opacity: 1; }
+.md-tabs__link--active,
+.md-tabs__link:hover { color: var(--t-heading) !important; }
+.md-sidebar { background: transparent !important; }
+.md-nav__title { color: var(--t-text-muted) !important; }
+.md-nav__link { color: var(--t-text-muted); }
+.md-nav__link:hover,
+.md-nav__link:focus { color: var(--t-link-hover) !important; }
+.md-nav--secondary .md-nav__link--active,
+.md-nav__link--active { color: var(--t-accent) !important; }
+.md-nav__item--active > .md-nav__link { background: var(--t-surface-2) !important; }
+
+.md-footer {
+  background: var(--t-chrome-bg) !important;
+  color: var(--t-text-muted) !important;
+  border-top-color: var(--t-border) !important;
+}
+.md-footer-meta { background: transparent !important; }
+.md-footer__link, .md-footer-meta, .md-footer-meta a { color: var(--t-text-muted) !important; }
+.site-credit { color: var(--t-text-muted); }
+
+.md-banner {
+  background: #2e1065;
+  color: #ede9fe;
+}
+.md-banner a { color: #ddd6fe !important; }
+
+[data-md-color-scheme="default"] .md-search__input {
+  background: var(--t-surface-2) !important;
+  color: var(--t-text) !important;
+}
+[data-md-color-scheme="default"] .md-search__input::placeholder,
+[data-md-color-scheme="default"] .md-search__icon { color: var(--t-text-muted) !important; }
+
+/* ---- Content components ----------------------------------- */
+/* Tables: brain-interactions.js adds .reveal-on-scroll to every table, so
+   the `table:not([class])` rules in neural-animations.css never matched and
+   tables rendered with no header, borders or row lines. */
+.md-typeset .md-typeset__table > table {
+  border: 1px solid var(--t-border) !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+.md-typeset .md-typeset__table > table th {
+  color: var(--t-violet) !important;
+  background: var(--t-surface-2) !important;
+  font-weight: 700;
+  border-bottom: 1px solid var(--t-border-strong);
+}
+.md-typeset .md-typeset__table > table td { border-top: 1px solid var(--t-border); }
+.md-typeset .md-typeset__table > table tbody tr:nth-child(even) { background: var(--t-surface); }
+.md-typeset .md-typeset__table > table tbody tr:hover { background: var(--t-surface-2); }
+
+.md-typeset blockquote { color: var(--t-text); }
+
+.md-typeset .grid.cards > ul > li,
+.day-card,
+.day-nav-link,
+.quiz-option {
+  border-color: var(--t-border) !important;
+  background: var(--t-surface) !important;
+}
+.cluster-section { border-color: var(--t-border) !important; }
+.day-cards-grid { background: transparent !important; }
+.day-nav-link span:last-child { color: var(--t-heading) !important; }
+.day-breadcrumb { color: var(--t-text-muted) !important; }
+
+.md-typeset kbd {
+  background: var(--t-surface-2) !important;
+  border-color: var(--t-border) !important;
+  color: var(--t-text) !important;
+}
+.md-tooltip,
+.md-annotation {
+  background: var(--md-default-bg-color) !important;
+  color: var(--t-text) !important;
+}
+.md-tag { color: var(--t-violet) !important; }
+
+/* Cluster banner + brain-lobe admonition titles */
+.brain-cluster-banner[data-cluster="foundations"] { color: var(--t-blue) !important; }
+.brain-cluster-banner[data-cluster="oop-core"]    { color: var(--t-green) !important; }
+.brain-cluster-banner[data-cluster="templates"]   { color: var(--t-violet) !important; }
+.brain-cluster-banner[data-cluster="memory"]      { color: var(--t-red) !important; }
+.brain-cluster-banner[data-cluster="modern-cpp"]  { color: var(--t-orange) !important; }
+.brain-cluster-banner[data-cluster="projects"]    { color: var(--t-yellow) !important; }
+.brain-cluster-banner[data-cluster="review"]      { color: var(--t-slate) !important; }
+
+.md-typeset .code-lobe > .admonition-title,   .md-typeset .code-lobe > summary   { color: var(--t-blue) !important; }
+.md-typeset .theory-lobe > .admonition-title, .md-typeset .theory-lobe > summary { color: var(--t-green) !important; }
+.md-typeset .arch-lobe > .admonition-title,   .md-typeset .arch-lobe > summary   { color: var(--t-violet) !important; }
+.md-typeset .why-lobe > .admonition-title,    .md-typeset .why-lobe > summary    { color: var(--t-red) !important; }
+.md-typeset .pitfall-lobe > .admonition-title,.md-typeset .pitfall-lobe > summary{ color: var(--t-yellow) !important; }
+
+/* Admonition body text inherits page text colour */
+.md-typeset .admonition,
+.md-typeset details { color: var(--t-text); font-size: 0.8rem; }
+
+/* Flashcards, quiz, memory palace */
+.flashcard-q { color: var(--t-heading) !important; }
+.flashcard-a { color: var(--t-text) !important; }
+.flashcard-front .flashcard-label { color: var(--t-violet) !important; }
+.flashcard-back  .flashcard-label { color: var(--t-green) !important; }
+.flashcard-hint { color: var(--t-text-muted) !important; opacity: 1 !important; }
+[data-md-color-scheme="default"] .flashcard-front { background: #f5f3ff !important; }
+[data-md-color-scheme="default"] .flashcard-back  { background: #ecfdf5 !important; }
+[data-md-color-scheme="default"] .confidence-dot  { border-color: rgba(15,23,42,0.25) !important; }
+
+.quiz-question { color: var(--t-blue) !important; }
+.quiz-option.correct { color: var(--t-green) !important; }
+.quiz-option.wrong   { color: var(--t-red) !important; }
+.memory-palace-title { color: var(--t-yellow) !important; }
+.memory-palace-mnemonic { color: var(--t-orange) !important; }
+.memory-palace-body { color: var(--t-text) !important; }
+
+/* Tabbed blocks */
+.md-typeset .tabbed-labels > label:hover,
+.md-typeset .tabbed-set > input:checked + label { color: var(--t-accent) !important; }
+
+/* Neuro tags (homepage) */
+[data-md-color-scheme="default"] .neurotag-cpp20 { color: #1d4ed8; }
+[data-md-color-scheme="default"] .neurotag-cpp23 { color: #7e22ce; }
+[data-md-color-scheme="default"] .neurotag-raii  { color: #047857; }
+[data-md-color-scheme="default"] .neurotag-oop   { color: #c2410c; }
+[data-md-color-scheme="default"] .neurotag-perf  { color: #be185d; }
+
+/* Mermaid: Material derives edge and label colours from the code colours,
+   which are light in both schemes here (code blocks stay dark). Point them
+   at the page text colour instead, or labels vanish in light mode. */
+body[data-md-color-scheme] {
+  --md-mermaid-edge-color:     var(--t-text-muted);
+  --md-mermaid-label-fg-color: var(--t-text);
+  --md-mermaid-node-fg-color:  var(--t-text);
+}
+
+/* Mermaid container follows the page surface */
+.md-typeset .mermaid {
+  background: var(--t-surface) !important;
+  border-color: var(--t-border) !important;
+}
+
+/* Neural canvas is decorative; keep it faint in light mode */
+[data-md-color-scheme="default"] .neural-canvas-host > canvas { opacity: 0.45; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset h2, .md-typeset h3, .md-typeset h2::before,
+  .hero-title, .reveal-on-scroll {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+}
+
+/* Homepage hero: the host is a centred flex column, which shrank the stats
+   grid to one card wide and stacked all five cards vertically. */
+.neural-canvas-host > .brain-stats {
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.flashcard-label { opacity: 1 !important; }
+/* "C++23" did not fit the stat card at 2.5rem */
+.brain-stat-number { font-size: clamp(1.5rem, 3.2vw, 2.25rem) !important; white-space: nowrap; }
+.md-top { color: #ffffff !important; }
