@@ -29,6 +29,7 @@ based on the 10-feature blueprint from website-guide.md:
       07-summary.md       — Summary + prev/next navigation
 """
 
+from html import escape as html_escape
 import json
 import re
 import os
@@ -232,11 +233,49 @@ def flashcard_qa(question: str, answer: str, open_=False) -> str:
     return f'\n{marker} question "{question}"\n{ans_indented}\n'
 
 def self_test_tab(question: str, answer: str) -> str:
-    """Tabbed self-test — Feature #9."""
+    """Tabbed self-test — Feature #9.
+
+    Every line of the answer must be indented, otherwise only the first
+    line stays inside the tab and the rest leaks out as raw Markdown.
+    """
+    ans_indented = textwrap.indent(answer.strip(), "    ")
     return (
-        f'\n=== "❓ Question"\n    {question}\n\n'
-        f'=== "✅ Answer"\n    {answer}\n'
+        # `===!` starts a new tab set; without it every Q/A pair on the page
+        # merged into one long strip of identical "Question"/"Answer" tabs.
+        f'\n===! "❓ Question"\n    {question}\n\n'
+        f'=== "✅ Answer"\n{ans_indented}\n'
     )
+
+def prose_summary(md: str, limit: int) -> str:
+    """Plain-text summary of a Markdown section, safe to truncate.
+
+    Cutting raw Markdown at a fixed length used to split fenced code blocks
+    in half; the unclosed fence then swallowed the rest of the page (tabs,
+    admonitions, quiz blocks) as literal text. Code blocks, tables and
+    headings are dropped, inline markup is stripped, and the text is cut at
+    a word boundary.
+    """
+    text = re.sub(r'^\s*(```|~~~).*?^\s*\1[^\n]*$', ' ', md, flags=re.S | re.M)
+    text = re.sub(r'^\s*(```|~~~).*', ' ', text, flags=re.S | re.M)  # unclosed fence
+    lines = [l for l in text.splitlines()
+             if l.strip() and not l.lstrip().startswith(('|', '#', '>', '<', '!!!', '???'))]
+    text = " ".join(l.strip().lstrip('-*+ ').strip() for l in lines)
+    text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)   # links -> label
+    # Keep `_` and `#`: they are part of identifiers like unique_ptr and #include.
+    text = re.sub(r'[`*]', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    stop = max(cut.rfind('. '), cut.rfind('? '), cut.rfind('! '))
+    if stop > limit * 0.6:
+        return cut[:stop + 1]
+    return cut.rsplit(' ', 1)[0].rstrip(',;:—-') + '…'
+
+def mermaid_label(text: str) -> str:
+    """Escape text for use inside a quoted Mermaid node label."""
+    return (text.replace('&', '#amp;').replace('"', '#quot;')
+                .replace('<', '#lt;').replace('>', '#gt;'))
 
 def mermaid_block(content: str) -> str:
     return f'```mermaid\n{content.strip()}\n```\n'
@@ -431,15 +470,21 @@ def write_definition(day: dict, out: Path):
     # Build a Mermaid knowledge graph for this day
     cluster_meta = CLUSTER_META.get(cluster, {})
     c_tags = cluster_meta.get("tags", [title])[:4]
+    # Node ids are generated (n0, n1, ...) rather than derived from the tag
+    # text: tags such as `class` or `end` are Mermaid keywords and broke the
+    # parser ("Syntax error in text"). Labels are quoted and escaped.
+    accent = cluster_meta.get("theme_color", "#8b5cf6")
+    concepts = [t for t in c_tags if t != title] or ["Core Concept"]
     mermaid_nodes = "\n".join(
-        f'    {title.replace(" ","_")} --> {t.replace(" ","_").replace(":","").replace("<","").replace(">","")}["{t}"]'
-        for t in c_tags if t != title
+        f'    ROOT --> n{i}["{mermaid_label(t)}"]' for i, t in enumerate(concepts)
     )
     diagram = mermaid_block(f"""graph TD
-    ROOT["{title}"] --> A["{c_tags[0] if c_tags else 'Core Concept'}"]
+    ROOT["{mermaid_label(title)}"]
 {mermaid_nodes}
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff""")
+    classDef topic fill:{accent},stroke:{accent},color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:{accent},stroke-width:2px
+    class ROOT topic
+    class {",".join(f"n{i}" for i in range(len(concepts)))} concept""")
 
     content = f"""---
 title: "02 — Definition · Day {n:02d}"
@@ -652,8 +697,7 @@ def write_flashcards(day: dict, out: Path):
         body = "\n".join(sec["body"]).strip()
         if len(body) < 20:
             continue
-        first_para = body.split("\n\n")[0]
-        answer = re.sub(r'[`*_#\[\]]', '', first_para)[:220].strip()
+        answer = prose_summary(body, 220)
         if len(answer) > 10:
             card_defs.append((sec["heading"], answer))
 
@@ -673,12 +717,12 @@ def write_flashcards(day: dict, out: Path):
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L{level_id} · Question</div>
-      <div class="flashcard-q">{q}</div>
+      <div class="flashcard-q">{html_escape(q)}</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">{a}</div>
+      <div class="flashcard-a">{html_escape(a)}</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -698,7 +742,9 @@ def write_flashcards(day: dict, out: Path):
     for ps in p_sections:
         if not ps["heading"] or not ps["body"]:
             continue
-        body = re.sub(r'[*_#]', '', "\n".join(ps["body"]))[:200].strip()
+        body = prose_summary("\n".join(ps["body"]), 200)
+        if not body:
+            continue
         pitfall_qas += flashcard_qa(f"⚠️ Pitfall: {ps['heading']}", body)
 
     content = f"""---
@@ -773,7 +819,7 @@ def write_self_test(day: dict, out: Path):
     for sec in sections[:5]:
         if not sec["heading"] or not sec["body"]:
             continue
-        body = re.sub(r'[*_#]', '', "\n".join(sec["body"]))[:180].strip()
+        body = prose_summary("\n".join(sec["body"]), 180)
         if len(body) < 20:
             continue
         tabbed_qas += self_test_tab(f"What is: **{sec['heading']}**?", body)

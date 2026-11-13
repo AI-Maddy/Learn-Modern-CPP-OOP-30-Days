@@ -118,13 +118,15 @@ Use `final` on leaf classes that are never further derived — it allows the com
 
 ```mermaid
 graph TD
-    ROOT["Performance Tips OOP"] --> A["modules"]
-    Performance_Tips_OOP --> modules["modules"]
-    Performance_Tips_OOP --> SOLID["SOLID"]
-    Performance_Tips_OOP --> CRTP["CRTP"]
-    Performance_Tips_OOP --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Performance Tips OOP"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

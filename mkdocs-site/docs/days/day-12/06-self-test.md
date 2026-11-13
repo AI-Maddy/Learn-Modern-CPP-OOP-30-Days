@@ -22,43 +22,29 @@ title: "06 — Self Test · Day 12"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    The classic STL algorithm model is powerful but verbose. Composing three steps — filter, transform, take — requires three separate passes, three temporary containers, and three pa
+    The classic STL algorithm model is powerful but verbose. Composing three steps — filter, transform, take — requires three separate passes, three temporary containers, and three…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The `std::ranges::views` Pipeline**?
 
 === "✅ Answer"
-    The pipe operator `|` chains range adaptors. Each adaptor returns a view — a lightweight object that describes how to iterate, without storing any elements.
+    The pipe operator | chains range adaptors. Each adaptor returns a view — a lightweight object that describes how to iterate, without storing any elements.
 
-``` cpp
-include <rang
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Lazy Evaluation**?
 
 === "✅ Answer"
-    A view does no work when it is created. Work happens only when the view is iterated. This means:
+    A view does no work when it is created. Work happens only when the view is iterated. This means: Unused elements cost nothing.
 
-- Unused elements cost nothing.
-- You can build arbitrarily long pipelines with z
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Core Range Adaptors**?
 
 === "✅ Answer"
-    filter — yield only elements matching a predicate
-
-``` cpp
-auto positives = data | rv::filter([](int x){ return x > 0; });
-```
-
-transform — apply a function to each element
-
-``` c
+    filter — yield only elements matching a predicate transform — apply a function to each element take / drop — first/after-first N elements take_while / drop_while — conditional…
 
 
 ---

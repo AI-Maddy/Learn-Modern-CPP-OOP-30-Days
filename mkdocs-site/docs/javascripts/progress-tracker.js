@@ -78,7 +78,7 @@
                   background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);
                   border-radius:0.75rem;">
         <svg width="70" height="70" class="day-progress-ring">
-          <circle cx="35" cy="35" r="${r}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+          <circle cx="35" cy="35" r="${r}" fill="none" stroke="var(--t-border, rgba(255,255,255,0.08))" stroke-width="5"/>
           <circle class="progress" cx="35" cy="35" r="${r}" fill="none"
             stroke="url(#prog-grad)" stroke-width="5"
             stroke-linecap="round"
@@ -92,16 +92,16 @@
               <stop offset="100%" stop-color="#a855f7"/>
             </linearGradient>
           </defs>
-          <text x="35" y="40" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="800"
+          <text x="35" y="40" text-anchor="middle" fill="var(--t-violet, #c4b5fd)" font-size="14" font-weight="800"
             font-family="Inter,sans-serif"><tspan class="days-pct">${pct}%</tspan></text>
         </svg>
         <div>
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;
+          <div style="font-size:0.75rem;color:var(--t-text-muted, #a3acc2);text-transform:uppercase;
                       letter-spacing:0.08em;margin-bottom:0.25rem;">Your Progress</div>
-          <div style="font-size:1.1rem;font-weight:700;color:#e2e8f0;">
+          <div style="font-size:1.1rem;font-weight:700;color:var(--t-heading, #e2e8f0);">
             <span class="days-completed">${visited.size}</span> / ${TOTAL_DAYS} days completed
           </div>
-          <div style="height:4px;border-radius:2px;background:rgba(255,255,255,0.06);
+          <div style="height:4px;border-radius:2px;background:var(--t-border, rgba(255,255,255,0.08));
                       overflow:hidden;margin-top:0.5rem;width:180px;">
             <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#6366f1,#a855f7);
                         border-radius:2px;transition:width 1s ease;"></div>

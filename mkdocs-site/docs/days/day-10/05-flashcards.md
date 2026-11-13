@@ -119,12 +119,12 @@ title: "05 — Flashcards · Day 10"
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L2 · Question</div>
-      <div class="flashcard-q">Concept Composition: `&&` and `||`</div>
+      <div class="flashcard-q">Concept Composition: `&amp;&amp;` and `||`</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Concepts compose naturally using && (conjunction) and || (disjunction).</div>
+      <div class="flashcard-a">Concepts compose naturally using &amp;&amp; (conjunction) and || (disjunction).</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 10"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The <concepts> and <iterator> headers provide a rich vocabulary.</div>
+      <div class="flashcard-a">The &lt;concepts&gt; and &lt;iterator&gt; headers provide a rich vocabulary.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 10"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What is a concept in C++20 and how does it improve template error messages?</div>
+      <div class="flashcard-a">1. What is a concept in C++20 and how does it improve template error messages? A concept is a named compile-time Boolean predicate that constrains template parameters.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -236,7 +236,7 @@ _No cards at this level._
     SFINAE (Substitution Failure Is Not An Error) was the pre-C++20 technique for constraining templates. It works by exploiting the fact that template substitution failure is not an error — it just removes the candidate.
 
 ??? question "Self-Check Questions"
-    1.  What is a concept in C++20 and how does it improve template error messages?
+    1. What is a concept in C++20 and how does it improve template error messages? A concept is a named compile-time Boolean predicate that constrains template parameters.
 
 
 ---
@@ -247,45 +247,17 @@ _No cards at this level._
 ??? question "⚠️ Pitfall: Pitfall 1: Writing a requires Expression That Always Succeeds"
     Description: A requires expression that only tests whether an expression is well-formed, without checking the result type, may pass for types you did not intend to accept.
 
-    BAD
-
-    ``` cpp
-    template <typ
-
 ??? question "⚠️ Pitfall: Pitfall 2: Concept Overload Ambiguity — Not All Constraints Subsume"
-    Description: Two overloads with different but unrelated concepts cause ambiguity because neither subsumes the other.
-
-    BAD
-
-    ``` cpp
-    include <concepts>
-
-    template <std::integral T>
-    void process(T v) { s
+    Description: Two overloads with different but unrelated concepts cause ambiguity because neither subsumes the other. BAD Why it fails: Subsumption only works between atomic concept-id constraints.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Confusing Semantic and Syntactic Requirements"
-    Description: A concept that only checks syntax (operations compile) can be satisfied by types that meet the syntax but violate the semantic intent.
-
-    BAD
-
-    ``` cpp
-    template <typename T>
-    concept Compara
+    Description: A concept that only checks syntax (operations compile) can be satisfied by types that meet the syntax but violate the semantic intent. BAD Why it fails: The concept checks syntax only.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Using `requires requires` Unnecessarily"
-    Description: Writing `requires requires(T t) { ... }` (double requires) in a template declaration is verbose and hard to read. It usually means the constraint should be a named concept.
-
-    BAD
-
-    ``` cpp
+    Description: Writing requires requires(T t) { ... } (double requires) in a template declaration is verbose and hard to read. It usually means the constraint should be a named concept.
 
 ??? question "⚠️ Pitfall: Pitfall 5: Concept Applied to Wrong Template Parameter"
     Description: Applying a concept constraint to the wrong parameter (e.g., the return type parameter) causes confusing errors or silently accepts wrong types.
-
-    BAD
-
-    ``` cpp
-    // Intention: constrain the
 
 
 ---

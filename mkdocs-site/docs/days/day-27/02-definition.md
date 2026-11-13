@@ -82,13 +82,15 @@ The golden rule: **never refactor without tests.**
 
 ```mermaid
 graph TD
-    ROOT["Refactoring Legacy Code"] --> A["Refactoring"]
-    Refactoring_Legacy_Code --> Refactoring["Refactoring"]
-    Refactoring_Legacy_Code --> TDD["TDD"]
-    Refactoring_Legacy_Code --> Catch2["Catch2"]
-    Refactoring_Legacy_Code --> Design_Patterns["Design Patterns"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Refactoring Legacy Code"]
+    ROOT --> n0["Refactoring"]
+    ROOT --> n1["TDD"]
+    ROOT --> n2["Catch2"]
+    ROOT --> n3["Design Patterns"]
+    classDef topic fill:#eab308,stroke:#eab308,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#eab308,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

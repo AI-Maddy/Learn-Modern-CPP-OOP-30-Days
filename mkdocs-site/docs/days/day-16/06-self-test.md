@@ -22,34 +22,29 @@ title: "06 — Self Test · Day 16"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Why Modules Exist**?
 
 === "✅ Answer"
-    For 50 years C++ relied on a textual inclusion model inherited from C. Every `include` directive pastes the entire contents of a header file into the translation unit, causing:
+    For 50 years C++ relied on a textual inclusion model inherited from C. Every #include directive pastes the entire contents of a header file into the translation unit, causing…
 
--
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Module Interface Units**?
 
 === "✅ Answer"
-    A module interface unit declares the module name with `export module` and marks exported declarations with `export`. The file extension varies by toolchain: `.cppm` (Clang/CMake),
+    A module interface unit declares the module name with export module and marks exported declarations with export.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Module Implementation Units**?
 
 === "✅ Answer"
-    Large modules can split interface from implementation to keep the interface unit concise. An implementation unit uses `module <name>;` (no `export` keyword).
+    Large modules can split interface from implementation to keep the interface unit concise. An implementation unit uses module <name>; (no export keyword).
 
-``` cpp
-// geometryi
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Module Partitions**?
 
 === "✅ Answer"
-    Partitions let you break a large module into sub-files that remain logically part of the same named module. Partitions are not independently importable from outside the module; th
+    Partitions let you break a large module into sub-files that remain logically part of the same named module. Partitions are not independently importable from outside the module…
 
 
 ---

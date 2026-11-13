@@ -3,7 +3,7 @@
 {% block announce %}
   <span>
     🧠 <strong>30-Day C++ Brain Boot Camp</strong> — C++20/23 · RAII · OOP · Templates · TDD ·
-    <a href="{{ 'mindmap/' | url }}" style="color:#c084fc;">View Mind Map →</a>
+    <a href="{{ 'mindmap/' | url }}" style="color:#ddd6fe;">View Mind Map →</a>
   </span>
 {% endblock %}
 
@@ -15,9 +15,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Critical path: prevent FOUC on dark bg */
-    :root { color-scheme: dark; }
-    body  { background-color: #070a14; }
+    /* Critical path: prevent a flash of the wrong background */
+    [data-md-color-scheme="slate"]   { color-scheme: dark;  }
+    [data-md-color-scheme="default"] { color-scheme: light; }
+    [data-md-color-scheme="slate"] body   { background-color: #0a0e1a; }
+    [data-md-color-scheme="default"] body { background-color: #ffffff; }
   </style>
 {% endblock %}
 
@@ -27,7 +29,7 @@
 
 {% block footer %}
   {{ super() }}
-  <div style="text-align:center;padding:1rem;font-size:0.7rem;color:rgba(255,255,255,0.25);">
+  <div class="site-credit" style="text-align:center;padding:1rem;font-size:0.7rem;">
     Built with 🧠 MkDocs + Material · C++20/23 · Neurons firing since 2025
   </div>
 {% endblock %}

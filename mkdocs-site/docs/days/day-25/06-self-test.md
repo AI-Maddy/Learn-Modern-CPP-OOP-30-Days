@@ -22,50 +22,29 @@ title: "06 — Self Test · Day 25"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    The shape editor is the classic OOP teaching example — but this day goes beyond the introductory version. You will see four progressively modern approaches to the same problem:
+    The shape editor is the classic OOP teaching example — but this day goes beyond the introductory version. You will see four progressively modern approaches to the same problem: 1.
 
-1
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Domain Overview**?
 
 === "✅ Answer"
-    ``` text
-Shape (abstract base)
-├── Circle     — radius
-├── Rectangle  — width, height
-└── Triangle   — base, height
-```
+    Operations needed: Compute area and perimeter of any shape. Render / describe any shape as a string. Serialise a collection to JSON.
 
-Operations needed:
-
-- Compute area and perimeter of any sh
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Approach 1: Classic Virtual Polymorphism**?
 
 === "✅ Answer"
-    The foundational approach — each shape overrides a pure virtual interface.
+    The foundational approach — each shape overrides a pure virtual interface. When to use: when you have a stable set of types but expect to add new operations rarely.
 
-``` cpp
-include <cmath>
-include <numbers>   // C++20: std::numbers::pi
-include <string>
-
-class Shape {
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Approach 2: The Visitor Pattern**?
 
 === "✅ Answer"
     Add operations (area, serialise, render) without modifying shape classes. This is the Open/Closed Principle applied to operations rather than types.
-
-``` cpp
-// Forward declaratio
 
 
 ---

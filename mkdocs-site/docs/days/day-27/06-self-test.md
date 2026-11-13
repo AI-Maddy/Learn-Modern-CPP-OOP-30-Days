@@ -22,32 +22,29 @@ title: "06 — Self Test · Day 27"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time
+    Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Recognising Code Smells**?
 
 === "✅ Answer"
-    A code smell is a symptom that suggests a deeper problem. Common C++ smells:
+    A code smell is a symptom that suggests a deeper problem. Common C++ smells: Long Method A function longer than ~30 lines that mixes multiple levels of abstraction.
 
-Long Method  
-A function longer than ~30 lines that mixes multiple levels of abstraction. It is hard
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **The Strangler Fig Pattern**?
 
 === "✅ Answer"
-    The safest approach for large refactors is the Strangler Fig: grow the new system alongside the old one, redirect traffic incrementally, then remove the old code when it is no lon
+    The safest approach for large refactors is the Strangler Fig: grow the new system alongside the old one, redirect traffic incrementally, then remove the old code when it is no…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Step 1: Add Tests Before Touching Anything**?
 
 === "✅ Answer"
-    Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests. They pin the current
+    Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests.
 
 
 ---

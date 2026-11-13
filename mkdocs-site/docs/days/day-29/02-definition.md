@@ -220,13 +220,15 @@ private:
 
 ```mermaid
 graph TD
-    ROOT["Advanced Topics Deep Dive"] --> A["Code Review"]
-    Advanced_Topics_Deep_Dive --> Code_Review["Code Review"]
-    Advanced_Topics_Deep_Dive --> Mastery["Mastery"]
-    Advanced_Topics_Deep_Dive --> Best_Practices["Best Practices"]
-    Advanced_Topics_Deep_Dive --> C++_Core_Guidelines["C++ Core Guidelines"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Advanced Topics Deep Dive"]
+    ROOT --> n0["Code Review"]
+    ROOT --> n1["Mastery"]
+    ROOT --> n2["Best Practices"]
+    ROOT --> n3["C++ Core Guidelines"]
+    classDef topic fill:#94a3b8,stroke:#94a3b8,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#94a3b8,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

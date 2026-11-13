@@ -114,13 +114,15 @@ void FixedStack<T, Capacity>::push(const T& v) {
 
 ```mermaid
 graph TD
-    ROOT["Templates Basics"] --> A["template"]
-    Templates_Basics --> template["template"]
-    Templates_Basics --> concept["concept"]
-    Templates_Basics --> requires["requires"]
-    Templates_Basics --> stdviews["std::views"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Templates Basics"]
+    ROOT --> n0["template"]
+    ROOT --> n1["concept"]
+    ROOT --> n2["requires"]
+    ROOT --> n3["std::views"]
+    classDef topic fill:#8b5cf6,stroke:#8b5cf6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#8b5cf6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

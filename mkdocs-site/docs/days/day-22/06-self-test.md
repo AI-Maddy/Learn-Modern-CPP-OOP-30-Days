@@ -22,36 +22,29 @@ title: "06 — Self Test · Day 22"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Measure Before You Optimise**?
 
 === "✅ Answer"
-    Most OOP performance advice is anecdotal without benchmarks. The principles below are real and measurable, but their magnitude depends entirely on your specific workload, data siz
+    Most OOP performance advice is anecdotal without benchmarks. The principles below are real and measurable, but their magnitude depends entirely on your specific workload, data…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Cache Lines and Data Locality**?
 
 === "✅ Answer"
-    Modern CPUs read memory in cache lines (64 bytes on x86). If your data fits in cache, arithmetic is fast. If it doesn't, the CPU stalls waiting for RAM — this is the cache miss pe
+    Modern CPUs read memory in cache lines (64 bytes on x86). If your data fits in cache, arithmetic is fast. If it doesn't, the CPU stalls waiting for RAM — this is the cache miss…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Virtual Call Cost and Devirtualisation**?
 
 === "✅ Answer"
-    A virtual call through a pointer-to-base requires:
+    A virtual call through a pointer-to-base requires: 1. Load the vptr from the object. 2. Load the function pointer from the vtable at the correct offset. 3.
 
-1.  Load the `vptr` from the object.
-2.  Load the function pointer from the vtable at the correct offset.
-3.  Indirect call to
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Hot/Cold Data Splitting**?
 
 === "✅ Answer"
     If an object has members that are accessed in the hot path and members that are rarely accessed, keeping them together wastes cache lines.
-
-``` cpp
-// BAD: hot and cold data mixed
 
 
 ---

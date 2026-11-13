@@ -122,13 +122,15 @@ Always develop in **Debug** with sanitisers. Ship in **Release**. Never benchmar
 
 ```mermaid
 graph TD
-    ROOT["Setup And Basics"] --> A["std::vector"]
-    Setup_And_Basics --> stdvector["std::vector"]
-    Setup_And_Basics --> constexpr["constexpr"]
-    Setup_And_Basics --> auto["auto"]
-    Setup_And_Basics --> stdstring["std::string"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Setup And Basics"]
+    ROOT --> n0["std::vector"]
+    ROOT --> n1["constexpr"]
+    ROOT --> n2["auto"]
+    ROOT --> n3["std::string"]
+    classDef topic fill:#3b82f6,stroke:#3b82f6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#3b82f6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

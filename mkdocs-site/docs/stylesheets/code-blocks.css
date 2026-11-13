@@ -26,13 +26,15 @@
   content: '';
   display: block;
   height: 32px;
-  background: rgba(30,30,50,0.8);
+  background-color: #161b2e;
   border-bottom: 1px solid rgba(99,102,241,0.15);
   padding: 0 1rem;
+  /* Each dot needs a hard stop to transparent; with only solid stops the
+     last colour fills the whole gradient box and the bar renders solid red. */
   background-image:
-    radial-gradient(circle 5px at 14px 16px, #ff5f57 0%, #ff5f57 100%),
-    radial-gradient(circle 5px at 30px 16px, #febc2e 0%, #febc2e 100%),
-    radial-gradient(circle 5px at 46px 16px, #28c840 0%, #28c840 100%);
+    radial-gradient(circle 5px at 14px 16px, #ff5f57 98%, transparent 100%),
+    radial-gradient(circle 5px at 30px 16px, #febc2e 98%, transparent 100%),
+    radial-gradient(circle 5px at 46px 16px, #28c840 98%, transparent 100%);
 }
 
 /* Language badge */

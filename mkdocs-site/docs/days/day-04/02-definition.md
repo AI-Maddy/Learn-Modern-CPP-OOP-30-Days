@@ -172,13 +172,15 @@ private:
 
 ```mermaid
 graph TD
-    ROOT["Constructors Destructors RAII"] --> A["class"]
-    Constructors_Destructors_RAII --> class["class"]
-    Constructors_Destructors_RAII --> RAII["RAII"]
-    Constructors_Destructors_RAII --> virtual["virtual"]
-    Constructors_Destructors_RAII --> override["override"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Constructors Destructors RAII"]
+    ROOT --> n0["class"]
+    ROOT --> n1["RAII"]
+    ROOT --> n2["virtual"]
+    ROOT --> n3["override"]
+    classDef topic fill:#10b981,stroke:#10b981,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#10b981,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

@@ -22,46 +22,29 @@ title: "06 — Self Test · Day 15"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Error handling is one of the most contentious design areas in C++. Three main approaches exist, each with distinct tradeoffs:
+    Error handling is one of the most contentious design areas in C++. Three main approaches exist, each with distinct tradeoffs: Exceptions — the standard mechanism; zero-overhead on…
 
-- Exceptions — the standard mechanism; zero-overhead
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Exceptions — Strengths and Weaknesses**?
 
 === "✅ Answer"
-    ``` cpp
-include <stdexcept>
-include <fstream>
-include <string>
+    When to use exceptions: Truly exceptional conditions (out-of-memory, logic programming errors). When error handling belongs far from the error site.
 
-std::string readfile(const std::string& path) {
-    std::ifstream f(path);
-    if (!f) throw std::runtimeerror{"can
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`std::optional` — Absent Values**?
 
 === "✅ Answer"
-    `std::optional<T>` represents a value that may or may not be present. Use it when absence is normal (not an error).
+    std::optional<T> represents a value that may or may not be present. Use it when absence is normal (not an error).
 
-``` cpp
-include <optional>
-include <string>
-include <unordered
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`std::expected<T, E>` (C++23)**?
 
 === "✅ Answer"
-    `std::expected<T, E>` holds either a value of type `T` (success) or an error of type `E` (failure). It makes the error path visible in the return type.
-
-``` cpp
-include <expected>
+    std::expected<T, E> holds either a value of type T (success) or an error of type E (failure). It makes the error path visible in the return type.
 
 
 ---

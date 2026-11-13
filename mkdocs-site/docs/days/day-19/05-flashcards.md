@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 19"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system. In OOP specifically, tests are the best way to:</div>
+      <div class="flashcard-a">A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,11 +76,7 @@ title: "05 — Flashcards · Day 19"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">cpp
-REQUIRE(expr);               // fails and stops if expr is false
-CHECK(expr);                 // records failure, continues
-REQUIREFALSE(expr);         // fails if expr is true
-REQUIRETHROWS(expr);        // fails i</div>
+      <div class="flashcard-a">Approximate floating-point comparison: String matchers:</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -100,7 +96,7 @@ REQUIRETHROWS(expr);        // fails i</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Every SECTION executes from the beginning of the TESTCASE, so setup code at the top of the test case acts as an implicit fixture:</div>
+      <div class="flashcard-a">Every SECTION executes from the beginning of the TEST_CASE, so setup code at the top of the test case acts as an implicit fixture: Each SECTION starts with s containing {1, 2}, making tests independent even though they…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -128,7 +124,7 @@ REQUIRETHROWS(expr);        // fails i</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">TDD is a discipline where tests are written before production code:</div>
+      <div class="flashcard-a">TDD is a discipline where tests are written before production code: ┌──────────┐ write a failing test │ RED │ ──────────────────────────► └──────────┘ ┌──────────┐ ▲ │ GREEN │ write minimum code to pass │ refactor…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -148,7 +144,7 @@ REQUIRETHROWS(expr);        // fails i</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Test doubles substitute real dependencies in tests. Three important kinds:</div>
+      <div class="flashcard-a">Test doubles substitute real dependencies in tests. Three important kinds: Stub — returns hardcoded values, ignores input: Fake — simplified but working implementation: Mock — records calls and verifies expectations:</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -188,7 +184,7 @@ REQUIRETHROWS(expr);        // fails i</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Good test names act as living documentation. The convention used in this course:</div>
+      <div class="flashcard-a">Good test names act as living documentation. The convention used in this course: Examples: Tags enable selective test execution:</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -236,7 +232,7 @@ REQUIRETHROWS(expr);        // fails i</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1. What is the difference between \\REQUIRE\\ and \\CHECK\\ in Catch2?</div>
+      <div class="flashcard-a">Q1. What is the difference between \\REQUIRE\\ and \\CHECK\\ in Catch2? REQUIRE asserts a condition and stops the test immediately if it fails.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -260,38 +256,34 @@ REQUIRETHROWS(expr);        // fails i</div>
 
 
 ??? question "Motivation — Why Tests Matter in OOP"
-    A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system. In OOP specifically, tests are the best way to:
+    A C++ class that compiles and links may still be broken. Tests prove that the code does what its design intends — not just that it satisfies the type system.
 
 ??? question "Catch2 Fundamentals"
     Catch2 is a header-only (single-file) or CMake-installable test framework. It requires no separate main() and supports rich assertion macros.
 
 ??? question "Core Assertion Macros"
-    cpp
-    REQUIRE(expr);               // fails and stops if expr is false
-    CHECK(expr);                 // records failure, continues
-    REQUIREFALSE(expr);         // fails if expr is true
-    REQUIRETHROWS(expr);        // fails i
+    Approximate floating-point comparison: String matchers:
 
 ??? question "SECTION Mechanics — Fixture Reuse Without a Test Fixture Class"
-    Every SECTION executes from the beginning of the TESTCASE, so setup code at the top of the test case acts as an implicit fixture:
+    Every SECTION executes from the beginning of the TEST_CASE, so setup code at the top of the test case acts as an implicit fixture: Each SECTION starts with s containing {1, 2}, making tests independent even though they…
 
 ??? question "Test-Driven Development (TDD) — Red-Green-Refactor"
-    TDD is a discipline where tests are written before production code:
+    TDD is a discipline where tests are written before production code: ┌──────────┐ write a failing test │ RED │ ──────────────────────────► └──────────┘ ┌──────────┐ ▲ │ GREEN │ write minimum code to pass │ refactor…
 
 ??? question "Test Doubles — Stub, Fake, Mock"
-    Test doubles substitute real dependencies in tests. Three important kinds:
+    Test doubles substitute real dependencies in tests. Three important kinds: Stub — returns hardcoded values, ignores input: Fake — simplified but working implementation: Mock — records calls and verifies expectations:
 
 ??? question "Testing OOP Hierarchies"
     When testing polymorphic code, test through the interface, not the concrete type. This ensures Liskov compliance:
 
 ??? question "Test Naming Conventions"
-    Good test names act as living documentation. The convention used in this course:
+    Good test names act as living documentation. The convention used in this course: Examples: Tags enable selective test execution:
 
 ??? question "Code Coverage"
     Coverage measures which lines were executed by the test suite. Low coverage does not mean tests are good; 100% coverage does not mean tests are thorough. But gaps in coverage reveal untested code paths.
 
 ??? question "Self-Check Questions"
-    Q1. What is the difference between \\REQUIRE\\ and \\CHECK\\ in Catch2?
+    Q1. What is the difference between \\REQUIRE\\ and \\CHECK\\ in Catch2? REQUIRE asserts a condition and stops the test immediately if it fails.
 
 
 ---
@@ -302,52 +294,20 @@ REQUIRETHROWS(expr);        // fails i</div>
 ??? question "⚠️ Pitfall: Pitfall 1 — Testing Implementation Details Instead of Behaviour"
     Problem: Tests that reach into private members or rely on internal state break every time the implementation changes, even when behaviour is preserved.
 
-    BAD:
-
-    ``` cpp
-    TESTCASE("BankAccount uses vecto
-
 ??? question "⚠️ Pitfall: Pitfall 2 — Shared Mutable State Between Tests"
-    Problem: A global or `static` variable holds state that one test modifies, contaminating subsequent tests.
-
-    BAD:
-
-    ``` cpp
-    static LoggerFactory& factory = LoggerFactory::instance();  // global singlet
+    Problem: A global or static variable holds state that one test modifies, contaminating subsequent tests. BAD: Why it fails: Test ordering in Catch2 is not guaranteed between files.
 
 ??? question "⚠️ Pitfall: Pitfall 3 — Not Using REQUIRE for Pointer/Optional Validity Before Dereferencing"
-    Problem: Dereferencing a potentially null pointer or empty `optional` without first asserting its validity, leading to a crash instead of a useful failure message.
-
-    BAD:
-
-    ``` cpp
-    TESTCASE("Factory re
+    Problem: Dereferencing a potentially null pointer or empty optional without first asserting its validity, leading to a crash instead of a useful failure message.
 
 ??? question "⚠️ Pitfall: Pitfall 4 — Writing Tests After the Code Without TDD Discipline"
     Problem: Writing tests after the code is finished, then only writing tests that pass, not tests that explore edge cases and failure modes.
 
-    BAD approach:
-
-    ``` cpp
-    // Production code written first — t
-
 ??? question "⚠️ Pitfall: Pitfall 5 — Mock that Verifies Calls But Not Arguments"
     Problem: A mock asserts that a method was called but doesn't verify the arguments, allowing incorrect behaviour to pass the test.
 
-    BAD:
-
-    ``` cpp
-    struct MockMailer : IMailer {
-        bool sendcalled = fa
-
 ??? question "⚠️ Pitfall: Pitfall 6 — Ignoring Exception Safety in Tests"
-    Problem: Tests only cover the happy path and never verify that objects remain in a consistent state after an exception.
-
-    BAD:
-
-    ``` cpp
-    TESTCASE("BankAccount withdraw", "[bank]") {
-        BankAccount acc
+    Problem: Tests only cover the happy path and never verify that objects remain in a consistent state after an exception. BAD: Why it fails: If withdraw partially modifies internal state before…
 
 
 ---

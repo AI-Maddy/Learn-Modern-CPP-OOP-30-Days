@@ -22,41 +22,29 @@ title: "06 — Self Test · Day 28"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Code review is where knowledge transfers between engineers and where accumulated bugs are caught before they reach users. A reviewer who does not know the common C++ anti-patterns
+    Code review is where knowledge transfers between engineers and where accumulated bugs are caught before they reach users.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **How to Give a Code Review**?
 
 === "✅ Answer"
-    Effective code reviews are structured. Work through these layers in order:
+    Effective code reviews are structured. Work through these layers in order: Layer 1 — Correctness Does the code do what the ticket/spec says? Are edge cases handled?
 
-Layer 1 — Correctness  
-Does the code do what the ticket/spec says? Are edge cases handled? Can it pani
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **How to Receive a Code Review**?
 
 === "✅ Answer"
-    - Treat every comment as a question, not an attack.
-- Respond to every comment — either fix it, explain why you disagree, or ask for clarification. "Done" and "Good point, will fi
+    Treat every comment as a question, not an attack. Respond to every comment — either fix it, explain why you disagree, or ask for clarification.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The C++ Anti-Pattern Checklist**?
 
 === "✅ Answer"
-    Use this checklist mentally on every PR:
-
-1. Raw \`\`new\`\` / \`\`delete\`\`
-
-``` cpp
-// BAD: manual memory management
-Foo p = new Foo(args);
-// ... something throws here ...
-del
+    Use this checklist mentally on every PR: 1. Raw \\new\\ / \\delete\\ 2. Unsigned Subtraction Underflow 3. Implicit Narrowing Conversion 4. Missing \\const\\ on Query Methods 5.
 
 
 ---

@@ -154,13 +154,15 @@ Pattern matching eliminates deep `if`/`else` chains, `dynamic_cast` cascades, an
 
 ```mermaid
 graph TD
-    ROOT["Modern Features Preview C++26"] --> A["modules"]
-    Modern_Features_Preview_C++26 --> modules["modules"]
-    Modern_Features_Preview_C++26 --> SOLID["SOLID"]
-    Modern_Features_Preview_C++26 --> CRTP["CRTP"]
-    Modern_Features_Preview_C++26 --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Modern Features Preview C++26"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

@@ -138,13 +138,15 @@ public:
 
 ```mermaid
 graph TD
-    ROOT["Rule of 5 Copy Move"] --> A["std::move"]
-    Rule_of_5_Copy_Move --> stdmove["std::move"]
-    Rule_of_5_Copy_Move --> Rule_of_Five["Rule of Five"]
-    Rule_of_5_Copy_Move --> stdexpected["std::expected"]
-    Rule_of_5_Copy_Move --> noexcept["noexcept"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Rule of 5 Copy Move"]
+    ROOT --> n0["std::move"]
+    ROOT --> n1["Rule of Five"]
+    ROOT --> n2["std::expected"]
+    ROOT --> n3["noexcept"]
+    classDef topic fill:#ef4444,stroke:#ef4444,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#ef4444,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

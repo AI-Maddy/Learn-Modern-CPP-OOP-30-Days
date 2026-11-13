@@ -117,13 +117,15 @@ void print_all(const C& c) {
 
 ```mermaid
 graph TD
-    ROOT["Concepts Constraints C++20"] --> A["template"]
-    Concepts_Constraints_C++20 --> template["template"]
-    Concepts_Constraints_C++20 --> concept["concept"]
-    Concepts_Constraints_C++20 --> requires["requires"]
-    Concepts_Constraints_C++20 --> stdviews["std::views"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Concepts Constraints C++20"]
+    ROOT --> n0["template"]
+    ROOT --> n1["concept"]
+    ROOT --> n2["requires"]
+    ROOT --> n3["std::views"]
+    classDef topic fill:#8b5cf6,stroke:#8b5cf6,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#8b5cf6,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

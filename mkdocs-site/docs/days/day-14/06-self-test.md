@@ -22,40 +22,29 @@ title: "06 — Self Test · Day 14"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime:
+    Every class that manages a resource — raw memory, a file handle, a network socket, a mutex — must answer six questions about object lifetime: 1. How is the resource created?
 
-1.  How is the resource created? (co
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Rule of Zero**?
 
 === "✅ Answer"
     The best rule: if a class does not directly manage a resource, define none of the five special members. Let the compiler generate them all.
 
-``` cpp
-include <string>
-include <vect
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Rule of Five**?
 
 === "✅ Answer"
-    If you define (or \`\`=delete\`\`) any one of the five special members, you must explicitly handle all five — because the compiler's implicit generation rules become unreliable on
+    If you define (or \\=delete\\) any one of the five special members, you must explicitly handle all five — because the compiler's implicit generation rules become unreliable once…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **`=default` and `=delete`**?
 
 === "✅ Answer"
-    `= default` asks the compiler to generate an operation explicitly. `= delete` prevents the operation entirely.
-
-``` cpp
-class MoveOnly {
-    std::uniqueptr<int> resource;
-public:
+    = default asks the compiler to generate an operation explicitly. = delete prevents the operation entirely. When to use = default: After suppressing an operation, to re-enable…
 
 
 ---

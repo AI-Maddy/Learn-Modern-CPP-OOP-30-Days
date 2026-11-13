@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 06"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Inheritance lets you express "is-a" relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically handles any derived class correctly. Together</div>
+      <div class="flashcard-a">Inheritance lets you express &quot;is-a&quot; relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically handles any derived class correctly.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 06"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Inheritance models the "is-a" relationship: a Dog is an Animal. This is distinct from "has-a" (composition): a Car has-an Engine. Use inheritance for is-a; use composition for has-a.</div>
+      <div class="flashcard-a">Inheritance models the &quot;is-a&quot; relationship: a Dog is an Animal. This is distinct from &quot;has-a&quot; (composition): a Car has-an Engine. Use inheritance for is-a; use composition for has-a.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 06"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">override tells the compiler "this function is intended to override a base class virtual function". If the signature does not match, the compiler reports an error.</div>
+      <div class="flashcard-a">override tells the compiler &quot;this function is intended to override a base class virtual function&quot;. If the signature does not match, the compiler reports an error.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 06"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Upcasting (derived → base) is implicit and always safe.</div>
+      <div class="flashcard-a">Upcasting (derived → base) is implicit and always safe. Downcasting (base → derived) requires a runtime check via dynamic_cast. dynamic_cast requires at least one virtual function in the class hierarchy (to locate the…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -212,7 +212,7 @@ title: "05 — Flashcards · Day 06"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Q1: What does the vtable contain and when is it looked up?</div>
+      <div class="flashcard-a">Q1: What does the vtable contain and when is it looked up? The vtable is a compile-time-generated array of function pointers, one per virtual function in the class (and its bases).</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -236,7 +236,7 @@ title: "05 — Flashcards · Day 06"
 
 
 ??? question "Why This Day Matters"
-    Inheritance lets you express "is-a" relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically handles any derived class correctly. Together
+    Inheritance lets you express "is-a" relationships and share behaviour across a type hierarchy. Polymorphism lets you write code that works on the base class and automatically handles any derived class correctly.
 
 ??? question "The is-a Relationship"
     Inheritance models the "is-a" relationship: a Dog is an Animal. This is distinct from "has-a" (composition): a Car has-an Engine. Use inheritance for is-a; use composition for has-a.
@@ -251,7 +251,7 @@ title: "05 — Flashcards · Day 06"
     Object slicing occurs when a derived class object is copied or assigned through a base class value (not a pointer or reference). The derived part is silently discarded.
 
 ??? question "Upcasting and Downcasting"
-    Upcasting (derived → base) is implicit and always safe.
+    Upcasting (derived → base) is implicit and always safe. Downcasting (base → derived) requires a runtime check via dynamic_cast. dynamic_cast requires at least one virtual function in the class hierarchy (to locate the…
 
 ??? question "Liskov Substitution Principle"
     LSP (from SOLID — Day 18): if S is a subtype of T, then objects of type T may be replaced by objects of type S without altering correctness.
@@ -260,7 +260,7 @@ title: "05 — Flashcards · Day 06"
     C++ supports multiple inheritance. Use it sparingly; prefer interface inheritance (abstract base classes with no data) over implementation inheritance.
 
 ??? question "Self-Check Questions"
-    Q1: What does the vtable contain and when is it looked up?
+    Q1: What does the vtable contain and when is it looked up? The vtable is a compile-time-generated array of function pointers, one per virtual function in the class (and its bases).
 
 
 ---
@@ -271,31 +271,14 @@ title: "05 — Flashcards · Day 06"
 ??? question "⚠️ Pitfall: Pitfall 1: Missing Virtual Destructor in a Polymorphic Base Class"
     Description: Deleting a derived class object through a base class pointer when the base class destructor is not virtual. Only the base destructor runs — the derived part leaks.
 
-    BAD code:
-
-    ``` cpp
-    in
-
 ??? question "⚠️ Pitfall: Pitfall 2: Using Inheritance for Code Reuse (Has-a Disguised as Is-a)"
     Description: Inheriting from a class solely to reuse its member functions, when the derived class is not actually a specialisation of the base.
-
-    BAD code:
-
-    ``` cpp
-    include <vector>
-
-    // std::vector<in
 
 ??? question "⚠️ Pitfall: Pitfall 3: Object Slicing Through Value Parameters"
     Description: Passing a derived class object by value to a function that takes the base class by value. The derived members are silently discarded ("sliced off").
 
-    BAD code:
-
-    ``` cpp
-    include <iostream
-
 ??? question "⚠️ Pitfall: Pitfall 4: Calling Virtual Functions in Constructors or Destructors"
-    Description: Calling a virtual function from a constructor or destructor. The virtual dispatch mechanism is not fully active at these points, so the call resolves to the class being constructed or de
+    Description: Calling a virtual function from a constructor or destructor. The virtual dispatch mechanism is not fully active at these points, so the call resolves to the class being constructed or…
 
 
 ---

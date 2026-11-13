@@ -139,13 +139,15 @@ private:
 
 ```mermaid
 graph TD
-    ROOT["Mini Project 3 Game Entities"] --> A["Refactoring"]
-    Mini_Project_3_Game_Entities --> Refactoring["Refactoring"]
-    Mini_Project_3_Game_Entities --> TDD["TDD"]
-    Mini_Project_3_Game_Entities --> Catch2["Catch2"]
-    Mini_Project_3_Game_Entities --> Design_Patterns["Design Patterns"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Mini Project 3 Game Entities"]
+    ROOT --> n0["Refactoring"]
+    ROOT --> n1["TDD"]
+    ROOT --> n2["Catch2"]
+    ROOT --> n3["Design Patterns"]
+    classDef topic fill:#eab308,stroke:#eab308,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#eab308,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

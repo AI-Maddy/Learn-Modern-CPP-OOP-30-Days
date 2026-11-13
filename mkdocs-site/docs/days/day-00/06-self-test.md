@@ -22,38 +22,29 @@ title: "06 — Self Test · Day 00"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Why This Day Matters**?
 
 === "✅ Answer"
-    Before writing a single meaningful line of C++, you need a reliable foundation: a working toolchain, a build system you understand, and automated quality gates that catch problems
+    Before writing a single meaningful line of C++, you need a reliable foundation: a working toolchain, a build system you understand, and automated quality gates that catch problems…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The C++ Compilation Pipeline**?
 
 === "✅ Answer"
-    Understanding what actually happens when you type `g++ main.cpp` demystifies linker errors, header include-order problems, and optimisation flags.
+    Understanding what actually happens when you type g++ main.cpp demystifies linker errors, header include-order problems, and optimisation flags.
 
-    Source (.cpp)
-         |
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Compiler Flags That Matter**?
 
 === "✅ Answer"
     Flags are not optional polish — they are safety nets. The following set is the default for every project in this course.
 
-``` cmake
- CMakeLists.txt — project-wide compile options
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **CMake: A Minimal but Correct Project**?
 
 === "✅ Answer"
     CMake is the de-facto standard build system for C++. It generates native build files (Makefiles, Ninja, Visual Studio solutions) from a single portable description.
-
-``` cmake
-cma
 
 
 ---

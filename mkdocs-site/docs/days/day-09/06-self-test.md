@@ -22,43 +22,29 @@ title: "06 — Self Test · Day 09"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Imagine writing `max()` once for `int`, then again for `double`, then again for `std::string`. Duplicated logic, duplicated bugs, duplicated maintenance. C++ templates let you wri
+    Imagine writing max() once for int, then again for double, then again for std::string. Duplicated logic, duplicated bugs, duplicated maintenance.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Function Templates**?
 
 === "✅ Answer"
-    A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters.
+    A function template is a blueprint. The compiler stamps out a concrete function for each combination of template arguments it encounters. Multiple template parameters
 
-``` cpp
-include <string>
-include <iostre
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Class Templates**?
 
 === "✅ Answer"
-    Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters.
+    Class templates parametrise entire classes. Every member function is itself a template function of the class template parameters. Out-of-class member function definition
 
-``` cpp
-include <cassert>
-include <stdexcept>
-
-/
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Template Type Deduction**?
 
 === "✅ Answer"
-    The compiler infers template arguments from the function call arguments. The rules closely mirror the rules for `auto` deduction.
-
-``` cpp
-template <typename T>
-void inspect(T x)
+    The compiler infers template arguments from the function call arguments. The rules closely mirror the rules for auto deduction.
 
 
 ---

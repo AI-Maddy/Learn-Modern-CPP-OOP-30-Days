@@ -22,47 +22,29 @@ title: "06 — Self Test · Day 21"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Hiding Implementation Details**?
 
 === "✅ Answer"
-    Two recurring problems in C++ library design:
+    Two recurring problems in C++ library design: Problem 1 — Compilation Firewall: A header file for a class exposes all private members to every consumer because C++ class layout…
 
-Problem 1 — Compilation Firewall: A header file for a class exposes all private members to every consumer because C++ class layout m
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **The pImpl Idiom**?
 
 === "✅ Answer"
-    ``` cpp
-// widget.hpp  (public header — stable, ABI-safe)
-pragma once
-include <memory>
-include <string>
+    Why \\~Widget()\\ must be in the \\.cpp\\: std::unique_ptr<Impl>'s destructor calls delete Impl. At the point where the destructor is generated (wherever ~Widget() is defined)…
 
-class Widget {
-public:
-    explicit Widget(std::string title);
-    ~Widget
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Type Erasure — Duck Typing at Runtime**?
 
 === "✅ Answer"
-    Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class. `std::function`, `std::any`, and `s
+    Type erasure allows code to work with values of any type that satisfies a conceptual interface, without that type inheriting from a base class.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Custom Type Erasure — The `AnyDrawable` Pattern**?
 
 === "✅ Answer"
-    The most powerful pattern: type-erase a whole interface without inheritance.
-
-``` cpp
-class AnyDrawable {
-public:
-    template<typename T>
-    AnyDrawable(T obj)
-        : self{st
+    The most powerful pattern: type-erase a whole interface without inheritance. AnyDrawable layout ────────────────── ┌──────────────────────┐ │ AnyDrawable │ │ shared_ptr<Concept>…
 
 
 ---

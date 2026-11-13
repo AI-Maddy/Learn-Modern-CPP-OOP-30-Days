@@ -22,31 +22,29 @@ title: "06 — Self Test · Day 23"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — The Evolving Language**?
 
 === "✅ Answer"
-    C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and `std::format`. C++23 delivered `std::expected`, `import std;`, `std::mdspan`, and `s
+    C++ has a three-year release cycle. C++20 delivered modules, concepts, ranges, coroutines, and std::format. C++23 delivered std::expected, import std;, std::mdspan, and…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Static Reflection — P2996 (Merged into C++26)**?
 
 === "✅ Answer"
     Static reflection allows querying properties of types at compile time as first-class language values, without macros or code generation.
 
-The core construct is `^^T` (the reflecti
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Pattern Matching — P2688 (Targeted for C++26)**?
 
 === "✅ Answer"
-    Pattern matching provides a structured multi-way dispatch over values and types, extending `switch` to work with arbitrary types including `std::variant`, `std::optional`, structs
+    Pattern matching provides a structured multi-way dispatch over values and types, extending switch to work with arbitrary types including std::variant, std::optional, structs, and…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Contracts — P2900 (Merged into C++26)**?
 
 === "✅ Answer"
-    Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from `assert()` in that they are part of the function decl
+    Contracts provide a language-level mechanism to specify preconditions, postconditions, and invariants. They are distinct from assert() in that they are part of the function…
 
 
 ---

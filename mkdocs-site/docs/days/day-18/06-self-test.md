@@ -22,37 +22,29 @@ title: "06 — Self Test · Day 18"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Why SOLID?**?
 
 === "✅ Answer"
-    SOLID is an acronym for five object-oriented design principles articulated by Robert C. Martin. They answer the question: "How do I structure my classes so the system stays easy t
+    SOLID is an acronym for five object-oriented design principles articulated by Robert C. Martin. They answer the question: "How do I structure my classes so the system stays easy…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Single Responsibility Principle (SRP)**?
 
 === "✅ Answer"
-    A class should have only one reason to change.
+    A class should have only one reason to change. "Reason to change" maps to "actor" — the stakeholder who owns that responsibility.
 
-"Reason to change" maps to "actor" — the stakeholder who owns that responsibility. If two unrelated stakeholders can both force a c
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Open/Closed Principle (OCP)**?
 
 === "✅ Answer"
-    Software entities should be open for extension but closed for modification.
+    Software entities should be open for extension but closed for modification. New behaviour should be addable without touching existing, tested code.
 
-New behaviour should be addable without touching existing, tested code.
-
-BAD — adding a new shape requ
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Liskov Substitution Principle (LSP)**?
 
 === "✅ Answer"
-    Subtypes must be behaviourally substitutable for their base types.
-
-A derived class must honour every postcondition the base class establishes. It may weaken preconditions but mus
+    Subtypes must be behaviourally substitutable for their base types. A derived class must honour every postcondition the base class establishes.
 
 
 ---

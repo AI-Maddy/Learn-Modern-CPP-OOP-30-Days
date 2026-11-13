@@ -22,32 +22,29 @@ title: "06 — Self Test · Day 29"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    C++20 introduced several features that change the way high-performance and systems-level code is written. This day covers five topics that reward the effort to understand them dee
+    C++20 introduced several features that change the way high-performance and systems-level code is written. This day covers five topics that reward the effort to understand them…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Coroutines: Concepts**?
 
 === "✅ Answer"
-    A coroutine is a function that can suspend and resume execution. Unlike threads, suspension is cooperative and happens at explicit `coawait` / `coyield` points — no context switch
+    A coroutine is a function that can suspend and resume execution. Unlike threads, suspension is cooperative and happens at explicit co_await / co_yield points — no context switch…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Custom Allocators**?
 
 === "✅ Answer"
-    The default allocator calls `::operator new` for every allocation. In performance-critical code, custom allocators can:
+    The default allocator calls ::operator new for every allocation. In performance-critical code, custom allocators can: Use a pre-allocated pool (no system calls during use).
 
-- Use a pre-allocated pool (no system calls during use).
--
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **`consteval`: Compile-Time-Only Functions**?
 
 === "✅ Answer"
-    `consteval` (C++20) declares a function that must be evaluated at compile time. If called in a runtime context, the compiler rejects it. This is stronger than `constexpr`, which m
+    consteval (C++20) declares a function that must be evaluated at compile time. If called in a runtime context, the compiler rejects it.
 
 
 ---

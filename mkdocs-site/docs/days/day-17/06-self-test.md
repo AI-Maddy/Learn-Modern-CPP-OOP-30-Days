@@ -22,36 +22,29 @@ title: "06 — Self Test · Day 17"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation — Why Patterns Matter (and When They Don't)**?
 
 === "✅ Answer"
-    The Gang of Four (GoF) book catalogued 23 recurring solutions to common OOP design problems in 1994. Many of those solutions were written around the limitations of C++98: no lambd
+    The Gang of Four (GoF) book catalogued 23 recurring solutions to common OOP design problems in 1994. Many of those solutions were written around the limitations of C++98: no…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **GoF Pattern Overview**?
 
 === "✅ Answer"
-    Creational       Structural        Behavioural
-    ─────────────    ──────────────    ────────────────────
-    Factory Method   Adapter           Observer
-    Abstract Factory
+    Creational Structural Behavioural ───────────── ────────────── ──────────────────── Factory Method Adapter Observer Abstract Factory Bridge Strategy Builder Composite Command…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Factory Method**?
 
 === "✅ Answer"
     Intent: Define an interface for creating an object, but let subclasses (or a factory function) decide which class to instantiate. Decouples creation from usage.
 
-Classic OOP probl
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Observer**?
 
 === "✅ Answer"
     Intent: Define a one-to-many dependency so that when one object changes state, all dependents are notified automatically.
-
-Modern C++ implementation without virtual inheritance —
 
 
 ---

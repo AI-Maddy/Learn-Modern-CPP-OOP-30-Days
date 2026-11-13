@@ -132,13 +132,15 @@ The implementation unit sees all declarations from the interface unit without an
 
 ```mermaid
 graph TD
-    ROOT["Modules Basics C++20"] --> A["modules"]
-    Modules_Basics_C++20 --> modules["modules"]
-    Modules_Basics_C++20 --> SOLID["SOLID"]
-    Modules_Basics_C++20 --> CRTP["CRTP"]
-    Modules_Basics_C++20 --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Modules Basics C++20"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

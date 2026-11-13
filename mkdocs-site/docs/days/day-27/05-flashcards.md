@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 27"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time pressure, or by programmers who later gr</div>
+      <div class="flashcard-a">Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time pressure, or by programmers who later…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 27"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A code smell is a symptom that suggests a deeper problem. Common C++ smells:</div>
+      <div class="flashcard-a">A code smell is a symptom that suggests a deeper problem. Common C++ smells: Long Method A function longer than ~30 lines that mixes multiple levels of abstraction.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -96,7 +96,7 @@ title: "05 — Flashcards · Day 27"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests. They pin the current behaviour so any refactor that breaks th</div>
+      <div class="flashcard-a">Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -139,14 +139,12 @@ title: "05 — Flashcards · Day 27"
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L2 · Question</div>
-      <div class="flashcard-q">Step 3: Replace Magic Numbers with Named Constants</div>
+      <div class="flashcard-q">Step 4: Replace Type Code with Polymorphism</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">cpp
-// BEFORE
-if (daysoverdue > 30) fee += 15.0;</div>
+      <div class="flashcard-a">The account_type == 1 / account_type == 2 switch is a type code smell. Replace it with a virtual function.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -161,12 +159,12 @@ if (daysoverdue > 30) fee += 15.0;</div>
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L2 · Question</div>
-      <div class="flashcard-q">Step 4: Replace Type Code with Polymorphism</div>
+      <div class="flashcard-q">Using clang-tidy Automatically</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The accounttype == 1 / accounttype == 2 switch is a type code smell. Replace it with a virtual function.</div>
+      <div class="flashcard-a">clang-tidy is a linter that catches many of the above patterns automatically. A useful starting configuration (&lt;project&gt;/.clang-tidy): Run it on a single file: clang-tidy src/account.cpp -- -std=c++20 Or via CMake…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -181,19 +179,12 @@ if (daysoverdue > 30) fee += 15.0;</div>
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L2 · Question</div>
-      <div class="flashcard-q">Step 5: Replace Raw Pointers with Smart Pointers</div>
+      <div class="flashcard-q">Measuring Improvement</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">cpp
-// BEFORE (legacy C++ style)
-Account createaccount(int type, double balance) {
-    if (type == 1) return new SavingsAccount(balance);
-    if (type == 2) return new CheckingAccount(balance);
-    return nullptr;
-}
-//</div>
+      <div class="flashcard-a">Track three metrics before and after a refactor session: Cyclomatic complexity (lizard tool) — number of linearly independent paths through each function. Target: below 10.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -216,12 +207,12 @@ Account createaccount(int type, double balance) {
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L3 · Question</div>
-      <div class="flashcard-q">Using clang-tidy Automatically</div>
+      <div class="flashcard-q">Design Tradeoffs</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">clang-tidy is a linter that catches many of the above patterns automatically. A useful starting configuration (<project>/.clang-tidy):</div>
+      <div class="flashcard-a">Incremental vs big-bang: incremental refactoring keeps the system shippable at every step. Big-bang rewrites often take longer than estimated and introduce bugs because the full behaviour is not captured in tests.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -236,53 +227,12 @@ Account createaccount(int type, double balance) {
   <div class="flashcard-inner">
     <div class="flashcard-front">
       <div class="flashcard-label">L3 · Question</div>
-      <div class="flashcard-q">Measuring Improvement</div>
-      <div class="flashcard-hint">Hover or click to flip →</div>
-    </div>
-    <div class="flashcard-back">
-      <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Track three metrics before and after a refactor session:</div>
-      <div class="flashcard-confidence">
-        <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
-        <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
-        <div class="confidence-dot" data-level="3" title="Okay 🟡"></div>
-        <div class="confidence-dot" data-level="4" title="Good 🟢"></div>
-        <div class="confidence-dot" data-level="5" title="Mastered 🟣"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="flashcard" data-card-id="day27-l3-2">
-  <div class="flashcard-inner">
-    <div class="flashcard-front">
-      <div class="flashcard-label">L3 · Question</div>
-      <div class="flashcard-q">Design Tradeoffs</div>
-      <div class="flashcard-hint">Hover or click to flip →</div>
-    </div>
-    <div class="flashcard-back">
-      <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">- Incremental vs big-bang: incremental refactoring keeps the system shippable at every step. Big-bang rewrites often take longer than estimated and introduce bugs because the full behaviour is not captured in tests.
-- Pe</div>
-      <div class="flashcard-confidence">
-        <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
-        <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
-        <div class="confidence-dot" data-level="3" title="Okay 🟡"></div>
-        <div class="confidence-dot" data-level="4" title="Good 🟢"></div>
-        <div class="confidence-dot" data-level="5" title="Mastered 🟣"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="flashcard" data-card-id="day27-l3-3">
-  <div class="flashcard-inner">
-    <div class="flashcard-front">
-      <div class="flashcard-label">L3 · Question</div>
       <div class="flashcard-q">Self-Check Questions</div>
       <div class="flashcard-hint">Hover or click to flip →</div>
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What is a characterisation test and why write it before refactoring?</div>
+      <div class="flashcard-a">1. What is a characterisation test and why write it before refactoring? A characterisation test captures the current (possibly buggy) behaviour.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -306,50 +256,34 @@ Account createaccount(int type, double balance) {
 
 
 ??? question "Motivation"
-    Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time pressure, or by programmers who later gr
+    Most professional C++ work involves changing existing code, not writing from scratch. Legacy codebases are full of patterns that were written before modern C++ existed, under time pressure, or by programmers who later…
 
 ??? question "Recognising Code Smells"
-    A code smell is a symptom that suggests a deeper problem. Common C++ smells:
+    A code smell is a symptom that suggests a deeper problem. Common C++ smells: Long Method A function longer than ~30 lines that mixes multiple levels of abstraction.
 
 ??? question "The Strangler Fig Pattern"
     The safest approach for large refactors is the Strangler Fig: grow the new system alongside the old one, redirect traffic incrementally, then remove the old code when it is no longer called.
 
 ??? question "Step 1: Add Tests Before Touching Anything"
-    Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests. They pin the current behaviour so any refactor that breaks th
+    Before changing a single line, write tests that characterise the current behaviour — even if that behaviour is wrong. These are called characterisation tests.
 
 ??? question "Step 2: Extract Method"
     The first transformation: pull a cohesive block of logic into a named function. The name documents intent, not implementation.
 
-??? question "Step 3: Replace Magic Numbers with Named Constants"
-    cpp
-    // BEFORE
-    if (daysoverdue > 30) fee += 15.0;
-
 ??? question "Step 4: Replace Type Code with Polymorphism"
-    The accounttype == 1 / accounttype == 2 switch is a type code smell. Replace it with a virtual function.
-
-??? question "Step 5: Replace Raw Pointers with Smart Pointers"
-    cpp
-    // BEFORE (legacy C++ style)
-    Account createaccount(int type, double balance) {
-        if (type == 1) return new SavingsAccount(balance);
-        if (type == 2) return new CheckingAccount(balance);
-        return nullptr;
-    }
-    //
+    The account_type == 1 / account_type == 2 switch is a type code smell. Replace it with a virtual function.
 
 ??? question "Using clang-tidy Automatically"
-    clang-tidy is a linter that catches many of the above patterns automatically. A useful starting configuration (<project>/.clang-tidy):
+    clang-tidy is a linter that catches many of the above patterns automatically. A useful starting configuration (<project>/.clang-tidy): Run it on a single file: clang-tidy src/account.cpp -- -std=c++20 Or via CMake…
 
 ??? question "Measuring Improvement"
-    Track three metrics before and after a refactor session:
+    Track three metrics before and after a refactor session: Cyclomatic complexity (lizard tool) — number of linearly independent paths through each function. Target: below 10.
 
 ??? question "Design Tradeoffs"
-    - Incremental vs big-bang: incremental refactoring keeps the system shippable at every step. Big-bang rewrites often take longer than estimated and introduce bugs because the full behaviour is not captured in tests.
-    - Pe
+    Incremental vs big-bang: incremental refactoring keeps the system shippable at every step. Big-bang rewrites often take longer than estimated and introduce bugs because the full behaviour is not captured in tests.
 
 ??? question "Self-Check Questions"
-    1.  What is a characterisation test and why write it before refactoring?
+    1. What is a characterisation test and why write it before refactoring? A characterisation test captures the current (possibly buggy) behaviour.
 
 
 ---
@@ -358,41 +292,22 @@ Account createaccount(int type, double balance) {
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Refactoring Without Tests"
-    Description  
-    Changing internal structure without a test suite leaves you no way to verify that observable behaviour is preserved. The refactor introduces a regression that slips into production.
-
-    BA
+    Description Changing internal structure without a test suite leaves you no way to verify that observable behaviour is preserved. The refactor introduces a regression that slips into production.
 
 ??? question "⚠️ Pitfall: Pitfall 2: Big-Bang Rewrite"
-    Description  
-    Rewriting a large module all at once in a separate branch over weeks or months. The old codebase keeps evolving, making merging a nightmare and often leading to behaviour regressions.
+    Description Rewriting a large module all at once in a separate branch over weeks or months. The old codebase keeps evolving, making merging a nightmare and often leading to behaviour regressions.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Removing `const` During Refactoring"
-    Description  
-    When extracting a helper function, forgetting to mark it `const` (or removing `const` from a parameter type to make compilation easier) silently weakens the API contract and propagates
+    Description When extracting a helper function, forgetting to mark it const (or removing const from a parameter type to make compilation easier) silently weakens the API contract and propagates…
 
 ??? question "⚠️ Pitfall: Pitfall 4: Changing Behaviour While Renaming"
-    Description  
-    A common mistake during "rename + clean up" is accidentally changing a boundary condition (`<` vs `<=`, `>` vs `>=`) while editing the surrounding code.
-
-    BAD code
-
-    ``` cpp
-    // BEFORE
-    if
+    Description A common mistake during "rename + clean up" is accidentally changing a boundary condition (< vs <=, > vs >=) while editing the surrounding code.
 
 ??? question "⚠️ Pitfall: Pitfall 5: Introducing a New Dependency During Refactoring"
-    Description  
-    Adding an `include` or calling a new library function while refactoring a module changes compile-time dependencies. This can cause circular includes, increased compile times, or platfor
+    Description Adding an #include or calling a new library function while refactoring a module changes compile-time dependencies.
 
 ??? question "⚠️ Pitfall: Pitfall 6: Skipping clang-tidy Warnings After Refactoring"
-    Description  
-    Running `clang-tidy` only on new files and ignoring warnings on the refactored legacy code means most of the smells it can catch are never reported.
-
-    BAD workflow
-
-    ``` bash
-     Run clang-t
+    Description Running clang-tidy only on new files and ignoring warnings on the refactored legacy code means most of the smells it can catch are never reported.
 
 
 ---

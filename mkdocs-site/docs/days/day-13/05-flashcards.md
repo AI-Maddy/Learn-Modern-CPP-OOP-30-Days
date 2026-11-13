@@ -36,7 +36,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Before C++11, returning a std::vector<int> from a function meant a deep copy: allocate new memory, copy every element, deallocate the old. For a vector with a million elements, that is expensive.</div>
+      <div class="flashcard-a">Before C++11, returning a std::vector&lt;int&gt; from a function meant a deep copy: allocate new memory, copy every element, deallocate the old. For a vector with a million elements, that is expensive.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -56,7 +56,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">Every expression in C++ has a type and a value category.</div>
+      <div class="flashcard-a">Every expression in C++ has a type and a value category. lvalue (locator value) — an expression that refers to a persistent object in memory. You can take its address.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -76,7 +76,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">An rvalue reference T&& binds to rvalues (including xvalues) but not to lvalues. It signals "this object can be pillaged — it won't be needed again."</div>
+      <div class="flashcard-a">An rvalue reference T&amp;&amp; binds to rvalues (including xvalues) but not to lvalues. It signals &quot;this object can be pillaged — it won&#x27;t be needed again.&quot;</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -124,7 +124,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">std::move does not move anything. It is a cast that converts an lvalue to an xvalue, allowing move operations to be selected.</div>
+      <div class="flashcard-a">std::move does not move anything. It is a cast that converts an lvalue to an xvalue, allowing move operations to be selected. When to use std::move: When passing a local variable to a function/constructor for the last…</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -144,7 +144,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">A forwarding reference (also called a universal reference) T&& in a template context binds to both lvalues and rvalues. Combined with std::forward<T>, it forwards the argument with its original value category preserved.</div>
+      <div class="flashcard-a">A forwarding reference (also called a universal reference) T&amp;&amp; in a template context binds to both lvalues and rvalues. Combined with std::forward&lt;T&gt;, it forwards the argument with its original value category preserved.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -164,7 +164,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">The compiler is allowed (and in C++17, sometimes required) to construct a returned object directly in the caller's stack frame, eliding the copy or move entirely.</div>
+      <div class="flashcard-a">The compiler is allowed (and in C++17, sometimes required) to construct a returned object directly in the caller&#x27;s stack frame, eliding the copy or move entirely. RVO (unnamed): returning a temporary.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -184,7 +184,7 @@ title: "05 — Flashcards · Day 13"
     </div>
     <div class="flashcard-back">
       <div class="flashcard-label">Answer</div>
-      <div class="flashcard-a">1.  What is the difference between an lvalue and an rvalue?</div>
+      <div class="flashcard-a">1. What is the difference between an lvalue and an rvalue? An lvalue refers to an object with a stable address that persists beyond the current expression.</div>
       <div class="flashcard-confidence">
         <div class="confidence-dot" data-level="1" title="Still learning 🔴"></div>
         <div class="confidence-dot" data-level="2" title="Getting there 🟠"></div>
@@ -218,7 +218,7 @@ _No cards at this level._
     Before C++11, returning a std::vector<int> from a function meant a deep copy: allocate new memory, copy every element, deallocate the old. For a vector with a million elements, that is expensive.
 
 ??? question "Value Categories — lvalue, rvalue, xvalue"
-    Every expression in C++ has a type and a value category.
+    Every expression in C++ has a type and a value category. lvalue (locator value) — an expression that refers to a persistent object in memory. You can take its address.
 
 ??? question "Rvalue References"
     An rvalue reference T&& binds to rvalues (including xvalues) but not to lvalues. It signals "this object can be pillaged — it won't be needed again."
@@ -227,16 +227,16 @@ _No cards at this level._
     The move constructor transfers resources from a source object, leaving the source valid but empty. The move assignment operator does the same for assignment.
 
 ??? question "`std::move` Semantics"
-    std::move does not move anything. It is a cast that converts an lvalue to an xvalue, allowing move operations to be selected.
+    std::move does not move anything. It is a cast that converts an lvalue to an xvalue, allowing move operations to be selected. When to use std::move: When passing a local variable to a function/constructor for the last…
 
 ??? question "Perfect Forwarding — Preview"
     A forwarding reference (also called a universal reference) T&& in a template context binds to both lvalues and rvalues. Combined with std::forward<T>, it forwards the argument with its original value category preserved.
 
 ??? question "NRVO and RVO — Named and Unnamed Return Value Optimisation"
-    The compiler is allowed (and in C++17, sometimes required) to construct a returned object directly in the caller's stack frame, eliding the copy or move entirely.
+    The compiler is allowed (and in C++17, sometimes required) to construct a returned object directly in the caller's stack frame, eliding the copy or move entirely. RVO (unnamed): returning a temporary.
 
 ??? question "Self-Check Questions"
-    1.  What is the difference between an lvalue and an rvalue?
+    1. What is the difference between an lvalue and an rvalue? An lvalue refers to an object with a stable address that persists beyond the current expression.
 
 
 ---
@@ -245,37 +245,19 @@ _No cards at this level._
 
 
 ??? question "⚠️ Pitfall: Pitfall 1: Using a Moved-From Object"
-    Description: After calling `std::move` on a variable and passing it to a function, the variable's value is indeterminate. Reading from it is a logical error (and may be UB for some types).
-
-    BAD
-
-    ```
+    Description: After calling std::move on a variable and passing it to a function, the variable's value is indeterminate. Reading from it is a logical error (and may be UB for some types).
 
 ??? question "⚠️ Pitfall: Pitfall 2: `return std::move(local)` — Defeating NRVO"
-    Description: Wrapping the return value in `std::move` seems like an optimisation but actually prevents the compiler from applying NRVO, which would eliminate the move entirely.
-
-    BAD
-
-    ``` cpp
-    std::vec
+    Description: Wrapping the return value in std::move seems like an optimisation but actually prevents the compiler from applying NRVO, which would eliminate the move entirely.
 
 ??? question "⚠️ Pitfall: Pitfall 3: Move Constructor Not Marked `noexcept` — Silent Performance Loss"
-    Description: Forgetting `noexcept` on a move constructor causes `std::vector` (and other standard containers) to use the copy constructor instead of the move constructor during reallocation.
-
-    BAD
-
-    ``
+    Description: Forgetting noexcept on a move constructor causes std::vector (and other standard containers) to use the copy constructor instead of the move constructor during reallocation.
 
 ??? question "⚠️ Pitfall: Pitfall 4: Moving a `const` Object — Silent Copy"
-    Description: Calling `std::move` on a `const` object has no effect — the move constructor cannot bind to a `const&&`, so the copy constructor is silently selected.
-
-    BAD
-
-    ``` cpp
-    const std::string s =
+    Description: Calling std::move on a const object has no effect — the move constructor cannot bind to a const&&, so the copy constructor is silently selected.
 
 ??? question "⚠️ Pitfall: Pitfall 5: Rvalue Reference Parameter Is an Lvalue Inside the Function"
-    Description: Inside a function that takes an rvalue reference parameter, the parameter itself is an lvalue (it has a name and an address). Forgetting to `std::move` it when passing it further results
+    Description: Inside a function that takes an rvalue reference parameter, the parameter itself is an lvalue (it has a name and an address).
 
 
 ---

@@ -22,37 +22,29 @@ title: "06 — Self Test · Day 13"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Before C++11, returning a `std::vector<int>` from a function meant a deep copy: allocate new memory, copy every element, deallocate the old. For a vector with a million elements,
+    Before C++11, returning a std::vector<int> from a function meant a deep copy: allocate new memory, copy every element, deallocate the old.
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Value Categories — lvalue, rvalue, xvalue**?
 
 === "✅ Answer"
-    Every expression in C++ has a type and a value category.
+    Every expression in C++ has a type and a value category. lvalue (locator value) — an expression that refers to a persistent object in memory. You can take its address.
 
-- lvalue (locator value) — an expression that refers to a persistent object in memory. You can take its address. Examples
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Rvalue References**?
 
 === "✅ Answer"
-    An rvalue reference `T&&` binds to rvalues (including xvalues) but not to lvalues. It signals "this object can be pillaged — it won't be needed again."
+    An rvalue reference T&& binds to rvalues (including xvalues) but not to lvalues. It signals "this object can be pillaged — it won't be needed again."
 
-``` cpp
-void sink(std::str
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Move Constructor and Move Assignment**?
 
 === "✅ Answer"
     The move constructor transfers resources from a source object, leaving the source valid but empty. The move assignment operator does the same for assignment.
-
-``` cpp
-include <cst
 
 
 ---

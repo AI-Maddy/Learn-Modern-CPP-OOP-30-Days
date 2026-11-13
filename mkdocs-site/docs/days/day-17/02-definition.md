@@ -132,13 +132,15 @@ logger->log("Hello, factory!");
 
 ```mermaid
 graph TD
-    ROOT["Design Patterns OOP"] --> A["modules"]
-    Design_Patterns_OOP --> modules["modules"]
-    Design_Patterns_OOP --> SOLID["SOLID"]
-    Design_Patterns_OOP --> CRTP["CRTP"]
-    Design_Patterns_OOP --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Design Patterns OOP"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

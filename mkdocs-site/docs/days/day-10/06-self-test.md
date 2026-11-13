@@ -22,42 +22,29 @@ title: "06 — Self Test · Day 10"
 ## 📋 Tabbed Q&A
 
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **Motivation**?
 
 === "✅ Answer"
-    Before C++20, template error messages were infamous. Pass the wrong type to `std::sort` and the compiler might emit forty lines of nested template errors pointing deep into librar
+    Before C++20, template error messages were infamous. Pass the wrong type to std::sort and the compiler might emit forty lines of nested template errors pointing deep into library…
 
-=== "❓ Question"
+===! "❓ Question"
     What is: **The `requires` Clause**?
 
 === "✅ Answer"
-    A `requires` clause attaches a constraint to a template or function. The constraint is a compile-time Boolean expression.
+    A requires clause attaches a constraint to a template or function. The constraint is a compile-time Boolean expression.
 
-``` cpp
-include <concepts>
-include <string>
-include <ios
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Defining Your Own Concepts**?
 
 === "✅ Answer"
-    A concept is defined with the `concept` keyword. The body is a `requires` expression that tests whether the type satisfies certain syntactic and semantic requirements.
+    A concept is defined with the concept keyword. The body is a requires expression that tests whether the type satisfies certain syntactic and semantic requirements.
 
-``` cpp
-in
-
-=== "❓ Question"
+===! "❓ Question"
     What is: **Abbreviated Function Templates**?
 
 === "✅ Answer"
-    C++20 adds abbreviated syntax: using `auto` as a parameter type creates a function template, and a concept name before `auto` constrains it.
-
-``` cpp
-include <concepts>
-
-// Abbrev
+    C++20 adds abbreviated syntax: using auto as a parameter type creates a function template, and a concept name before auto constrains it.
 
 
 ---

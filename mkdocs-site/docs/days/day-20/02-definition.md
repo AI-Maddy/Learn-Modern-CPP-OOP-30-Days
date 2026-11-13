@@ -103,13 +103,15 @@ With C++20 Concepts, static interface enforcement is even cleaner (see Day 10), 
 
 ```mermaid
 graph TD
-    ROOT["Static Polymorphism CRTP"] --> A["modules"]
-    Static_Polymorphism_CRTP --> modules["modules"]
-    Static_Polymorphism_CRTP --> SOLID["SOLID"]
-    Static_Polymorphism_CRTP --> CRTP["CRTP"]
-    Static_Polymorphism_CRTP --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Static Polymorphism CRTP"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 

@@ -108,13 +108,15 @@ REQUIRE_THAT(filename, EndsWith(".cpp"));
 
 ```mermaid
 graph TD
-    ROOT["Testing Catch2 TDD"] --> A["modules"]
-    Testing_Catch2_TDD --> modules["modules"]
-    Testing_Catch2_TDD --> SOLID["SOLID"]
-    Testing_Catch2_TDD --> CRTP["CRTP"]
-    Testing_Catch2_TDD --> PIMPL["PIMPL"]
-    style ROOT fill:#8b5cf6,color:#fff
-    style A    fill:#3b82f6,color:#fff
+    ROOT["Testing Catch2 TDD"]
+    ROOT --> n0["modules"]
+    ROOT --> n1["SOLID"]
+    ROOT --> n2["CRTP"]
+    ROOT --> n3["PIMPL"]
+    classDef topic fill:#f97316,stroke:#f97316,color:#ffffff,font-weight:bold
+    classDef concept fill:transparent,stroke:#f97316,stroke-width:2px
+    class ROOT topic
+    class n0,n1,n2,n3 concept
 ```
 
 
